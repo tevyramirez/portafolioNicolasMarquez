@@ -1,0 +1,112 @@
+---
+// Componente Hero.astro - Estética Resonant Stark
+---
+
+<section class="relative min-h-[80vh] flex flex-col justify-center py-12 md:py-24 border-b border-dmk-muted/20">
+  
+  <!-- Elemento de fondo: Gradiente sutil y fluido (Resonant Stark) -->
+  <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+    <div class="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-dmk-accent/5 blur-3xl"></div>
+    <div class="absolute bottom-10 -left-40 w-96 h-96 rounded-full bg-dmk-muted/5 blur-3xl"></div>
+  </div>
+
+  <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+    
+    <!-- Lado Izquierdo: Mensaje Principal de Autoridad y Valor B2B -->
+    <div class="lg:col-span-8 space-y-8">
+      
+      <!-- Micro-badge con estilo "Cute-alism" / Brutalismo suave -->
+      <div class="inline-flex items-center gap-2 border border-dmk-muted/30 bg-dmk-card px-3.5 py-1 rounded-full font-mono text-[10px] uppercase tracking-widest text-dmk-accent">
+        <span class="inline-block w-1.5 h-1.5 bg-dmk-accent rounded-full animate-ping"></span>
+        Estrategia de Dirección & Data Science
+      </div>
+
+      <!-- Gran titular con Tipografía Serif de Prestigio (Playfair) -->
+      <h1 class="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold text-dmk-text leading-[1.1] tracking-tight">
+        Rigor Científico. <br class="hidden sm:inline" />
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-dmk-text via-dmk-muted to-dmk-accent">
+          Pragmática Corporativa.
+        </span>
+      </h1>
+
+      <!-- Párrafo explicativo que disuelve la fricción teoría-práctica -->
+      <p class="font-sans text-base sm:text-lg md:text-xl text-dmk-muted max-w-2xl leading-relaxed">
+        Posicionamos la toma de decisiones empresariales en un nivel superior. Diseñamos e implementamos metodologías y algoritmos a la medida para directores de empresas y comités de innovación en Chile y Latinoamérica, respaldados por la solidez de la investigación de vanguardia.
+      </p>
+
+      <!-- Botones de Acción (Conversión con estética minimalista) -->
+      <div class="flex flex-wrap items-center gap-4 pt-4">
+        <a href="#consultoria" class="group relative px-6 py-3.5 rounded-sm overflow-hidden bg-dmk-accent text-dmk-bg font-mono text-xs uppercase tracking-wider font-bold transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_20px_var(--color-dmk-accent)/0.3]">
+          Explorar Consultoría
+          <span class="inline-block ml-2 group-hover:translate-x-1 transition-transform">→</span>
+        </a>
+        <a href="#publicaciones" class="group px-6 py-3.5 rounded-sm border border-dmk-muted/40 hover:border-dmk-accent hover:bg-dmk-card text-dmk-text hover:text-dmk-accent font-mono text-xs uppercase tracking-wider font-bold transition-all duration-300">
+          Hub Académico
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Lado Derecho: Metáfora Algorítmica y Datos del Académico (Cute-alism) -->
+    <div class="lg:col-span-4 lg:pl-4">
+      <div class="border border-dmk-muted/20 bg-dmk-bg p-6 rounded-sm relative overflow-hidden group shadow-xl">
+        
+        <!-- Línea decorativa de color Cyber Green superior -->
+        <div class="absolute top-0 left-0 w-full h-[2px] bg-dmk-accent/60"></div>
+        
+        <!-- Cabecera de la tarjeta con estilo Monoespaciado de Consola -->
+        <div class="flex items-center justify-between border-b border-dmk-muted/10 pb-4 mb-6 font-mono text-[10px] text-dmk-muted/70">
+          <span>ENTITY: DR_NICOLAS_MARQUEZ</span>
+          <span class="text-dmk-accent">ONLINE // ACTIVE</span>
+        </div>
+
+        <!-- Información estructurada con diseño técnico y limpio -->
+        <div class="space-y-6">
+          <div class="space-y-1">
+            <span class="font-mono text-[10px] uppercase tracking-wider text-dmk-accent block">Titular del Sitio</span>
+            <h2 class="font-serif text-xl font-bold text-dmk-text">Dr. Nicolás Márquez</h2>
+            <p class="font-sans text-xs text-dmk-muted leading-relaxed">
+              Doctor en Management, Universidad Adolfo Ibáñez (UAI). Investigador y consultor de alta dirección especializado en People Analytics y modelos cuantitativos de decisión.
+            </p>
+          </div>
+
+          <div class="border-t border-dmk-muted/10 pt-4 space-y-3">
+            <span class="font-mono text-[10px] uppercase tracking-wider text-dmk-accent block">Ejes de Intervención</span>
+            <div class="grid grid-cols-2 gap-2 text-[11px] font-mono">
+              <div class="border border-dmk-muted/15 bg-dmk-card/50 px-2.5 py-1.5 text-dmk-text rounded-sm flex items-center gap-1.5 hover:border-dmk-accent/40 transition-colors">
+                <span class="w-1 h-1 bg-dmk-accent rounded-full"></span>
+                People Analytics
+              </div>
+              <div class="border border-dmk-muted/15 bg-dmk-card/50 px-2.5 py-1.5 text-dmk-text rounded-sm flex items-center gap-1.5 hover:border-dmk-accent/40 transition-colors">
+                <span class="w-1 h-1 bg-dmk-accent rounded-full"></span>
+                Estrategia B2B
+              </div>
+              <div class="border border-dmk-muted/15 bg-dmk-card/50 px-2.5 py-1.5 text-dmk-text rounded-sm flex items-center gap-1.5 hover:border-dmk-accent/40 transition-colors">
+                <span class="w-1 h-1 bg-dmk-accent rounded-full"></span>
+                Venture Building
+              </div>
+              <div class="border border-dmk-muted/15 bg-dmk-card/50 px-2.5 py-1.5 text-dmk-text rounded-sm flex items-center gap-1.5 hover:border-dmk-accent/40 transition-colors">
+                <span class="w-1 h-1 bg-dmk-accent rounded-full"></span>
+                Cambio Cultural
+              </div>
+            </div>
+          </div>
+
+          <!-- Indicador de Sincronización en tiempo real -->
+          <div class="border-t border-dmk-muted/10 pt-4 flex items-center justify-between font-mono text-[10px]">
+            <span class="text-dmk-muted/60">Sincronizado con ORCID</span>
+            <span class="flex items-center gap-1 text-dmk-accent font-semibold">
+              <span class="h-1.5 w-1.5 rounded-full bg-dmk-accent inline-block"></span>
+              API OK
+            </span>
+          </div>
+
+        </div>
+
+        <!-- Efecto de borde dinámico sutil al pasar el mouse -->
+        <div class="absolute inset-0 border border-transparent group-hover:border-dmk-accent/20 rounded-sm pointer-events-none transition-all duration-300"></div>
+      </div>
+    </div>
+
+  </div>
+</section>

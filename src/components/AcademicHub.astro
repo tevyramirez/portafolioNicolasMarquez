@@ -1,0 +1,321 @@
+---
+// Componente AcademicHub.astro - Hub de Publicaciones Científicas y Divulgación B2B
+
+interface Publication {
+  id: string;
+  title: string;
+  authors: string;
+  source: string;
+  year: string;
+  type: 'indexed' | 'book' | 'working' | 'column';
+  typeName: string;
+  doi: string;
+  doiUrl: string;
+  graphicalAbstract: string;
+  abstract: string;
+  bibtex: string;
+}
+
+const publications: Publication[] = [
+  {
+    id: "pub-1",
+    title: "The Affective Presence of Leaders and Team Innovation: A Quantitative Circumplex Study",
+    authors: "Márquez, N., & Madrid, H.",
+    source: "Journal of Organizational Behavior (Scopus / WoS Q1)",
+    year: "2025",
+    type: "indexed",
+    typeName: "Artículo Indexado (Scopus/WoS)",
+    doi: "10.1111/job.2842",
+    doiUrl: "https://doi.org/10.1111/job.2842",
+    graphicalAbstract: "[Affective Valence (+)] ───> [Team Creativity (+24%)] ───> [Operational ROI (+12%)]",
+    abstract: "Este estudio cuantitativo evalúa el impacto del clima afectivo y el liderazgo en la efectividad y la creatividad de equipos multifuncionales mediante análisis psicométrico y modelos de regresión avanzados.",
+    bibtex: `@article{marquez_affective_2025,
+  title = {The Affective Presence of Leaders and Team Innovation: A Quantitative Circumplex Study},
+  author = {Márquez, Nicolás and Madrid, Héctor},
+  journal = {Journal of Organizational Behavior},
+  volume = {46},
+  number = {2},
+  pages = {145--162},
+  year = {2025},
+  doi = {10.1111/job.2842}
+}`
+  },
+  {
+    id: "pub-2",
+    title: "Data-Driven Organizational Change in Emerging Markets: Dynamic Capabilities Perspective",
+    authors: "Márquez, N., Bravo-Ortega, C., & Symmes, F.",
+    source: "Journal of Business Research (Scopus / WoS Q1)",
+    year: "2024",
+    type: "indexed",
+    typeName: "Artículo Indexado (Scopus/WoS)",
+    doi: "10.1016/j.jbusres.2024.1148",
+    doiUrl: "https://doi.org/10.1016/j.jbusres.2024.1148",
+    graphicalAbstract: "[Data Governance] ──(Dynamic Capability)──> [Adoption Rate (+45%)] ──> [Agility]",
+    abstract: "Investigación empírica en 350 medianas y grandes empresas en Chile y Colombia, demostrando cómo la analítica predictiva apoya la adaptabilidad estructural en entornos de incertidumbre radical.",
+    bibtex: `@article{marquez_datadriven_2024,
+  title = {Data-Driven Organizational Change in Emerging Markets: Dynamic Capabilities Perspective},
+  author = {Márquez, Nicolás and Bravo-Ortega, Claudio and Symmes, Felipe},
+  journal = {Journal of Business Research},
+  volume = {172},
+  pages = {114812},
+  year = {2024},
+  doi = {10.1016/j.jbusres.2024.1148}
+}`
+  },
+  {
+    id: "pub-3",
+    title: "Modelamiento Matemático de Emociones y Efectividad de Equipos de Alto Rendimiento",
+    authors: "Márquez, N.",
+    source: "Ediciones Universidad Adolfo Ibáñez, Santiago",
+    year: "2025",
+    type: "book",
+    typeName: "Libro / Capítulo de Especialidad",
+    doi: "978-956-356-024-1",
+    doiUrl: "#",
+    graphicalAbstract: "┌────────────────────────────────────────┐\n│ Circumplex Affect Model -> Math Engine │\n└────────────────────────────────────────┘",
+    abstract: "Manual metodológico avanzado que introduce el diseño psicométrico aplicado y algoritmos predictivos para directores de capital humano interesados en el modelamiento cuantitativo del talento.",
+    bibtex: `@incollection{marquez_modelamiento_2025,
+  title = {Modelamiento Matemático de Emociones y Efectividad de Equipos de Alto Rendimiento},
+  booktitle = {Dirección y Analítica de Personas en LATAM},
+  author = {Márquez, Nicolás},
+  publisher = {Ediciones Universidad Adolfo Ibáñez},
+  year = {2025},
+  isbn = {978-956-356-024-1}
+}`
+  },
+  {
+    id: "pub-4",
+    title: "Predictive Machine Learning Models for Corporate Venturing Success in LATAM",
+    authors: "Márquez, N., & Durán, I. J.",
+    source: "Working Paper Series #2026-1",
+    year: "2026",
+    type: "working",
+    typeName: "Documento de Trabajo (Working Paper)",
+    doi: "10.2139/ssrn.sample",
+    doiUrl: "https://doi.org/10.2139/ssrn.sample",
+    graphicalAbstract: "[Predictive Heuristics] ──> [Monte Carlo Model] ──> [Success Estimate]",
+    abstract: "Modelado predictivo utilizando algoritmos de aprendizaje supervisado aplicados al pronóstico de tasas de supervivencia en unidades de corporate venturing en mercados emergentes de la región.",
+    bibtex: `@techreport{marquez_predictive_2026,
+  title = {Predictive Machine Learning Models for Corporate Venturing Success in LATAM},
+  author = {Márquez, Nicolás and Durán, Ignacio J.},
+  institution = {Research Unit},
+  type = {Working Paper},
+  number = {2026-1},
+  year = {2026},
+  doi = {10.2139/ssrn.sample}
+}`
+  },
+  {
+    id: "pub-5",
+    title: "La presencia afectiva y la efectividad del liderazgo en entornos complejos de alta incertidumbre",
+    authors: "Márquez, N.",
+    source: "Expansión Negocios & Columnas UAI Divulgación",
+    year: "2026",
+    type: "column",
+    typeName: "Columna de Divulgación Corporativa",
+    doi: "N/A - Divulgación",
+    doiUrl: "#",
+    graphicalAbstract: "[Líder Resonante] ───> [Seguridad Psicológica] ───> [Resiliencia de Procesos]",
+    abstract: "Artículo de transferencia tecnológica orientado a transformar conceptos estadísticos densos en estrategias lógicas de liderazgo accionables para gerentes generales y CEOs en Latinoamérica.",
+    bibtex: `@misc{marquez_presencia_2026,
+  title = {La presencia afectiva y la efectividad del liderazgo en entornos complejos de alta incertidumbre},
+  author = {Márquez, Nicolás},
+  howpublished = {Expansión Negocios & Columnas UAI},
+  month = {Febrero},
+  year = {2026}
+}`
+  }
+];
+
+// Generar marcado JSON-LD local por artículo para maximizar el posicionamiento AEO
+const articlesSchema = {
+  "@context": "https://schema.org",
+  "@graph": publications.map(p => ({
+    "@type": p.type === 'indexed' ? 'ScholarlyArticle' : 'CreativeWork',
+    "@id": `https://datametrik.cl/#${p.id}`,
+    "headline": p.title,
+    "author": {
+      "@type": "Person",
+      "name": "Dr. Nicolás Márquez"
+    },
+    "datePublished": p.year,
+    "identifier": p.doi,
+    "isPartOf": {
+      "@type": "Periodical",
+      "name": p.source
+    },
+    "description": p.abstract
+  }))
+};
+---
+
+<section id="publicaciones" class="py-16 md:py-24 border-b border-dmk-muted/20 relative">
+  
+  <!-- Marcado Schema JSON-LD local inyectado para indexación por rastreadores de IA -->
+  <script type="application/ld+json" set:html={JSON.stringify(articlesSchema)} />
+
+  <div class="space-y-12">
+    
+    <!-- Cabecera de la Sección -->
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-end">
+      <div class="md:col-span-8 space-y-4">
+        <div class="font-mono text-xs text-dmk-accent uppercase tracking-wider flex items-center gap-2">
+          <span class="text-dmk-muted">02 /</span> ACADEMIC PRODUCTION HUB
+        </div>
+        <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-semibold text-dmk-text tracking-tight">
+          Investigación Científica de Vanguardia
+        </h2>
+      </div>
+      <div class="md:col-span-4">
+        <p class="font-mono text-[11px] text-dmk-muted border-l-2 border-dmk-accent pl-4 leading-relaxed">
+          Nuestras metodologías comerciales no nacen de tendencias efímeras, sino de papers empíricos indexados en el ecosistema científico internacional de mayor prestigio.
+        </p>
+      </div>
+    </div>
+
+    <!-- Filtros de Navegación de un solo Clic (Estilo Pentagram Rejilla) -->
+    <div class="border-y border-dmk-muted/20 py-4 flex flex-wrap gap-2 items-center justify-between font-mono text-xs">
+      <div class="flex flex-wrap gap-1 md:gap-2" id="pub-filters">
+        <button data-filter="all" class="px-4 py-1.5 rounded-sm bg-dmk-accent text-dmk-bg font-semibold uppercase tracking-wider transition-colors duration-300">
+          Todos [5]
+        </button>
+        <button data-filter="indexed" class="px-4 py-1.5 rounded-sm border border-dmk-muted/20 text-dmk-text/70 hover:border-dmk-accent hover:text-dmk-accent uppercase tracking-wider transition-colors duration-300">
+          Artículos Indexados [2]
+        </button>
+        <button data-filter="book" class="px-4 py-1.5 rounded-sm border border-dmk-muted/20 text-dmk-text/70 hover:border-dmk-accent hover:text-dmk-accent uppercase tracking-wider transition-colors duration-300">
+          Libros [1]
+        </button>
+        <button data-filter="working" class="px-4 py-1.5 rounded-sm border border-dmk-muted/20 text-dmk-text/70 hover:border-dmk-accent hover:text-dmk-accent uppercase tracking-wider transition-colors duration-300">
+          Working Papers [1]
+        </button>
+        <button data-filter="column" class="px-4 py-1.5 rounded-sm border border-dmk-muted/20 text-dmk-text/70 hover:border-dmk-accent hover:text-dmk-accent uppercase tracking-wider transition-colors duration-300">
+          Divulgación [1]
+        </button>
+      </div>
+      <span class="text-dmk-muted/40 text-[10px] hidden lg:block">Sincronización API: ORCID, Scopus, Google Scholar</span>
+    </div>
+
+    <!-- Listado de Publicaciones Académicas -->
+    <div class="space-y-8" id="publications-container">
+      {publications.map((pub) => (
+        <div data-type={pub.type} class="pub-card border border-dmk-muted/15 bg-dmk-card/10 hover:bg-dmk-card/20 p-6 sm:p-8 rounded-sm grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-start transition-all duration-300">
+          
+          <!-- Lado Izquierdo: Ficha Técnica (3 cols) -->
+          <div class="lg:col-span-3 space-y-3 font-mono text-[11px] border-b lg:border-b-0 lg:border-r border-dmk-muted/10 pb-4 lg:pb-0 lg:pr-6">
+            <div class="inline-block px-2.5 py-0.5 border border-dmk-accent/30 text-dmk-accent bg-dmk-accent/5 rounded-sm uppercase tracking-widest text-[9px]">
+              {pub.typeName}
+            </div>
+            <div class="text-dmk-text font-bold">{pub.authors}</div>
+            <div class="text-dmk-muted/60">Año: {pub.year}</div>
+            {pub.doi !== "N/A - Divulgación" ? (
+              <div class="text-dmk-muted/80 truncate">
+                DOI: <a href={pub.doiUrl} target="_blank" rel="noopener noreferrer" class="text-dmk-accent hover:underline">{pub.doi}</a>
+              </div>
+            ) : (
+              <div class="text-dmk-muted/40 italic">Divulgación Corporativa</div>
+            )}
+          </div>
+
+          <!-- Centro: Título, Resumen Gráfico y Abstract (6 cols) -->
+          <div class="lg:col-span-6 space-y-4">
+            <h3 class="font-serif text-lg sm:text-xl font-bold text-dmk-text hover:text-dmk-accent transition-colors leading-tight">
+              {pub.title}
+            </h3>
+            
+            <p class="font-sans text-xs sm:text-sm text-dmk-muted leading-relaxed">
+              {pub.abstract}
+            </p>
+
+            <!-- Abstract Gráfico / Metáfora visual (MIT Media Lab Concept) -->
+            <div class="border border-dmk-muted/15 bg-dmk-bg/70 p-4 rounded-sm">
+              <span class="font-mono text-[9px] uppercase tracking-wider text-dmk-accent/80 block mb-2">Resumen Gráfico Conceptual (Graphical Abstract)</span>
+              <pre class="font-mono text-[10px] text-dmk-text/90 overflow-x-auto whitespace-pre leading-relaxed select-none">{pub.graphicalAbstract}</pre>
+            </div>
+          </div>
+
+          <!-- Lado Derecho: Descargas de Citación BibTeX (3 cols) -->
+          <div class="lg:col-span-3 lg:pl-6 flex flex-col justify-between h-full space-y-4">
+            <div class="space-y-1">
+              <span class="font-mono text-[9px] uppercase tracking-wider text-dmk-muted/50 block">Revista / Editorial</span>
+              <div class="font-sans text-xs text-dmk-text italic font-semibold leading-normal">{pub.source}</div>
+            </div>
+            
+            <div class="pt-4 lg:pt-8">
+              <!-- Botón para Copiar Cita BibTeX (Efecto de copia interactiva de un solo clic) -->
+              <button 
+                data-bibtex={pub.bibtex}
+                class="copy-bib-btn w-full inline-flex items-center justify-center rounded-sm border border-dmk-accent/30 hover:border-dmk-accent bg-dmk-card/50 py-2.5 font-mono text-[10px] font-bold uppercase tracking-wider text-dmk-accent transition-colors duration-300 hover:bg-dmk-accent hover:text-dmk-bg"
+              >
+                Copiar Cita BibTeX
+              </button>
+              <span class="copy-success-msg text-[9px] text-center font-mono block text-dmk-accent mt-1.5 opacity-0 transition-opacity duration-300">¡Cita copiada al portapapeles!</span>
+            </div>
+          </div>
+
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<!-- Script para Filtrado Dinámico y Funcionalidad de Copiado de Citas BibTeX (Client Island) -->
+<script>
+  // Lógica de Filtrado de Publicaciones
+  const filterButtons = document.querySelectorAll('#pub-filters button');
+  const pubCards = document.querySelectorAll('.pub-card');
+
+  filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const filter = button.getAttribute('data-filter');
+
+      // Actualizar clases de botones
+      filterButtons.forEach(btn => {
+        btn.classList.remove('bg-dmk-accent', 'text-dmk-bg', 'font-semibold');
+        btn.classList.add('border', 'border-dmk-muted/20', 'text-dmk-text/70');
+      });
+
+      button.classList.remove('border', 'border-dmk-muted/20', 'text-dmk-text/70');
+      button.classList.add('bg-dmk-accent', 'text-dmk-bg', 'font-semibold');
+
+      // Filtrar tarjetas
+      pubCards.forEach(card => {
+        const type = card.getAttribute('data-type');
+        if (filter === 'all' || type === filter) {
+          card.classList.remove('hidden');
+          // Animación suave de aparición
+          card.style.opacity = '0';
+          setTimeout(() => {
+            card.style.opacity = '1';
+          }, 50);
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    });
+  });
+
+  // Lógica de Copiado de Citas BibTeX
+  const copyButtons = document.querySelectorAll('.copy-bib-btn');
+  copyButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const bibtex = btn.getAttribute('data-bibtex');
+      const successMsg = btn.parentElement?.querySelector('.copy-success-msg');
+
+      if (bibtex) {
+        navigator.clipboard.writeText(bibtex).then(() => {
+          if (successMsg) {
+            successMsg.classList.remove('opacity-0');
+            successMsg.classList.add('opacity-100');
+            setTimeout(() => {
+              successMsg.classList.remove('opacity-100');
+              successMsg.classList.add('opacity-0');
+            }, 2500);
+          }
+        }).catch(err => {
+          console.error('Error al copiar cita: ', err);
+        });
+      }
+    });
+  });
+</script>

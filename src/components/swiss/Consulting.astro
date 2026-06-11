@@ -1,0 +1,70 @@
+---
+// The Swiss Consulting — Data tables, ALL CAPS, brutalista
+---
+
+<section id="consultoria" class="py-16 md:py-24 border-b border-dmk-muted/20">
+  <div class="max-w-6xl mx-auto px-4 md:px-8">
+    
+    <div class="mb-12">
+      <div class="font-mono text-[10px] text-dmk-muted uppercase tracking-wider mb-2">01 / CONSULTING SERVICES</div>
+      <h2 class="font-mono text-3xl md:text-4xl font-bold text-dmk-text uppercase tracking-tight">SERVICIOS</h2>
+    </div>
+
+    <!-- Tabla de servicios -->
+    <div class="border border-dmk-muted/20 overflow-hidden">
+      <!-- Header -->
+      <div class="grid grid-cols-12 gap-0 border-b border-dmk-muted/20 bg-dmk-card/50">
+        <div class="col-span-1 p-3 font-mono text-[10px] text-dmk-muted uppercase">ID</div>
+        <div class="col-span-4 p-3 font-mono text-[10px] text-dmk-muted uppercase">Servicio</div>
+        <div class="col-span-4 p-3 font-mono text-[10px] text-dmk-muted uppercase">Descripción</div>
+        <div class="col-span-2 p-3 font-mono text-[10px] text-dmk-muted uppercase">Enfoque</div>
+        <div class="col-span-1 p-3 font-mono text-[10px] text-dmk-muted uppercase">ROI</div>
+      </div>
+      
+      <!-- Rows -->
+      {[
+        { id: 'S001', name: 'Gobernanza de Datos', desc: 'Tableros de comando dinámicos para alta dirección', focus: 'Predictivo', roi: '3.2x' },
+        { id: 'S002', name: 'Innovación Corporativa', desc: 'Venture building y adopción tecnológica', focus: 'Venture', roi: '2.8x' },
+        { id: 'S003', name: 'Intervención Conductual', desc: 'Optimización de equipos bajo transformación', focus: 'Cultural', roi: '2.5x' }
+      ].map((row, i) => (
+        <div class={`grid grid-cols-12 gap-0 border-b border-dmk-muted/10 hover:bg-dmk-card/30 transition-colors`}>
+          <div class="col-span-1 p-3 font-mono text-xs text-dmk-accent">{row.id}</div>
+          <div class="col-span-4 p-3 font-mono text-sm text-dmk-text font-bold">{row.name}</div>
+          <div class="col-span-4 p-3 font-mono text-xs text-dmk-muted">{row.desc}</div>
+          <div class="col-span-2 p-3 font-mono text-xs text-dmk-text">{row.focus}</div>
+          <div class="col-span-1 p-3 font-mono text-xs text-dmk-accent font-bold">{row.roi}</div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Casos de éxito como data cards -->
+    <div class="mt-16">
+      <div class="font-mono text-[10px] text-dmk-muted uppercase tracking-wider mb-8">02 / CASE STUDIES</div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {[
+          { client: 'RetailCorp', sector: 'Retail', duration: '18M', impact: 'Rotación -34%', financial: 'TtM +22%' },
+          { client: 'FinServicios', sector: 'Financiero', duration: '10M', impact: 'Mora -14%', financial: 'Ahorro $180K' }
+        ].map((caso) => (
+          <div class="border border-dmk-muted/20 p-6 space-y-4">
+            <div class="flex justify-between items-start">
+              <div class="font-mono text-sm font-bold text-dmk-text">{caso.client}</div>
+              <div class="font-mono text-[10px] text-dmk-muted">{caso.sector} · {caso.duration}</div>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <div class="font-mono text-[10px] text-dmk-muted uppercase">Impacto</div>
+                <div class="font-mono text-lg text-dmk-accent font-bold">{caso.impact}</div>
+              </div>
+              <div>
+                <div class="font-mono text-[10px] text-dmk-muted uppercase">Financiero</div>
+                <div class="font-mono text-lg text-dmk-accent font-bold">{caso.financial}</div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+  </div>
+</section>

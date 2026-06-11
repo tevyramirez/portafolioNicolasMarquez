@@ -1,0 +1,85 @@
+---
+// The Folio Contact — Info institucional, clásica, Harvard-style
+---
+
+<section id="contacto" class="py-12 md:py-16 border-t border-dmk-muted/20">
+  <div class="max-w-5xl mx-auto px-6 md:px-8">
+    
+    <div class="mb-8">
+      <h2 class="font-serif text-2xl md:text-3xl font-bold text-dmk-text mb-2">Información de Contacto</h2>
+      <p class="font-sans text-sm text-dmk-muted">Para consultas académicas y de consultoría corporativa.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      
+      <!-- Info de contacto institucional -->
+      <div class="space-y-6">
+        <div class="space-y-4">
+          <div class="space-y-1">
+            <div class="font-sans text-xs text-dmk-accent uppercase tracking-wider font-semibold">Dirección institucional</div>
+            <p class="font-sans text-sm text-dmk-text">
+              Escuela de Negocios<br/>
+              Universidad Adolfo Ibáñez<br/>
+              Av. Apoquindo 4800, Las Condes<br/>
+              Santiago, Región Metropolitana, Chile
+            </p>
+          </div>
+          
+          <div class="space-y-1">
+            <div class="font-sans text-xs text-dmk-accent uppercase tracking-wider font-semibold">Contacto directo</div>
+            <p class="font-sans text-sm text-dmk-text">
+              Email: nmarquez@uai.cl<br/>
+              Teléfono: +56 2 2244 8800<br/>
+              Consultoría: contacto@datametrik.cl
+            </p>
+          </div>
+          
+          <div class="space-y-1">
+            <div class="font-sans text-xs text-dmk-accent uppercase tracking-wider font-semibold">Perfiles académicos</div>
+            <div class="flex flex-wrap gap-2">
+              {['ORCID', 'Google Scholar', 'ResearchGate', 'LinkedIn'].map((profile) => (
+                <span class="font-sans text-xs text-dmk-accent bg-dmk-card/50 px-2 py-1 rounded-sm">{profile}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Formulario simple -->
+      <div class="border border-dmk-muted/20 p-6 bg-dmk-card/30">
+        <div class="font-sans text-sm font-semibold text-dmk-text mb-4">Formulario de consulta</div>
+        
+        <form class="space-y-4">
+          <div class="grid grid-cols-2 gap-4">
+            <div class="space-y-1">
+              <label class="font-sans text-xs text-dmk-muted">Nombre</label>
+              <input type="text" class="w-full border border-dmk-muted/20 bg-white px-3 py-2 font-sans text-sm text-dmk-text focus:outline-none focus:border-dmk-accent"/>
+            </div>
+            <div class="space-y-1">
+              <label class="font-sans text-xs text-dmk-muted">Email</label>
+              <input type="email" class="w-full border border-dmk-muted/20 bg-white px-3 py-2 font-sans text-sm text-dmk-text focus:outline-none focus:border-dmk-accent"/>
+            </div>
+          </div>
+          <div class="space-y-1">
+            <label class="font-sans text-xs text-dmk-muted">Asunto</label>
+            <select class="w-full border border-dmk-muted/20 bg-white px-3 py-2 font-sans text-sm text-dmk-text focus:outline-none focus:border-dmk-accent">
+              <option>Consulta académica</option>
+              <option>Servicio de consultoría</option>
+              <option>Colaboración de investigación</option>
+              <option>Invitación a conferencia</option>
+            </select>
+          </div>
+          <div class="space-y-1">
+            <label class="font-sans text-xs text-dmk-muted">Mensaje</label>
+            <textarea rows="4" class="w-full border border-dmk-muted/20 bg-white px-3 py-2 font-sans text-sm text-dmk-text focus:outline-none focus:border-dmk-accent resize-none"></textarea>
+          </div>
+          <button type="submit" class="bg-dmk-accent text-white font-sans text-sm px-4 py-2 rounded-sm hover:bg-dmk-accent/90 transition-colors">
+            Enviar consulta
+          </button>
+        </form>
+      </div>
+
+    </div>
+
+  </div>
+</section>

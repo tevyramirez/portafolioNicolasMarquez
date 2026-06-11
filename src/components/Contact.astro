@@ -1,0 +1,203 @@
+---
+// Componente Contact.astro - Conversión B2B y Punto de Contacto C-Suite
+---
+
+<section id="contacto" class="py-16 md:py-24 relative">
+  <div class="space-y-12">
+    
+    <!-- Encabezado de la Sección -->
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-end">
+      <div class="md:col-span-8 space-y-4">
+        <div class="font-mono text-xs text-dmk-accent uppercase tracking-wider flex items-center gap-2">
+          <span class="text-dmk-muted">04 /</span> INICIAR PROYECTO DE CONSULTORÍA
+        </div>
+        <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-semibold text-dmk-text tracking-tight">
+          Hablemos de Dirección Basada en Evidencia
+        </h2>
+      </div>
+      <div class="md:col-span-4">
+        <p class="font-mono text-[11px] text-dmk-muted border-l-2 border-dmk-accent pl-4 leading-relaxed">
+          Todo proyecto inicia con un diagnóstico de datos. No vendemos presentaciones; co-diseñamos soluciones medibles.
+        </p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+      
+      <!-- Formulario de Contacto (7 cols) -->
+      <div class="lg:col-span-7">
+        <form class="space-y-6 border border-dmk-muted/20 bg-dmk-card/10 p-6 sm:p-8 rounded-sm">
+          <div class="border-b border-dmk-muted/10 pb-4 mb-2">
+            <span class="font-mono text-xs text-dmk-accent uppercase tracking-wider">Solicitar Consultoría</span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div class="space-y-2">
+              <label for="name" class="font-mono text-[10px] text-dmk-muted/80 uppercase tracking-wider block">
+                Nombre Completo
+              </label>
+              <input 
+                type="text" 
+                id="name" 
+                name="name" 
+                placeholder="Dr. / Ing. / Sr." 
+                class="w-full bg-dmk-bg border border-dmk-muted/20 text-dmk-text placeholder-dmk-muted/30 px-4 py-3 rounded-sm font-sans text-sm focus:outline-none focus:border-dmk-accent focus:ring-1 focus:ring-dmk-accent/30 transition-all duration-300"
+              />
+            </div>
+            <div class="space-y-2">
+              <label for="cargo" class="font-mono text-[10px] text-dmk-muted/80 uppercase tracking-wider block">
+                Cargo / Rol Corporativo
+              </label>
+              <input 
+                type="text" 
+                id="cargo" 
+                name="cargo" 
+                placeholder="CEO, Director de RRHH, CIO..." 
+                class="w-full bg-dmk-bg border border-dmk-muted/20 text-dmk-text placeholder-dmk-muted/30 px-4 py-3 rounded-sm font-sans text-sm focus:outline-none focus:border-dmk-accent focus:ring-1 focus:ring-dmk-accent/30 transition-all duration-300"
+              />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div class="space-y-2">
+              <label for="email" class="font-mono text-[10px] text-dmk-muted/80 uppercase tracking-wider block">
+                Correo Electrónico Corporativo
+              </label>
+              <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                placeholder="direccion@empresa.cl" 
+                class="w-full bg-dmk-bg border border-dmk-muted/20 text-dmk-text placeholder-dmk-muted/30 px-4 py-3 rounded-sm font-sans text-sm focus:outline-none focus:border-dmk-accent focus:ring-1 focus:ring-dmk-accent/30 transition-all duration-300"
+              />
+            </div>
+            <div class="space-y-2">
+              <label for="pais" class="font-mono text-[10px] text-dmk-muted/80 uppercase tracking-wider block">
+                País de Intervención
+              </label>
+              <select 
+                id="pais" 
+                name="pais" 
+                class="w-full bg-dmk-bg border border-dmk-muted/20 text-dmk-text px-4 py-3 rounded-sm font-sans text-sm focus:outline-none focus:border-dmk-accent focus:ring-1 focus:ring-dmk-accent/30 transition-all duration-300 appearance-none"
+              >
+                <option value="" disabled selected>Seleccionar país...</option>
+                <option value="CL">Chile</option>
+                <option value="CO">Colombia</option>
+                <option value="MX">México</option>
+                <option value="PE">Perú</option>
+                <option value="AR">Argentina</option>
+                <option value="EC">Ecuador</option>
+                <option value="other">Otro LATAM</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="space-y-2">
+            <label for="servicio" class="font-mono text-[10px] text-dmk-muted/80 uppercase tracking-wider block">
+              Tipo de Apoyo Requerido por la Dirección
+            </label>
+            <select 
+              id="servicio" 
+              name="servicio" 
+              class="w-full bg-dmk-bg border border-dmk-muted/20 text-dmk-text px-4 py-3 rounded-sm font-sans text-sm focus:outline-none focus:border-dmk-accent focus:ring-1 focus:ring-dmk-accent/30 transition-all duration-300 appearance-none"
+            >
+              <option value="" disabled selected>Seleccionar foco principal...</option>
+              <option value="gobernanza">Gobernanza de Datos para Alta Dirección</option>
+              <option value="innovacion">Unidad de Innovación Corporativa / Venture Building</option>
+              <option value="conductual">Intervención Conductual & Transformación de Equipos</option>
+              <option value="people">People Analytics & Modelo Circumplex de Emociones</option>
+              <option value="ml">Modelamiento Predictivo / Machine Learning para Decisión</option>
+              <option value="otro">Otro desafío organizacional</option>
+            </select>
+          </div>
+
+          <div class="space-y-2">
+            <label for="mensaje" class="font-mono text-[10px] text-dmk-muted/80 uppercase tracking-wider block">
+              Desafío o Iniciativa de Negocio Clave
+            </label>
+            <textarea 
+              id="mensaje" 
+              name="mensaje" 
+              rows="4" 
+              placeholder="Describa brevemente el reto organizacional, el alcance geográfico y la expectativa de resultados esperados..." 
+              class="w-full bg-dmk-bg border border-dmk-muted/20 text-dmk-text placeholder-dmk-muted/30 px-4 py-3 rounded-sm font-sans text-sm focus:outline-none focus:border-dmk-accent focus:ring-1 focus:ring-dmk-accent/30 transition-all duration-300 resize-none"
+            ></textarea>
+          </div>
+
+          <div class="pt-4">
+            <button 
+              type="submit" 
+              class="group w-full sm:w-auto inline-flex items-center justify-center rounded-sm bg-dmk-accent px-8 py-3.5 text-dmk-bg font-mono text-xs uppercase tracking-wider font-bold transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(0,255,133,0.3)]"
+            >
+              Solicitar Diagnóstico Inicial
+              <span class="inline-block ml-2 group-hover:translate-x-1 transition-transform">→</span>
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Bloque de Credenciales y Confianza Lateral (5 cols) -->
+      <div class="lg:col-span-5 space-y-8">
+        
+        <!-- Testimonio Local con Cargo y Nombre Real -->
+        <div class="border border-dmk-muted/15 bg-dmk-card/20 p-6 rounded-sm">
+          <div class="font-mono text-[10px] text-dmk-accent uppercase tracking-wider mb-4">
+            Testimonio de C-Suite
+          </div>
+          <blockquote class="font-serif text-sm italic text-dmk-text leading-relaxed mb-4">
+            "La intervención del Dr. Márquez nos permitió estructurar nuestro comité de innovación con un rigor que nunca habíamos visto. No fue teoría vacía, sino un modelo de datos que se tradujo en un aumento del 22% en nuestra velocidad de comercialización."
+          </blockquote>
+          <div class="border-t border-dmk-muted/10 pt-3">
+            <span class="font-mono text-xs font-bold text-dmk-text block">María Elena Gutiérrez</span>
+            <span class="font-mono text-[10px] text-dmk-muted">CEO, RetailCorp Chile & Perú</span>
+          </div>
+        </div>
+
+        <!-- Bloque de Afiliación Institucional (UAI) -->
+        <div class="border border-dmk-muted/20 bg-dmk-bg p-6 rounded-sm">
+          <span class="font-mono text-[10px] text-dmk-accent uppercase tracking-wider block mb-4">
+            Afiliación Institucional de Prestigio
+          </span>
+          <div class="space-y-4">
+            <div class="flex items-start gap-3">
+              <div class="w-10 h-10 flex-shrink-0 border border-dmk-muted/20 bg-dmk-card rounded-sm flex items-center justify-center font-mono text-[9px] text-dmk-accent">
+                UAI
+              </div>
+              <div>
+                <p class="font-serif text-sm font-bold text-dmk-text">Universidad Adolfo Ibáñez</p>
+                <p class="font-mono text-[10px] text-dmk-muted">Escuela de Negocios, Doctorado en Management</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-10 h-10 flex-shrink-0 border border-dmk-muted/20 bg-dmk-card rounded-sm flex items-center justify-center font-mono text-[9px] text-dmk-accent">
+                ID
+              </div>
+              <div>
+                <p class="font-serif text-sm font-bold text-dmk-text">ORCID & Scopus Indexado</p>
+                <p class="font-mono text-[10px] text-dmk-muted">Identificador persistente de investigador ISI/WoS</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Capa de Confianza Local Chilena (SEO Geo) -->
+        <div class="border border-dmk-muted/15 bg-dmk-bg p-6 rounded-sm">
+          <span class="font-mono text-[10px] text-dmk-accent uppercase tracking-wider block mb-3">
+            Cobertura Geográfica Directa
+          </span>
+          <div class="flex flex-wrap gap-2 font-mono text-[10px]">
+            <span class="border border-dmk-muted/20 bg-dmk-card/30 px-2.5 py-1 text-dmk-text rounded-sm">Chile</span>
+            <span class="border border-dmk-muted/20 bg-dmk-card/30 px-2.5 py-1 text-dmk-text rounded-sm">Colombia</span>
+            <span class="border border-dmk-muted/20 bg-dmk-card/30 px-2.5 py-1 text-dmk-text rounded-sm">México</span>
+            <span class="border border-dmk-muted/20 bg-dmk-card/30 px-2.5 py-1 text-dmk-text rounded-sm">Perú</span>
+            <span class="border border-dmk-muted/20 bg-dmk-card/30 px-2.5 py-1 text-dmk-text rounded-sm">Ecuador</span>
+            <span class="border border-dmk-muted/20 bg-dmk-card/30 px-2.5 py-1 text-dmk-text rounded-sm">Argentina</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>

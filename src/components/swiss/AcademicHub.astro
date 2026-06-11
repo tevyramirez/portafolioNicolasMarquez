@@ -1,0 +1,52 @@
+---
+// The Swiss AcademicHub — Index format, tabla, APA-style
+---
+
+<section id="publicaciones" class="py-16 md:py-24 border-b border-dmk-muted/20">
+  <div class="max-w-6xl mx-auto px-4 md:px-8">
+    
+    <div class="mb-12">
+      <div class="font-mono text-[10px] text-dmk-muted uppercase tracking-wider mb-2">02 / PUBLICATIONS</div>
+      <h2 class="font-mono text-3xl md:text-4xl font-bold text-dmk-text uppercase tracking-tight">PUBLICATIONS</h2>
+    </div>
+
+    <!-- Filtros -->
+    <div class="flex gap-2 mb-6">
+      {['ALL', 'SCOPUS', 'BOOKS', 'WORKING', 'COLUMNS'].map((f) => (
+        <button class="font-mono text-[10px] text-dmk-text uppercase border border-dmk-muted/20 px-3 py-1 hover:border-dmk-accent hover:text-dmk-accent transition-colors">
+          {f}
+        </button>
+      ))}
+    </div>
+
+    <!-- Tabla de publicaciones -->
+    <div class="border border-dmk-muted/20 overflow-hidden">
+      <div class="grid grid-cols-12 gap-0 border-b border-dmk-muted/20 bg-dmk-card/50">
+        <div class="col-span-1 p-3 font-mono text-[10px] text-dmk-muted uppercase">YEAR</div>
+        <div class="col-span-5 p-3 font-mono text-[10px] text-dmk-muted uppercase">TITLE</div>
+        <div class="col-span-3 p-3 font-mono text-[10px] text-dmk-muted uppercase">AUTHORS</div>
+        <div class="col-span-2 p-3 font-mono text-[10px] text-dmk-muted uppercase">JOURNAL</div>
+        <div class="col-span-1 p-3 font-mono text-[10px] text-dmk-muted uppercase">BIB</div>
+      </div>
+      
+      {[
+        { year: '2025', title: 'The Affective Presence of Leaders and Team Innovation', authors: 'Márquez, N., Madrid, H.', journal: 'JOB (Q1)', type: 'SCOPUS' },
+        { year: '2024', title: 'Data-Driven Organizational Change in Emerging Markets', authors: 'Márquez, N., Bravo, C., Symmes, F.', journal: 'JBR (Q1)', type: 'SCOPUS' },
+        { year: '2025', title: 'Modelamiento Matemático de Emociones', authors: 'Márquez, N.', journal: 'UAI Press', type: 'BOOK' },
+        { year: '2026', title: 'Predictive ML Models for Corporate Venturing', authors: 'Márquez, N., Durán, I.', journal: 'DMK WP', type: 'WORKING' },
+        { year: '2026', title: 'La presencia afectiva y la efectividad del liderazgo', authors: 'Márquez, N.', journal: 'Expansión', type: 'COLUMN' }
+      ].map((pub) => (
+        <div class="grid grid-cols-12 gap-0 border-b border-dmk-muted/10 hover:bg-dmk-card/20 transition-colors">
+          <div class="col-span-1 p-3 font-mono text-xs text-dmk-accent">{pub.year}</div>
+          <div class="col-span-5 p-3 font-mono text-xs text-dmk-text">{pub.title}</div>
+          <div class="col-span-3 p-3 font-mono text-xs text-dmk-muted">{pub.authors}</div>
+          <div class="col-span-2 p-3 font-mono text-[10px] text-dmk-muted">{pub.journal}</div>
+          <div class="col-span-1 p-3">
+            <button class="font-mono text-[10px] text-dmk-accent hover:underline">BIB</button>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

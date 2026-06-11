@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Crimson Text", Georgia, serif;
+  --font-sans: "Source Sans 3", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --color-dmk-bg: #FFFFFF;
+  --color-dmk-card: #F8F9FA;
+  --color-dmk-text: #1A1A1A;
+  --color-dmk-muted: #5A5A5A;
+  --color-dmk-accent: #8B0000;
+  --color-dmk-accent-soft: #A52A2A;
+  --color-dmk-border: #E5E5E5;
+}
+
+body {
+  background-color: var(--color-dmk-bg);
+  color: var(--color-dmk-text);
+  font-family: var(--font-sans);
+}

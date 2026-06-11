@@ -1,0 +1,69 @@
+---
+// The Folio AcademicHub — Formato APA, académico formal
+---
+
+<section id="publicaciones" class="py-12 md:py-16 border-b border-dmk-muted/20">
+  <div class="max-w-5xl mx-auto px-6 md:px-8">
+    
+    <div class="mb-8">
+      <h2 class="font-serif text-2xl md:text-3xl font-bold text-dmk-text mb-2">Publicaciones Científicas</h2>
+      <p class="font-sans text-sm text-dmk-muted">Producción académica indexada en Scopus, Web of Science y repositorios institucionales.</p>
+    </div>
+
+    <!-- Tabs de tipo de publicación -->
+    <div class="flex border-b border-dmk-muted/20 mb-8">
+      {['Todos', 'Artículos Indexados', 'Libros', 'Working Papers', 'Columnas'].map((tab, i) => (
+        <button class={`font-sans text-sm px-4 py-2 border-b-2 transition-colors ${i === 0 ? 'border-dmk-accent text-dmk-accent font-semibold' : 'border-transparent text-dmk-muted hover:text-dmk-text'}`}>
+          {tab}
+        </button>
+      ))}
+    </div>
+
+    <!-- Lista en formato APA -->
+    <div class="space-y-6">
+      
+      {[
+        { 
+          citation: 'Márquez, N., & Madrid, H. (2025). The affective presence of leaders and team innovation: A quantitative circumplex study. Journal of Organizational Behavior, 46(2), 145-162.',
+          doi: '10.1111/job.2842',
+          type: 'Artículo Indexado'
+        },
+        { 
+          citation: 'Márquez, N., Bravo-Ortega, C., & Symmes, F. (2024). Data-driven organizational change in emerging markets: Dynamic capabilities perspective. Journal of Business Research, 172, 114812.',
+          doi: '10.1016/j.jbusres.2024.1148',
+          type: 'Artículo Indexado'
+        },
+        { 
+          citation: 'Márquez, N. (2025). Modelamiento matemático de emociones y efectividad de equipos de alto rendimiento. En Dirección y Analítica de Personas en LATAM (pp. 45-78). Ediciones Universidad Adolfo Ibáñez.',
+          doi: '978-956-356-024-1',
+          type: 'Libro'
+        },
+        { 
+          citation: 'Márquez, N., & Durán, I. J. (2026). Predictive machine learning models for corporate venturing success in LATAM. Working Paper Series, 2026-1.',
+          doi: '10.2139/ssrn.sample',
+          type: 'Working Paper'
+        },
+        { 
+          citation: 'Márquez, N. (2026, Febrero). La presencia afectiva y la efectividad del liderazgo en entornos complejos de alta incertidumbre. Expansión Negocios.',
+          doi: 'N/A',
+          type: 'Columna'
+        }
+      ].map((pub) => (
+        <div class="space-y-2">
+          <div class="flex items-center gap-2">
+            <span class="font-sans text-xs text-dmk-accent bg-dmk-card/50 px-2 py-0.5 rounded-sm">{pub.type}</span>
+          </div>
+          <p class="font-sans text-sm text-dmk-text leading-relaxed pl-4 -indent-4">
+            {pub.citation}
+          </p>
+          <div class="flex items-center gap-4 pl-4">
+            <span class="font-sans text-xs text-dmk-muted">DOI: {pub.doi}</span>
+            <button class="font-sans text-xs text-dmk-accent hover:underline">BibTeX</button>
+          </div>
+        </div>
+      ))}
+
+    </div>
+
+  </div>
+</section>

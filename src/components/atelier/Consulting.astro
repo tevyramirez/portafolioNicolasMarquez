@@ -1,0 +1,75 @@
+---
+// The Atelier Consulting — Layout asimétrico, columnas angostas, estilo editorial
+---
+
+<section id="consultoria" class="py-20 md:py-32 border-b border-dmk-muted/10">
+  <div class="max-w-6xl mx-auto px-6 md:px-12">
+    
+    <!-- Header editorial -->
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 mb-16">
+      <div class="md:col-span-4">
+        <div class="font-serif text-sm text-dmk-accent italic tracking-wide mb-2">Servicios de Dirección</div>
+        <h2 class="font-serif text-4xl md:text-5xl font-light text-dmk-text leading-tight">
+          Alta <em class="font-semibold">Consultoría</em>
+        </h2>
+      </div>
+      <div class="md:col-span-6 md:col-start-7">
+        <p class="font-sans text-sm text-dmk-muted leading-relaxed">
+          Diseñamos soluciones organizacionales donde el rigor de la evidencia científica valida e impulsa el retorno de inversión corporativo.
+        </p>
+      </div>
+    </div>
+
+    <!-- Servicios: layout asimétrico, texto en columnas angostas -->
+    <div class="space-y-20">
+      
+      {[
+        { num: 'I', title: 'Gobernanza de Datos', desc: 'Estructuración de tableros de comando dinámicos, marcos lógicos de decisión y auditoría de flujo de datos estratégicos para asegurar decisiones libres de sesgos cognitivos en juntas directivas y comités de inversión.', focus: 'Decisiones Predictivas' },
+        { num: 'II', title: 'Innovación Corporativa', desc: 'Modelamiento y arquitectura de departamentos de innovación, programas de intraemprendimiento y esquemas de Corporate Venturing diseñados bajo métricas empíricas de adopción tecnológica y análisis probabilístico de éxito.', focus: 'Venture Building' },
+        { num: 'III', title: 'Intervención Conductual', desc: 'Metodologías de intervención de cambio cultural y efectividad de equipos utilizando variables psicométricas avanzadas para mitigar la fricción humana durante los procesos complejos de reestructuración y adopción digital.', focus: 'Cambio Organizacional' }
+      ].map((service) => (
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+          <div class="md:col-span-2">
+            <div class="font-serif text-6xl font-light text-dmk-accent/30">{service.num}</div>
+          </div>
+          <div class="md:col-span-6">
+            <h3 class="font-serif text-2xl font-semibold text-dmk-text mb-4">{service.title}</h3>
+            <p class="font-sans text-sm text-dmk-muted leading-relaxed">{service.desc}</p>
+          </div>
+          <div class="md:col-span-3 md:col-start-10">
+            <div class="border-l border-dmk-accent pl-4">
+              <div class="font-serif text-xs text-dmk-accent italic">Foco</div>
+              <div class="font-sans text-sm text-dmk-text mt-1">{service.focus}</div>
+            </div>
+          </div>
+        </div>
+      ))}
+
+    </div>
+
+    <!-- Casos de éxito: bloques desbordados -->
+    <div class="mt-24 space-y-16">
+      <div class="font-serif text-sm text-dmk-accent italic">Casos de Éxito</div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div class="space-y-4">
+          <div class="aspect-[4/3] bg-dmk-card border border-dmk-muted/10"></div>
+          <div class="space-y-2">
+            <div class="font-sans text-xs text-dmk-muted uppercase tracking-wider">Retail & LATAM · 18 meses</div>
+            <h4 class="font-serif text-xl font-semibold">Optimización Conductual en Transición Digital</h4>
+            <p class="font-sans text-sm text-dmk-muted leading-relaxed">Evaluación psicométrica en 1,200 colaboradores. Implementación del modelo circumplejo de afecto. Reducción del 34% en rotación y aceleración del 22% en time-to-market.</p>
+          </div>
+        </div>
+        <div class="space-y-4 md:mt-12">
+          <div class="aspect-[4/3] bg-dmk-card border border-dmk-muted/10"></div>
+          <div class="space-y-2">
+            <div class="font-sans text-xs text-dmk-muted uppercase tracking-wider">Financiero · 10 meses</div>
+            <h4 class="font-serif text-xl font-semibold">Gobernanza de Datos para Decisiones Críticas</h4>
+            <p class="font-sans text-sm text-dmk-muted leading-relaxed">Auditoría de datos del comité ejecutivo. Diseño de cuadro de mando predictivo. Disminución del 14% en mora y ahorro estimado de USD $180,000 anuales.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

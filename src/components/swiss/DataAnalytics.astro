@@ -1,0 +1,130 @@
+---
+// The Swiss DataAnalytics — Full-width dashboard, data-forward
+---
+
+<section id="analisis-datos" class="py-16 md:py-24 border-b border-dmk-muted/20">
+  <div class="max-w-6xl mx-auto px-4 md:px-8">
+    
+    <div class="mb-12">
+      <div class="font-mono text-[10px] text-dmk-muted uppercase tracking-wider mb-2">03 / ANALYTICS</div>
+      <h2 class="font-mono text-3xl md:text-4xl font-bold text-dmk-text uppercase tracking-tight">DATA ANALYTICS</h2>
+    </div>
+
+    <!-- Dashboard grid -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+      {[
+        { label: 'ACTIVE MODELS', value: '12' },
+        { label: 'DATA POINTS', value: '2.4M' },
+        { label: 'PRECISION', value: '94.7%' },
+        { label: 'UPTIME', value: '99.9%' }
+      ].map((metric) => (
+        <div class="border border-dmk-muted/20 p-4">
+          <div class="font-mono text-[10px] text-dmk-muted uppercase tracking-wider mb-2">{metric.label}</div>
+          <div class="font-mono text-2xl font-bold text-dmk-accent">{metric.value}</div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Main panel: simulator + metrics -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      
+      <!-- Left: Controls -->
+      <div class="border border-dmk-muted/20 p-6 space-y-6">
+        <div class="font-mono text-[10px] text-dmk-muted uppercase tracking-wider">People Analytics Controls</div>
+        
+        <div class="space-y-4">
+          <div class="space-y-2">
+            <div class="flex justify-between font-mono text-xs">
+              <span class="text-dmk-text">AFFECTIVE VALENCE</span>
+              <span class="text-dmk-accent" id="sw-val">5.0</span>
+            </div>
+            <input type="range" id="sw-slider-val" min="0" max="10" step="0.1" value="5" class="w-full h-1 bg-dmk-muted/20 rounded-lg appearance-none cursor-pointer accent-dmk-accent"/>
+          </div>
+          <div class="space-y-2">
+            <div class="flex justify-between font-mono text-xs">
+              <span class="text-dmk-text">ACTIVATION</span>
+              <span class="text-dmk-accent" id="sw-act">5.0</span>
+            </div>
+            <input type="range" id="sw-slider-act" min="0" max="10" step="0.1" value="5" class="w-full h-1 bg-dmk-muted/20 rounded-lg appearance-none cursor-pointer accent-dmk-accent"/>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Output -->
+      <div class="border border-dmk-muted/20 p-6 space-y-6">
+        <div class="font-mono text-[10px] text-dmk-muted uppercase tracking-wider">Predictive Output</div>
+        
+        <div class="grid grid-cols-2 gap-4">
+          <div class="space-y-1">
+            <div class="font-mono text-[10px] text-dmk-muted uppercase">INNOVATION</div>
+            <div class="font-mono text-3xl font-bold text-dmk-accent" id="sw-innov">50.0%</div>
+            <div class="h-1 w-full bg-dmk-muted/20 rounded-full overflow-hidden">
+              <div class="h-full bg-dmk-accent transition-all duration-300" style="width:50%" id="sw-innov-bar"></div>
+            </div>
+          </div>
+          <div class="space-y-1">
+            <div class="font-mono text-[10px] text-dmk-muted uppercase">TURNOVER</div>
+            <div class="font-mono text-3xl font-bold text-dmk-accent" id="sw-turn">15.0%</div>
+            <div class="h-1 w-full bg-dmk-muted/20 rounded-full overflow-hidden">
+              <div class="h-full bg-dmk-accent transition-all duration-300" style="width:15%" id="sw-turn-bar"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="border-t border-dmk-muted/10 pt-4">
+          <div class="font-mono text-[10px] text-dmk-muted uppercase mb-2">Circumplex Position</div>
+          <div class="relative w-full aspect-square border border-dmk-muted/20">
+            <div class="absolute inset-x-0 top-1/2 -translate-y-1/2 h-px bg-dmk-muted/30"></div>
+            <div class="absolute inset-y-0 left-1/2 -translate-x-1/2 w-px bg-dmk-muted/30"></div>
+            <div id="sw-dot" class="absolute h-3 w-3 rounded-full bg-dmk-accent border border-dmk-bg -translate-x-1/2 -translate-y-1/2" style="left:50%;top:50%"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+    const valSlider = document.getElementById('sw-slider-val');
+    const actSlider = document.getElementById('sw-slider-act');
+    const valDisplay = document.getElementById('sw-val');
+    const actDisplay = document.getElementById('sw-act');
+    const innovDisplay = document.getElementById('sw-innov');
+    const innovBar = document.getElementById('sw-innov-bar');
+    const turnDisplay = document.getElementById('sw-turn');
+    const turnBar = document.getElementById('sw-turn-bar');
+    const dot = document.getElementById('sw-dot');
+
+    function update() {
+      const val = parseFloat(valSlider.value);
+      const act = parseFloat(actSlider.value);
+      valDisplay.textContent = val.toFixed(1);
+      actDisplay.textContent = act.toFixed(1);
+      
+      const vDiff = val - 5, aDiff = act - 5;
+      let innov = 50 + (vDiff * 6) + (aDiff * 4);
+      let turn = Math.max(3, 15 - (vDiff * 2) - (aDiff * 0.5));
+      
+      if (vDiff < -0.5 && aDiff >= 0.5) {
+        innov = Math.max(15, 50 - (Math.abs(vDiff) * 3) + (aDiff * 2));
+        turn = 15 + (Math.abs(vDiff) * 8) + (aDiff * 3);
+      }
+      
+      innov = Math.min(100, Math.max(0, innov));
+      turn = Math.min(100, Math.max(0, turn));
+      
+      innovDisplay.textContent = innov.toFixed(1) + '%';
+      innovBar.style.width = innov + '%';
+      turnDisplay.textContent = turn.toFixed(1) + '%';
+      turnBar.style.width = turn + '%';
+      
+      dot.style.left = (val * 10) + '%';
+      dot.style.top = ((10 - act) * 10) + '%';
+    }
+
+    valSlider.addEventListener('input', update);
+    actSlider.addEventListener('input', update);
+    update();
+  </script>
+</section>

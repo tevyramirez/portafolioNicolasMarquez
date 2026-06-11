@@ -1,0 +1,92 @@
+---
+// The Observatory Consulting — Tarjetas 3D con flip
+---
+
+<section id="consultoria" class="py-20 md:py-32 border-b border-dmk-muted/10">
+  <div class="max-w-6xl mx-auto px-6 md:px-12">
+    
+    <div class="mb-16">
+      <div class="font-mono text-xs text-dmk-accent uppercase tracking-widest mb-4">01 / Servicios</div>
+      <h2 class="font-mono text-4xl md:text-5xl font-bold text-dmk-text uppercase tracking-tight">
+        CONSULTORÍA
+      </h2>
+    </div>
+
+    <!-- Grid de tarjetas 3D -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      
+      {[
+        {
+          front: { num: '01', title: 'Gobernanza de Datos', desc: 'Tableros de comando dinámicos para juntas directivas' },
+          back: { detail: 'Estructuración de marcos lógicos de decisión, auditoría de flujo de datos estratégicos y eliminación de sesgos cognitivos en comités de inversión.', roi: 'ROI: 3.2x' }
+        },
+        {
+          front: { num: '02', title: 'Innovación Corporativa', desc: 'Unidades de venture building y adopción tecnológica' },
+          back: { detail: 'Modelamiento de departamentos de innovación, programas de intraemprendimiento y esquemas de Corporate Venturing bajo métricas empíricas.', roi: 'ROI: 2.8x' }
+        },
+        {
+          front: { num: '03', title: 'Intervención Conductual', desc: 'Optimización de equipos bajo transformación digital' },
+          back: { detail: 'Metodologías de intervención utilizando variables psicométricas avanzadas para mitigar fricción humana en procesos de reestructuración.', roi: 'ROI: 2.5x' }
+        }
+      ].map((service) => (
+        <div class="group relative h-80 perspective-1000">
+          <div class="relative w-full h-full transition-transform duration-700 transform-style-3d group-hover:rotate-y-180">
+            
+            <!-- Front -->
+            <div class="absolute inset-0 backface-hidden bg-dmk-card border border-dmk-muted/20 p-8 flex flex-col justify-between">
+              <div class="space-y-4">
+                <div class="font-mono text-5xl font-bold text-dmk-accent/20">{service.front.num}</div>
+                <h3 class="font-mono text-xl font-bold text-dmk-text uppercase">{service.front.title}</h3>
+                <p class="font-mono text-sm text-dmk-muted">{service.front.desc}</p>
+              </div>
+              <div class="font-mono text-xs text-dmk-accent">Hover para detalles →</div>
+            </div>
+            
+            <!-- Back -->
+            <div class="absolute inset-0 backface-hidden rotate-y-180 bg-dmk-accent text-dmk-bg p-8 flex flex-col justify-between">
+              <div class="space-y-4">
+                <p class="font-mono text-sm leading-relaxed">{service.back.detail}</p>
+              </div>
+              <div class="font-mono text-2xl font-bold">{service.back.roi}</div>
+            </div>
+            
+          </div>
+        </div>
+      ))}
+
+    </div>
+
+    <!-- Casos de éxito como timeline vertical -->
+    <div class="mt-24 space-y-8">
+      <div class="font-mono text-xs text-dmk-accent uppercase tracking-widest mb-8">Casos de Éxito</div>
+      
+      <div class="space-y-12">
+        {[
+          { client: 'RetailCorp', sector: 'Retail & LATAM', duration: '18 meses', result: 'Reducción 34% rotación, aceleración 22% time-to-market' },
+          { client: 'FinServicios', sector: 'Servicios Financieros', duration: '10 meses', result: 'Disminución 14% mora, ahorro USD $180K anuales' }
+        ].map((caso, i) => (
+          <div class="flex gap-8">
+            <div class="flex flex-col items-center">
+              <div class="w-3 h-3 rounded-full bg-dmk-accent"></div>
+              <div class="w-px h-full bg-dmk-muted/20"></div>
+            </div>
+            <div class="space-y-2 pb-8">
+              <div class="font-mono text-xs text-dmk-muted uppercase">{caso.sector} · {caso.duration}</div>
+              <h4 class="font-mono text-lg font-bold text-dmk-text">{caso.client}</h4>
+              <p class="font-mono text-sm text-dmk-muted">{caso.result}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+  </div>
+
+  <style>
+    .perspective-1000 { perspective: 1000px; }
+    .transform-style-3d { transform-style: preserve-3d; }
+    .backface-hidden { backface-visibility: hidden; }
+    .rotate-y-180 { transform: rotateY(180deg); }
+    .group:hover .rotate-y-180 { transform: rotateY(180deg); }
+  </style>
+</section>

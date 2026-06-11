@@ -1,0 +1,75 @@
+---
+// The Atelier AcademicHub — Magazine grid, drop caps, editorial
+---
+
+<section id="publicaciones" class="py-20 md:py-32 border-b border-dmk-muted/10">
+  <div class="max-w-6xl mx-auto px-6 md:px-12">
+    
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 mb-16">
+      <div class="md:col-span-4">
+        <div class="font-serif text-sm text-dmk-accent italic tracking-wide mb-2">Producción Intelectual</div>
+        <h2 class="font-serif text-4xl md:text-5xl font-light text-dmk-text leading-tight">
+          <em class="font-semibold">Investigación</em> de Vanguardia
+        </h2>
+      </div>
+      <div class="md:col-span-6 md:col-start-7">
+        <p class="font-sans text-sm text-dmk-muted leading-relaxed">
+          Nuestras metodologías comerciales no nacen de tendencias efímeras, sino de papers empíricos indexados en el ecosistema científico internacional de mayor prestigio.
+        </p>
+      </div>
+    </div>
+
+    <!-- Magazine grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+      
+      {[
+        { 
+          type: 'Artículo Indexado', 
+          year: '2025', 
+          title: 'The Affective Presence of Leaders and Team Innovation',
+          journal: 'Journal of Organizational Behavior (Scopus/WoS Q1)',
+          excerpt: 'Este estudio cuantitativo evalúa el impacto del clima afectivo en la efectividad y creatividad de equipos mediante análisis psicométrico y modelos de regresión avanzados.'
+        },
+        { 
+          type: 'Artículo Indexado', 
+          year: '2024', 
+          title: 'Data-Driven Organizational Change in Emerging Markets',
+          journal: 'Journal of Business Research (Scopus/WoS Q1)',
+          excerpt: 'Investigación empírica en 350 empresas en Chile y Colombia, demostrando cómo la analítica predictiva apoya la adaptabilidad estructural en entornos de incertidumbre.'
+        },
+        { 
+          type: 'Libro', 
+          year: '2025', 
+          title: 'Modelamiento Matemático de Emociones',
+          journal: 'Ediciones Universidad Adolfo Ibáñez',
+          excerpt: 'Manual metodológico avanzado que introduce el diseño psicométrico aplicado y algoritmos predictivos para directores de capital humano.'
+        },
+        { 
+          type: 'Working Paper', 
+          year: '2026', 
+          title: 'Predictive ML Models for Corporate Venturing',
+          journal: 'Working Paper Series',
+          excerpt: 'Modelado predictivo utilizando algoritmos de aprendizaje supervisado aplicados al pronóstico de tasas de supervivencia en corporate venturing.'
+        }
+      ].map((pub) => (
+        <article class="group space-y-4">
+          <div class="flex items-center gap-3">
+            <span class="font-serif text-xs text-dmk-accent italic">{pub.type}</span>
+            <span class="h-px flex-1 bg-dmk-muted/20"></span>
+            <span class="font-serif text-xs text-dmk-muted">{pub.year}</span>
+          </div>
+          <h3 class="font-serif text-xl font-semibold text-dmk-text group-hover:text-dmk-accent transition-colors">
+            {pub.title}
+          </h3>
+          <p class="font-sans text-sm text-dmk-muted leading-relaxed">{pub.excerpt}</p>
+          <div class="font-sans text-xs text-dmk-muted italic">{pub.journal}</div>
+          <div class="pt-2">
+            <span class="font-serif text-sm text-dmk-accent italic cursor-pointer hover:underline underline-offset-4">Leer abstracto →</span>
+          </div>
+        </article>
+      ))}
+
+    </div>
+
+  </div>
+</section>

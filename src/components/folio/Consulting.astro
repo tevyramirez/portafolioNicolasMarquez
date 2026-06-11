@@ -1,0 +1,79 @@
+---
+// The Folio Consulting — Lista numerada formal, académico, institucional
+---
+
+<section id="consultoria" class="py-12 md:py-16 border-b border-dmk-muted/20">
+  <div class="max-w-5xl mx-auto px-6 md:px-8">
+    
+    <div class="mb-10">
+      <h2 class="font-serif text-2xl md:text-3xl font-bold text-dmk-text mb-2">Áreas de Consultoría</h2>
+      <p class="font-sans text-sm text-dmk-muted">Servicios de consultoría basados en evidencia científica para organizaciones en Chile y Latinoamérica.</p>
+    </div>
+
+    <!-- Lista numerada formal -->
+    <div class="space-y-8">
+      
+      {[
+        { 
+          num: '1.', 
+          title: 'Gobernanza de Datos para la Alta Dirección', 
+          desc: 'Estructuración de tableros de comando dinámicos, marcos lógicos de decisión y auditoría de flujo de datos estratégicos. El objetivo es asegurar decisiones libres de sesgos cognitivos en juntas directivas y comités de inversión corporativa.',
+          methodology: 'Marco: Decisiones Predictivas · ROI promedio: 3.2x'
+        },
+        { 
+          num: '2.', 
+          title: 'Diseño de Unidades de Innovación Corporativa', 
+          desc: 'Modelamiento y arquitectura de departamentos de innovación, programas de intraemprendimiento y esquemas de Corporate Venturing. Diseñados bajo métricas empíricas de adopción tecnológica y análisis probabilístico de éxito mediante simulaciones Monte Carlo.',
+          methodology: 'Marco: Venture Building · ROI promedio: 2.8x'
+        },
+        { 
+          num: '3.', 
+          title: 'Intervención Conductual y Cambio Organizacional', 
+          desc: 'Metodologías de intervención de cambio cultural y efectividad de equipos utilizando variables psicométricas avanzadas. El enfoque mitiga la fricción humana durante los procesos complejos de reestructuración y adopción digital.',
+          methodology: 'Marco: Cambio Cultural · ROI promedio: 2.5x'
+        }
+      ].map((service) => (
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6">
+          <div class="md:col-span-1">
+            <div class="font-serif text-xl font-bold text-dmk-accent">{service.num}</div>
+          </div>
+          <div class="md:col-span-11">
+            <h3 class="font-serif text-lg font-semibold text-dmk-text mb-2">{service.title}</h3>
+            <p class="font-sans text-sm text-dmk-muted leading-relaxed mb-3">{service.desc}</p>
+            <div class="font-sans text-xs text-dmk-accent bg-dmk-card/50 px-3 py-1.5 inline-block rounded-sm">
+              {service.methodology}
+            </div>
+          </div>
+        </div>
+      ))}
+
+    </div>
+
+    <!-- Casos de éxito: formato informe -->
+    <div class="mt-12 pt-8 border-t border-dmk-muted/20">
+      <h3 class="font-serif text-lg font-semibold text-dmk-text mb-6">Estudios de Caso Seleccionados</h3>
+      
+      <div class="space-y-6">
+        {[
+          { 
+            client: 'RetailCorp Chile & Perú', 
+            context: 'Sector: Retail · Duración: 18 meses',
+            methodology: '1. Diagnóstico: Evaluación psicométrica en 1,200 colaboradores. 2. Intervención: Modelo circumplejo de afecto. 3. Resultado: Rotación -34%, TtM +22%.'
+          },
+          { 
+            client: 'Institución Financiera', 
+            context: 'Sector: Servicios Financieros · Duración: 10 meses',
+            methodology: '1. Diagnóstico: Auditoría de datos del comité ejecutivo. 2. Intervención: Cuadro de mando predictivo ML. 3. Resultado: Mora -14%, Ahorro USD $180,000/año.'
+          }
+        ].map((caso) => (
+          <div class="border-l-2 border-dmk-accent pl-4 py-2">
+            <div class="font-sans text-sm font-semibold text-dmk-text">{caso.client}</div>
+            <div class="font-sans text-xs text-dmk-muted mb-2">{caso.context}</div>
+            <div class="font-sans text-sm text-dmk-muted leading-relaxed">{caso.methodology}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+  </div>
+</section>

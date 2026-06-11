@@ -1,0 +1,66 @@
+---
+// Harvard Hero — Sobrio, académico, institucional
+---
+
+<section class="relative bg-dmk-bg border-b border-dmk-border">
+  <div class="max-w-5xl mx-auto px-8 md:px-12 py-16 md:py-20">
+    
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-10 items-start">
+      
+      <!-- Foto (3 cols) -->
+      <div class="md:col-span-3">
+        <div class="aspect-[3/4] bg-dmk-card border border-dmk-border flex items-center justify-center">
+          <div class="w-20 h-20 rounded-full bg-dmk-accent/10 flex items-center justify-center">
+            <span class="font-serif text-3xl text-dmk-accent">N</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Info (9 cols) -->
+      <div class="md:col-span-9 space-y-6">
+        
+        <div class="space-y-2">
+          <h1 class="font-serif text-3xl md:text-4xl font-bold text-dmk-text">
+            Nicolás Matías Márquez Álvarez
+          </h1>
+          <p class="font-serif text-lg text-dmk-muted italic">
+            PhD in Management, Universidad Adolfo Ibáñez
+          </p>
+        </div>
+
+        <div class="h-px w-24 bg-dmk-accent"></div>
+
+        <p class="font-sans text-base text-dmk-text leading-relaxed max-w-2xl">
+          Entrepreneurship and innovation scholar with a PhD in Management. Research focuses on entrepreneurship, SME innovation, sustainability, and the implications of AI for entrepreneurial judgment and innovation governance, with particular attention to Latin American contexts.
+        </p>
+
+        <div class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-dmk-muted">
+          <span class="flex items-center gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-dmk-accent"></span>
+            nicolasmarquezalvarez@gmail.com
+          </span>
+          <span class="flex items-center gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-dmk-accent"></span>
+            (+56) 930610500
+          </span>
+          <span class="flex items-center gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-dmk-accent"></span>
+            Talca, Chile
+          </span>
+        </div>
+
+        <!-- Tabs -->
+        <div class="flex border-b border-dmk-border pt-4">
+          {['Profile', 'Research', 'Teaching', 'Experience', 'Contact'].map((tab, i) => (
+            <a href={`#${['','research','teaching','experience','contact'][i]}`} 
+               class={`font-sans text-sm px-4 py-2 border-b-2 transition-colors ${i === 0 ? 'border-dmk-accent text-dmk-accent font-semibold' : 'border-transparent text-dmk-muted hover:text-dmk-text'}`}>
+              {tab}
+            </a>
+          ))}
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>

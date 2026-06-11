@@ -1,0 +1,111 @@
+---
+// The Observatory DataAnalytics — Visualización animada, números que cuentan
+---
+
+<section id="analisis-datos" class="py-20 md:py-32 border-b border-dmk-muted/10">
+  <div class="max-w-6xl mx-auto px-6 md:px-12">
+    
+    <div class="mb-16">
+      <div class="font-mono text-xs text-dmk-accent uppercase tracking-widest mb-4">03 / Data Analytics</div>
+      <h2 class="font-mono text-4xl md:text-5xl font-bold text-dmk-text uppercase tracking-tight">ANALÍTICA</h2>
+    </div>
+
+    <!-- Métricas animadas grandes -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
+      {[
+        { label: 'Precision Rate', value: '94.7%', suffix: '%' },
+        { label: 'Models Deployed', value: '12', suffix: '' },
+        { label: 'Data Points', value: '2.4M', suffix: '' },
+        { label: 'Accuracy', value: '98.2', suffix: '%' }
+      ].map((metric) => (
+        <div class="space-y-2">
+          <div class="font-mono text-[10px] text-dmk-muted uppercase tracking-wider">{metric.label}</div>
+          <div class="font-mono text-4xl md:text-5xl font-bold text-dmk-accent">{metric.value}</div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Simulador de People Analytics como visualización -->
+    <div class="border border-dmk-muted/20 bg-dmk-card/30 p-8 space-y-8">
+      <div class="font-mono text-[10px] text-dmk-accent uppercase tracking-widest">People Analytics Simulator</div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <!-- Sliders -->
+        <div class="space-y-6">
+          <div class="space-y-2">
+            <div class="flex justify-between font-mono text-xs">
+              <span class="text-dmk-text">Affective Valence</span>
+              <span class="text-dmk-accent" id="obs-val">5.0</span>
+            </div>
+            <input type="range" min="0" max="10" step="0.1" value="5" class="w-full h-1 bg-dmk-muted/20 rounded-lg appearance-none cursor-pointer accent-dmk-accent" id="obs-slider-val"/>
+          </div>
+          <div class="space-y-2">
+            <div class="flex justify-between font-mono text-xs">
+              <span class="text-dmk-text">Activation Level</span>
+              <span class="text-dmk-accent" id="obs-act">5.0</span>
+            </div>
+            <input type="range" min="0" max="10" step="0.1" value="5" class="w-full h-1 bg-dmk-muted/20 rounded-lg appearance-none cursor-pointer accent-dmk-accent" id="obs-slider-act"/>
+          </div>
+        </div>
+        
+        <!-- Resultados -->
+        <div class="space-y-4">
+          <div class="space-y-1">
+            <div class="font-mono text-[10px] text-dmk-muted uppercase">Innovation Rate</div>
+            <div class="font-mono text-3xl text-dmk-accent font-bold" id="obs-innov">50.0%</div>
+            <div class="h-1 w-full bg-dmk-muted/20 rounded-full overflow-hidden">
+              <div class="h-full bg-dmk-accent transition-all duration-300" style="width:50%" id="obs-innov-bar"></div>
+            </div>
+          </div>
+          <div class="space-y-1">
+            <div class="font-mono text-[10px] text-dmk-muted uppercase">Turnover Risk</div>
+            <div class="font-mono text-3xl text-dmk-accent font-bold" id="obs-turn">15.0%</div>
+            <div class="h-1 w-full bg-dmk-muted/20 rounded-full overflow-hidden">
+              <div class="h-full bg-dmk-accent transition-all duration-300" style="width:15%" id="obs-turn-bar"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    const valSlider = document.getElementById('obs-slider-val');
+    const actSlider = document.getElementById('obs-slider-act');
+    const valDisplay = document.getElementById('obs-val');
+    const actDisplay = document.getElementById('obs-act');
+    const innovDisplay = document.getElementById('obs-innov');
+    const innovBar = document.getElementById('obs-innov-bar');
+    const turnDisplay = document.getElementById('obs-turn');
+    const turnBar = document.getElementById('obs-turn-bar');
+
+    function update() {
+      const val = parseFloat(valSlider.value);
+      const act = parseFloat(actSlider.value);
+      valDisplay.textContent = val.toFixed(1);
+      actDisplay.textContent = act.toFixed(1);
+      
+      const vDiff = val - 5, aDiff = act - 5;
+      let innov = 50 + (vDiff * 6) + (aDiff * 4);
+      let turn = Math.max(3, 15 - (vDiff * 2) - (aDiff * 0.5));
+      
+      if (vDiff < -0.5 && aDiff >= 0.5) {
+        innov = Math.max(15, 50 - (Math.abs(vDiff) * 3) + (aDiff * 2));
+        turn = 15 + (Math.abs(vDiff) * 8) + (aDiff * 3);
+      }
+      
+      innov = Math.min(100, Math.max(0, innov));
+      turn = Math.min(100, Math.max(0, turn));
+      
+      innovDisplay.textContent = innov.toFixed(1) + '%';
+      innovBar.style.width = innov + '%';
+      turnDisplay.textContent = turn.toFixed(1) + '%';
+      turnBar.style.width = turn + '%';
+    }
+
+    valSlider.addEventListener('input', update);
+    actSlider.addEventListener('input', update);
+    update();
+  </script>
+</section>

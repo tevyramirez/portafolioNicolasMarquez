@@ -1,0 +1,54 @@
+---
+// The Observatory AcademicHub — Timeline horizontal scrollable
+---
+
+<section id="publicaciones" class="py-20 md:py-32 border-b border-dmk-muted/10">
+  <div class="max-w-6xl mx-auto px-6 md:px-12">
+    
+    <div class="mb-16">
+      <div class="font-mono text-xs text-dmk-accent uppercase tracking-widest mb-4">02 / Academic Production</div>
+      <h2 class="font-mono text-4xl md:text-5xl font-bold text-dmk-text uppercase tracking-tight">INVESTIGACIÓN</h2>
+    </div>
+
+    <!-- Timeline horizontal scrollable -->
+    <div class="relative">
+      <div class="flex gap-6 overflow-x-auto pb-8 snap-x snap-mandatory scrollbar-hide">
+        
+        {[
+          { type: 'SCOPUS', year: '2025', title: 'The Affective Presence of Leaders and Team Innovation', authors: 'Márquez, N., & Madrid, H.', journal: 'Journal of Organizational Behavior' },
+          { type: 'SCOPUS', year: '2024', title: 'Data-Driven Organizational Change in Emerging Markets', authors: 'Márquez, N., Bravo-Ortega, C., & Symmes, F.', journal: 'Journal of Business Research' },
+          { type: 'BOOK', year: '2025', title: 'Modelamiento Matemático de Emociones y Equipos', authors: 'Márquez, N.', journal: 'Ediciones UAI' },
+          { type: 'WORKING', year: '2026', title: 'Predictive ML Models for Corporate Venturing Success', authors: 'Márquez, N., & Durán, I. J.', journal: 'WP Series' },
+          { type: 'COLUMN', year: '2026', title: 'La presencia afectiva y la efectividad del liderazgo', authors: 'Márquez, N.', journal: 'Expansión Negocios' }
+        ].map((pub, i) => (
+          <div class="flex-shrink-0 w-80 snap-start">
+            <div class="h-full border border-dmk-muted/20 bg-dmk-card/30 p-6 space-y-4 hover:border-dmk-accent/40 transition-colors">
+              <div class="flex justify-between items-center">
+                <div class="font-mono text-[10px] text-dmk-accent uppercase tracking-wider">{pub.type}</div>
+                <div class="font-mono text-[10px] text-dmk-muted">{pub.year}</div>
+              </div>
+              <h3 class="font-mono text-sm font-bold text-dmk-text leading-tight">{pub.title}</h3>
+              <p class="font-mono text-xs text-dmk-muted">{pub.authors}</p>
+              <p class="font-mono text-[10px] text-dmk-muted/60">{pub.journal}</p>
+              <div class="pt-4 border-t border-dmk-muted/10">
+                <button class="font-mono text-[10px] text-dmk-accent hover:underline">BibTeX →</button>
+              </div>
+            </div>
+          </div>
+        ))}
+
+      </div>
+      
+      <!-- Scroll indicator -->
+      <div class="flex items-center gap-2 mt-4">
+        <span class="font-mono text-[10px] text-dmk-muted">← Scroll horizontal →</span>
+      </div>
+    </div>
+
+  </div>
+
+  <style>
+    .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+    .scrollbar-hide::-webkit-scrollbar { display: none; }
+  </style>
+</section>
