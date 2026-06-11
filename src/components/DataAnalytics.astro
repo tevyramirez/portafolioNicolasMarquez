@@ -186,7 +186,7 @@
                 <!-- Punto de Coordenadas Móvil -->
                 <div 
                   id="plot-dot" 
-                  class="absolute h-3 w-3 rounded-full bg-dmk-accent border border-dmk-bg -translate-x-1/2 -translate-y-1/2 shadow-[0_0_10px_rgba(0,255,133,0.8)] transition-all duration-300"
+                  class="absolute h-3 w-3 rounded-full bg-dmk-accent border border-dmk-bg -translate-x-1/2 -translate-y-1/2 shadow-[0_0_10px_color-mix(in_srgb,var(--color-dmk-accent)_80%,transparent)] transition-all duration-300"
                   style="left: 50%; top: 50%;"
                 ></div>
               </div>
@@ -205,6 +205,11 @@
 
 <!-- Script para el recalculador matemático y dinámico en cliente (Islands Magic) -->
 <script>
+  const style = getComputedStyle(document.documentElement);
+  const barGood = style.getPropertyValue('--color-dmk-accent').trim() || '#00FF85';
+  const barMid = style.getPropertyValue('--color-dmk-muted').trim() || '#A3B0A7';
+  const barBad = '#E53E3E';
+
   const valSlider = document.getElementById('val-slider') as HTMLInputElement;
   const actSlider = document.getElementById('act-slider') as HTMLInputElement;
 
@@ -225,99 +230,83 @@
   function calculateModels() {
     if (!valSlider || !actSlider) return;
 
-    const val = parseFloat(valSlider.value); // 0 a 10
-    const act = parseFloat(actSlider.value); // 0 a 10
+    const val = parseFloat(valSlider.value);
+    const act = parseFloat(actSlider.value);
 
-    // Actualizar pantallas
     if (valDisplay) valDisplay.textContent = `${val.toFixed(1)} / 10.0`;
     if (actDisplay) actDisplay.textContent = `${act.toFixed(1)} / 10.0`;
 
-    // Actualizar Punto de Gráfico de Dispersión
     if (plotDot) {
-      // El rango es 0-10, mapear a 0%-100% de la caja
-      // Invertir eje Y para que 10 sea arriba y 0 abajo
       const leftPct = val * 10;
       const topPct = (10 - act) * 10;
       plotDot.style.left = `${leftPct}%`;
       plotDot.style.top = `${topPct}%`;
     }
 
-    // Clasificar Cuadrante Russell y Calcular Variables Predictivas
     let cuadrante = "Neutro / Balance";
     let descripcion = "Dinámica estable con niveles balanceados de energía y afecto.";
     let innovRate = 50;
     let turnoverRate = 15;
 
-    const vDiff = val - 5.0; // Desviación de la mitad
+    const vDiff = val - 5.0;
     const aDiff = act - 5.0;
 
     if (vDiff >= 0.5 && aDiff >= 0.5) {
       cuadrante = "Entusiasmo / Resonancia";
       descripcion = "Clima altamente constructivo. Alta energía orientada a objetivos y seguridad psicológica para experimentar.";
-      // ML Formula: Mayor valencia y activación = pico de innovación, bajísima rotación
       innovRate = 50 + (vDiff * 6) + (aDiff * 4);
       turnoverRate = Math.max(3, 15 - (vDiff * 2) - (aDiff * 0.5));
     } else if (vDiff < -0.5 && aDiff >= 0.5) {
       cuadrante = "Tensión / Frustración";
       descripcion = "Alta energía pero con foco negativo. Riesgo de conflicto intergrupal, exigencia excesiva o desalineación estratégica.";
-      // ML Formula: Alta energía pero afecto negativo = innovación caótica e inefectiva, riesgo pico de rotación (burnout)
       innovRate = Math.max(15, 50 - (Math.abs(vDiff) * 3) + (aDiff * 2));
       turnoverRate = 15 + (Math.abs(vDiff) * 8) + (aDiff * 3);
     } else if (vDiff < -0.5 && aDiff < -0.5) {
       cuadrante = "Fatiga / Deserción Pasiva";
       descripcion = "Energía y afecto bajos. Clima de apatía estructural y desconexión intelectual. Cero proactividad.";
-      // ML Formula: Baja energía y afecto negativo = nula innovación y alta deserción pasiva silenciosa
       innovRate = Math.max(5, 50 - (Math.abs(vDiff) * 5) - (Math.abs(aDiff) * 4));
       turnoverRate = 15 + (Math.abs(vDiff) * 5) - (Math.abs(aDiff) * 1.5);
     } else if (vDiff >= 0.5 && aDiff < -0.5) {
       cuadrante = "Calma / Cooperación Pasiva";
       descripcion = "Clima seguro y agradable, pero con baja tensión creativa. Excelente para operaciones estándar, no para disrupción.";
-      // ML Formula: Buen afecto pero baja energía = innovación baja pero estable, bajísima rotación
       innovRate = Math.max(25, 50 + (vDiff * 2) - (Math.abs(aDiff) * 4));
       turnoverRate = Math.max(2, 15 - (vDiff * 2.5) - (Math.abs(aDiff) * 1.5));
     }
 
-    // Truncar cotas
     innovRate = Math.min(100, Math.max(0, innovRate));
     turnoverRate = Math.min(100, Math.max(0, turnoverRate));
 
-    // Renderizar resultados en pantalla
     if (quadDisplay) quadDisplay.textContent = cuadrante;
     if (quadDesc) quadDesc.textContent = descripcion;
     if (innovDisplay) innovDisplay.textContent = `${innovRate.toFixed(1)}%`;
     if (turnoverDisplay) turnoverDisplay.textContent = `${turnoverRate.toFixed(1)}%`;
 
-    // Cambiar barras
     if (innovBar) {
       innovBar.style.width = `${innovRate}%`;
-      // Cambiar color basado en rendimiento
       if (innovRate >= 70) {
-        innovBar.style.backgroundColor = '#00FF85'; // Cyber Green
+        innovBar.style.backgroundColor = barGood;
       } else if (innovRate >= 40) {
-        innovBar.style.backgroundColor = '#A3B0A7'; // Sage Green
+        innovBar.style.backgroundColor = barMid;
       } else {
-        innovBar.style.backgroundColor = '#fa5555'; // Red alert
+        innovBar.style.backgroundColor = barBad;
       }
     }
 
     if (turnoverBar) {
       turnoverBar.style.width = `${turnoverRate}%`;
       if (turnoverRate >= 35) {
-        turnoverBar.style.backgroundColor = '#fa5555'; // High risk Red
+        turnoverBar.style.backgroundColor = barBad;
       } else if (turnoverRate >= 18) {
-        turnoverBar.style.backgroundColor = '#A3B0A7'; // Sage Green
+        turnoverBar.style.backgroundColor = barMid;
       } else {
-        turnoverBar.style.backgroundColor = '#00FF85'; // Cyber Green
+        turnoverBar.style.backgroundColor = barGood;
       }
     }
   }
 
-  // Escuchar eventos de cambio en los sliders
   if (valSlider && actSlider) {
     valSlider.addEventListener('input', calculateModels);
     actSlider.addEventListener('input', calculateModels);
-    
-    // Ejecución inicial para pintar datos iniciales
     calculateModels();
   }
 </script>

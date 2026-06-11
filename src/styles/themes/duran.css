@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=JetBrains+Mono:wght@400;500&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -6,16 +6,86 @@
   --font-sans: "Plus Jakarta Sans", sans-serif;
   --font-mono: "JetBrains Mono", monospace;
 
-  --color-dmk-bg: #F8F9FA;
+  --color-dmk-bg: #F0F2F5;
   --color-dmk-card: #FFFFFF;
   --color-dmk-text: #1C1E21;
-  --color-dmk-muted: #4A5568;
+  --color-dmk-muted: #3A4558;
   --color-dmk-accent: #1A365D;
   --color-dmk-accent-soft: #8BA3C7;
+  --color-dmk-border: #CBD5E0;
 }
 
 body {
   background-color: var(--color-dmk-bg);
   color: var(--color-dmk-text);
   font-family: var(--font-sans);
+}
+
+/* Durán specific: Executive premium */
+.card-duran {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid var(--color-dmk-border);
+  background: var(--color-dmk-card);
+}
+
+.card-duran:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -12px rgba(26, 54, 93, 0.15);
+  border-color: var(--color-dmk-accent);
+}
+
+/* Executive badge */
+.badge-exec {
+  background: var(--color-dmk-accent);
+  color: white;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 2px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Underline animation */
+.link-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--color-dmk-accent);
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.link-underline:hover::after {
+  width: 100%;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-dmk-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-dmk-accent-soft);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-dmk-accent);
+}
+
+/* Focus visible */
+:focus-visible {
+  outline: 2px solid var(--color-dmk-accent);
+  outline-offset: 3px;
 }

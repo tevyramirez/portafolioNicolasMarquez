@@ -1,13 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=JetBrains+Mono:wght@400;500&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --font-serif: "Crimson Text", Georgia, serif;
-  --font-sans: "Source Sans 3", sans-serif;
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", monospace;
 
-  --color-dmk-bg: #FFFFFF;
-  --color-dmk-card: #F8F9FA;
+  --color-dmk-bg: #F5F5F5;
+  --color-dmk-card: #FFFFFF;
   --color-dmk-text: #1A1A1A;
   --color-dmk-muted: #5A5A5A;
   --color-dmk-accent: #8B0000;
@@ -19,4 +19,100 @@ body {
   background-color: var(--color-dmk-bg);
   color: var(--color-dmk-text);
   font-family: var(--font-sans);
+}
+
+/* Harvard specific: Institutional elegance */
+.card-harvard {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid var(--color-dmk-border);
+  background: var(--color-dmk-card);
+}
+
+.card-harvard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px -10px rgba(139, 0, 0, 0.12);
+  border-color: var(--color-dmk-accent);
+}
+
+/* Harvard crimson accent */
+.accent-crimson {
+  color: var(--color-dmk-accent);
+  font-weight: 600;
+}
+
+/* Shield hover effect */
+.hover-shield {
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.hover-shield::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color-dmk-accent);
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hover-shield:hover::after {
+  width: 100%;
+}
+
+/* Formal button */
+.btn-harvard {
+  background: var(--color-dmk-accent);
+  color: white;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-harvard::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  transform: translate(-50%, -50%);
+  transition: width 0.5s ease, height 0.5s ease;
+}
+
+.btn-harvard:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.btn-harvard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px -4px rgba(139, 0, 0, 0.3);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-dmk-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-dmk-accent-soft);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-dmk-accent);
+}
+
+/* Focus visible */
+:focus-visible {
+  outline: 2px solid var(--color-dmk-accent);
+  outline-offset: 3px;
 }

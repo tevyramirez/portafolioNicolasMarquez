@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=JetBrains+Mono:wght@400;500&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -6,16 +6,72 @@
   --font-sans: "Plus Jakarta Sans", sans-serif;
   --font-mono: "JetBrains Mono", monospace;
 
-  --color-dmk-bg: #FAFAF5;
+  --color-dmk-bg: #F5F5F0;
   --color-dmk-card: #FFFFFF;
   --color-dmk-text: #2D1B11;
-  --color-dmk-muted: #8B6914;
+  --color-dmk-muted: #7A5C10;
   --color-dmk-accent: #C75B39;
   --color-dmk-accent-soft: #E8A87C;
+  --color-dmk-border: #D4A574;
 }
 
 body {
   background-color: var(--color-dmk-bg);
   color: var(--color-dmk-text);
   font-family: var(--font-sans);
+}
+
+/* Bravo-Ortega specific: Autumn warm */
+.card-bravo {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid var(--color-dmk-border);
+  background: var(--color-dmk-card);
+}
+
+.card-bravo:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px -10px rgba(199, 91, 57, 0.15);
+  border-color: var(--color-dmk-accent);
+}
+
+/* Warm gradient text */
+.text-warm {
+  background: linear-gradient(135deg, var(--color-dmk-accent), var(--color-dmk-accent-soft));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Autumn card hover */
+.hover-autumn {
+  transition: all 0.4s ease;
+}
+
+.hover-autumn:hover {
+  background: linear-gradient(135deg, var(--color-dmk-card) 0%, #FFF8F0 100%);
+  border-color: var(--color-dmk-accent);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-dmk-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-dmk-accent-soft);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-dmk-accent);
+}
+
+/* Focus visible */
+:focus-visible {
+  outline: 2px solid var(--color-dmk-accent);
+  outline-offset: 3px;
 }

@@ -1,0 +1,219 @@
+/* ============================================
+   3D MINIMALISTA - Sistema de profundidad sutil
+   Efectos elegantes, sin fantocherías
+   ============================================ */
+
+/* Variables base para profundidad */
+/* Usamos currentColor (color de texto) para que las sombras funcionen en fondos claros y oscuros */
+:root {
+  --depth-1: 0 1px 2px color-mix(in srgb, var(--color-dmk-text, #1A1A1A) 4%, transparent);
+  --depth-2: 0 4px 8px color-mix(in srgb, var(--color-dmk-text, #1A1A1A) 6%, transparent), 0 2px 4px color-mix(in srgb, var(--color-dmk-text, #1A1A1A) 4%, transparent);
+  --depth-3: 0 8px 16px color-mix(in srgb, var(--color-dmk-text, #1A1A1A) 8%, transparent), 0 4px 8px color-mix(in srgb, var(--color-dmk-text, #1A1A1A) 4%, transparent);
+  --depth-4: 0 16px 32px color-mix(in srgb, var(--color-dmk-text, #1A1A1A) 10%, transparent), 0 8px 16px color-mix(in srgb, var(--color-dmk-text, #1A1A1A) 6%, transparent);
+  --depth-hover: 0 24px 48px color-mix(in srgb, var(--color-dmk-text, #1A1A1A) 12%, transparent), 0 12px 24px color-mix(in srgb, var(--color-dmk-text, #1A1A1A) 8%, transparent);
+  --perspective-container: 1000px;
+  --rotate-intensity: 2deg;
+}
+
+/* ============================================
+   1. TARJETAS 3D MINIMALISTAS
+   ============================================ */
+
+.card-3d {
+  background: var(--color-dmk-card, #FFFFFF);
+  border: 1px solid var(--color-dmk-border, #E5E5E5);
+  border-radius: 0.5rem;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-style: preserve-3d;
+  will-change: transform;
+  box-shadow: var(--depth-2);
+}
+
+.card-3d:hover {
+  transform: translateY(-4px) translateZ(20px);
+  box-shadow: var(--depth-hover);
+}
+
+/* Subtle inner highlight for depth illusion */
+.card-3d::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, transparent 50%, rgba(0,0,0,0.02) 100%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.card-3d:hover::after {
+  opacity: 1;
+}
+
+/* ============================================
+   2. PERSPECTIVE CONTAINER
+   ============================================ */
+
+.perspective-container {
+  perspective: var(--perspective-container);
+  perspective-origin: center center;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+/* ============================================
+   3. HOVER 3D SUTIL (para tarjetas y elementos)
+   ============================================ */
+
+.hover-3d-lift {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hover-3d-lift:hover {
+  transform: translateY(-6px) rotateX(var(--rotate-intensity));
+  box-shadow: var(--depth-hover);
+}
+
+/* ============================================
+   4. GLASSMORPHISM 3D (sutil y elegante)
+   ============================================ */
+
+.glass-3d {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px) saturate(120%);
+  -webkit-backdrop-filter: blur(12px) saturate(120%);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: var(--depth-2);
+  transform-style: preserve-3d;
+}
+
+.glass-3d-dark {
+  background: rgba(20, 20, 30, 0.6);
+  backdrop-filter: blur(12px) saturate(120%);
+  -webkit-backdrop-filter: blur(12px) saturate(120%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: var(--depth-2);
+  transform-style: preserve-3d;
+}
+
+/* ============================================
+   5. SHADOWS DE PROFUNDIDAD ELEGANTES
+   ============================================ */
+
+.depth-1 { box-shadow: var(--depth-1); }
+.depth-2 { box-shadow: var(--depth-2); }
+.depth-3 { box-shadow: var(--depth-3); }
+.depth-4 { box-shadow: var(--depth-4); }
+
+/* ============================================
+   6. TEXT 3D MINIMAL (para títulos principales)
+   ============================================ */
+
+.text-3d-minimal {
+  text-shadow: 
+    0 1px 1px color-mix(in srgb, var(--color-dmk-text, #1A1A1A) 4%, transparent),
+    0 2px 2px color-mix(in srgb, var(--color-dmk-text, #1A1A1A) 3%, transparent),
+    0 4px 4px color-mix(in srgb, var(--color-dmk-text, #1A1A1A) 2%, transparent);
+}
+
+/* ============================================
+   7. FLOAT ANIMATION (para elementos destacados)
+   ============================================ */
+
+@keyframes float-3d {
+  0%, 100% {
+    transform: translateY(0) translateZ(0);
+  }
+  50% {
+    transform: translateY(-8px) translateZ(10px);
+  }
+}
+
+.float-3d {
+  animation: float-3d 6s ease-in-out infinite;
+  transform-style: preserve-3d;
+}
+
+/* ============================================
+   8. ACCENT LINE 3D (líneas con profundidad)
+   ============================================ */
+
+.accent-line-3d {
+  position: relative;
+  height: 2px;
+  background: var(--color-dmk-accent, #8B0000);
+  box-shadow: 0 1px 2px color-mix(in srgb, var(--color-dmk-accent, #8B0000) 20%, transparent);
+  transform: translateZ(5px);
+}
+
+/* ============================================
+   9. BUTTON 3D PRESS EFFECT
+   ============================================ */
+
+.btn-3d {
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 6px color-mix(in srgb, var(--color-dmk-text, #1A1A1A) 8%, transparent);
+}
+
+.btn-3d:active {
+  transform: translateY(2px) translateZ(-2px);
+  box-shadow: 0 1px 2px color-mix(in srgb, var(--color-dmk-text, #1A1A1A) 4%, transparent);
+}
+
+/* ============================================
+   10. SECTION BACKGROUND DEPTH
+   ============================================ */
+
+.section-depth {
+  position: relative;
+}
+
+.section-depth::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, 
+    transparent 0%, 
+    color-mix(in srgb, var(--color-dmk-text, #1A1A1A) 1.5%, transparent) 50%, 
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+/* ============================================
+   11. INPUTS 3D (sutileza en formularios)
+   ============================================ */
+
+.input-3d {
+  background: var(--color-dmk-card, #FFFFFF);
+  border: 1px solid var(--color-dmk-border, #E5E5E5);
+  box-shadow: inset 0 1px 2px color-mix(in srgb, var(--color-dmk-text, #1A1A1A) 4%, transparent);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.input-3d:focus {
+  transform: translateY(-1px);
+  box-shadow: inset 0 1px 2px color-mix(in srgb, var(--color-dmk-text, #1A1A1A) 4%, transparent), 0 4px 8px color-mix(in srgb, var(--color-dmk-text, #1A1A1A) 6%, transparent);
+  border-color: var(--color-dmk-accent, #8B0000);
+}
+
+/* ============================================
+   12. RESPONSIVE
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .card-3d,
+  .hover-3d-lift,
+  .float-3d,
+  .btn-3d,
+  .input-3d {
+    transition: none;
+    animation: none;
+    transform: none;
+  }
+}

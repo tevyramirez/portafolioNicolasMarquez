@@ -1,0 +1,977 @@
+/* ============================================
+   PORTAFOLIO NICOLAS MARQUEZ - SISTEMA VISUAL
+   Animaciones, Efectos, Micro-interacciones
+   ============================================ */
+
+/* ============================================
+   1. ANIMACIONES DE ENTRADA (REVEAL)
+   ============================================ */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeInBlur {
+  from {
+    opacity: 0;
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+/* ============================================
+   2. ANIMACIONES DE HOVER PREMIUM
+   ============================================ */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(139, 0, 0, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(139, 0, 0, 0.5);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes breathe {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+/* ============================================
+   3. ANIMACIONES DE PARTÍCULAS / ESPACIO
+   ============================================ */
+@keyframes particle-float {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.3;
+  }
+  25% {
+    transform: translate(10px, -20px) scale(1.2);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translate(-5px, -40px) scale(0.8);
+    opacity: 0.5;
+  }
+  75% {
+    transform: translate(15px, -20px) scale(1.1);
+    opacity: 0.7;
+  }
+}
+
+@keyframes particle-drift {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(100px, -100px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes star-twinkle {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.5);
+  }
+}
+
+@keyframes orbit {
+  from {
+    transform: rotate(0deg) translateX(50px) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translateX(50px) rotate(-360deg);
+  }
+}
+
+/* ============================================
+   4. ANIMACIONES DE TEXTO
+   ============================================ */
+@keyframes text-reveal {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes letter-spacing-expand {
+  from {
+    letter-spacing: 0.1em;
+    opacity: 0;
+  }
+  to {
+    letter-spacing: 0.25em;
+    opacity: 1;
+  }
+}
+
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink-cursor {
+  from, to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: currentColor;
+  }
+}
+
+/* ============================================
+   5. ANIMACIONES DE LÍNEAS Y BORDES
+   ============================================ */
+@keyframes line-grow {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes border-draw {
+  from {
+    stroke-dashoffset: 1000;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ============================================
+   6. ANIMACIONES DE SCROLL
+   ============================================ */
+@keyframes scroll-indicator {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(8px);
+    opacity: 0.5;
+  }
+}
+
+@keyframes progress-fill {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* ============================================
+   7. CLASES UTILITARIAS DE ANIMACIÓN
+   ============================================ */
+
+/* Animación de entrada con stagger */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-scale.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Stagger delays */
+.stagger-1 { transition-delay: 0.1s; }
+.stagger-2 { transition-delay: 0.2s; }
+.stagger-3 { transition-delay: 0.3s; }
+.stagger-4 { transition-delay: 0.4s; }
+.stagger-5 { transition-delay: 0.5s; }
+.stagger-6 { transition-delay: 0.6s; }
+
+/* ============================================
+   8. EFECTOS HOVER PREMIUM
+   ============================================ */
+
+/* Efecto lift (elevación) */
+.hover-lift {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.25);
+}
+
+/* Efecto glow (brillo) */
+.hover-glow {
+  transition: box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 30px rgba(139, 0, 0, 0.2);
+  border-color: rgba(139, 0, 0, 0.4);
+}
+
+/* Efecto shine (destello) */
+.hover-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.hover-shine::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.6s ease;
+}
+
+.hover-shine:hover::before {
+  left: 100%;
+}
+
+/* Efecto border draw (dibujo de borde) */
+.hover-border-draw {
+  position: relative;
+}
+
+.hover-border-draw::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: currentColor;
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hover-border-draw:hover::after {
+  width: 100%;
+}
+
+/* Efecto magnetic (simulado) */
+.hover-magnetic {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hover-magnetic:hover {
+  transform: scale(1.05);
+}
+
+/* ============================================
+   9. GRADIENTES Y EFECTOS DE FONDO
+   ============================================ */
+
+.gradient-mesh {
+  background: 
+    radial-gradient(at 40% 20%, hsla(0, 70%, 30%, 0.15) 0px, transparent 50%),
+    radial-gradient(at 80% 0%, hsla(210, 70%, 30%, 0.1) 0px, transparent 50%),
+    radial-gradient(at 0% 50%, hsla(340, 70%, 30%, 0.1) 0px, transparent 50%),
+    radial-gradient(at 80% 50%, hsla(280, 70%, 30%, 0.1) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, hsla(20, 70%, 30%, 0.1) 0px, transparent 50%);
+}
+
+.gradient-aurora {
+  background: linear-gradient(
+    -45deg,
+    rgba(139, 0, 0, 0.08),
+    rgba(0, 128, 128, 0.08),
+    rgba(0, 0, 139, 0.08),
+    rgba(139, 0, 0, 0.08)
+  );
+  background-size: 400% 400%;
+  animation: gradient-shift 15s ease infinite;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--color-dmk-accent, #8B0000), var(--color-dmk-accent-soft, #A52A2A));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ============================================
+   10. EFECTOS DE PARTÍCULAS CSS
+   ============================================ */
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--color-dmk-accent, #00F0FF);
+  animation: particle-float 8s ease-in-out infinite;
+}
+
+.particle:nth-child(1) { left: 10%; top: 20%; animation-delay: 0s; animation-duration: 6s; }
+.particle:nth-child(2) { left: 20%; top: 60%; animation-delay: 1s; animation-duration: 8s; }
+.particle:nth-child(3) { left: 30%; top: 30%; animation-delay: 2s; animation-duration: 7s; }
+.particle:nth-child(4) { left: 40%; top: 80%; animation-delay: 0.5s; animation-duration: 9s; }
+.particle:nth-child(5) { left: 50%; top: 10%; animation-delay: 1.5s; animation-duration: 6s; }
+.particle:nth-child(6) { left: 60%; top: 50%; animation-delay: 2.5s; animation-duration: 8s; }
+.particle:nth-child(7) { left: 70%; top: 70%; animation-delay: 0.8s; animation-duration: 7s; }
+.particle:nth-child(8) { left: 80%; top: 25%; animation-delay: 1.2s; animation-duration: 9s; }
+.particle:nth-child(9) { left: 90%; top: 55%; animation-delay: 2.2s; animation-duration: 6s; }
+.particle:nth-child(10) { left: 15%; top: 85%; animation-delay: 3s; animation-duration: 8s; }
+
+/* ============================================
+   11. EFECTOS DE SCROLLBAR PERSONALIZADA
+   ============================================ */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-dmk-bg, #FAFAFA);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-dmk-accent, #8B0000);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-dmk-accent-soft, #A52A2A);
+}
+
+/* ============================================
+   12. EFECTOS DE FOCO Y ACCESIBILIDAD
+   ============================================ */
+
+:focus-visible {
+  outline: 2px solid var(--color-dmk-accent, #8B0000);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+/* ============================================
+   13. EFECTOS DE CARGA
+   ============================================ */
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--color-dmk-card, #F8F9FA) 25%,
+    var(--color-dmk-border, #E5E5E5) 50%,
+    var(--color-dmk-card, #F8F9FA) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s ease-in-out infinite;
+}
+
+/* ============================================
+   14. RESPONSIVE
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .reveal,
+  .reveal-left,
+  .reveal-right,
+  .reveal-scale {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ============================================
+   15. EFECTOS ESPECIALES PARA TEMAS
+   ============================================ */
+
+/* Observatory: Efecto de constelación */
+.constellation-line {
+  stroke: var(--color-dmk-accent, #00F0FF);
+  stroke-width: 1;
+  opacity: 0.2;
+  animation: line-grow 2s ease-out forwards;
+}
+
+/* Swiss: Efecto de grid */
+.swiss-grid-line {
+  stroke: var(--color-dmk-border, #D0D0D0);
+  stroke-width: 1;
+  opacity: 0.3;
+}
+
+/* Atelier: Efecto de papel */
+.paper-texture {
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+}
+
+/* ============================================
+   16. EFECTOS DE TARJETAS PREMIUM
+   ============================================ */
+
+.card-premium {
+  position: relative;
+  background: var(--color-dmk-card, #FFFFFF);
+  border: 1px solid var(--color-dmk-border, #E5E5E5);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-premium::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    transparent 40%,
+    rgba(139, 0, 0, 0.1) 50%,
+    transparent 60%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.card-premium:hover::before {
+  opacity: 1;
+}
+
+.card-premium:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    0 20px 40px -12px rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(139, 0, 0, 0.1);
+}
+
+/* ============================================
+   17. EFECTOS DE BOTONES
+   ============================================ */
+
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-dmk-accent, #8B0000);
+  color: white;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.btn-primary:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px -5px rgba(139, 0, 0, 0.4);
+}
+
+/* ============================================
+   18. EFECTOS DE TIPOGRAFÍA
+   ============================================ */
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--color-dmk-accent, #8B0000), var(--color-dmk-accent-soft, #A52A2A));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-shadow-soft {
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.text-glow {
+  text-shadow: 0 0 20px rgba(139, 0, 0, 0.3);
+}
+
+/* ============================================
+   19. EFECTOS DE IMÁGENES
+   ============================================ */
+
+.img-hover-zoom {
+  overflow: hidden;
+}
+
+.img-hover-zoom img {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.img-hover-zoom:hover img {
+  transform: scale(1.08);
+}
+
+/* ============================================
+   20. EFECTOS DE LÍNEAS DIVISORIAS
+   ============================================ */
+
+.divider-animated {
+  position: relative;
+  height: 1px;
+  background: var(--color-dmk-border, #E5E5E5);
+  overflow: hidden;
+}
+
+.divider-animated::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-dmk-accent, #8B0000),
+    transparent
+  );
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+/* ============================================
+   21. EFECTOS DE BADGES Y ETIQUETAS
+   ============================================ */
+
+.badge-pulse {
+  position: relative;
+}
+
+.badge-pulse::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: var(--color-dmk-accent, #8B0000);
+  opacity: 0.3;
+  animation: pulse-glow 2s ease-in-out infinite;
+  z-index: -1;
+}
+
+/* ============================================
+   22. EFECTOS DE NAVEGACIÓN
+   ============================================ */
+
+.nav-item {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-item::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color-dmk-accent, #8B0000);
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-item:hover::after,
+.nav-item.active::after {
+  width: 100%;
+}
+
+/* ============================================
+   23. EFECTOS DE TABLAS
+   ============================================ */
+
+.table-row-hover {
+  transition: background-color 0.3s ease;
+}
+
+.table-row-hover:hover {
+  background-color: rgba(139, 0, 0, 0.03);
+}
+
+/* ============================================
+   24. EFECTOS DE CITAS Y BLOCKQUOTES
+   ============================================ */
+
+.quote-accent {
+  position: relative;
+  padding-left: 1.5rem;
+  border-left: 3px solid var(--color-dmk-accent, #8B0000);
+  font-style: italic;
+}
+
+.quote-accent::before {
+  content: '"';
+  position: absolute;
+  top: -0.5rem;
+  left: -0.5rem;
+  font-size: 3rem;
+  color: var(--color-dmk-accent, #8B0000);
+  opacity: 0.3;
+  font-family: Georgia, serif;
+  line-height: 1;
+}
+
+/* ============================================
+   25. EFECTOS DE TIMELINE
+   ============================================ */
+
+.timeline-dot {
+  position: relative;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--color-dmk-accent, #8B0000);
+  border: 3px solid var(--color-dmk-bg, #FAFAFA);
+  box-shadow: 0 0 0 2px var(--color-dmk-accent, #8B0000);
+  transition: all 0.3s ease;
+}
+
+.timeline-dot:hover {
+  transform: scale(1.3);
+  box-shadow: 0 0 0 3px var(--color-dmk-accent, #8B0000),
+              0 0 20px rgba(139, 0, 0, 0.3);
+}
+
+/* ============================================
+   26. EFECTOS DE FOOTER
+   ============================================ */
+
+.footer-link {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.footer-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.footer-link:hover::after {
+  width: 100%;
+}
+
+/* ============================================
+   27. EFECTOS DE LOADING STATES
+   ============================================ */
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner {
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--color-dmk-border, #E5E5E5);
+  border-top-color: var(--color-dmk-accent, #8B0000);
+  border-radius: 50%;
+  animation: spinner 0.8s linear infinite;
+}
+
+/* ============================================
+   28. EFECTOS DE PARALLAX
+   ============================================ */
+
+.parallax-slow {
+  will-change: transform;
+}
+
+.parallax-fast {
+  will-change: transform;
+}
+
+/* ============================================
+   29. EFECTOS DE GLASSMORPHISM
+   ============================================ */
+
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.glass-dark {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ============================================
+   30. EFECTOS DE NOTIFICATION / TOAST
+   ============================================ */
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutRight {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+.toast-enter {
+  animation: slideInRight 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.toast-exit {
+  animation: slideOutRight 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ============================================
+   DOUBLE-BEZEL (Doppelrand) - Premium card nesting
+   ============================================ */
+
+.double-bezel {
+  position: relative;
+  background: var(--color-dmk-bg, #F5F5F5);
+  padding: 0.5rem;
+  border-radius: 1rem;
+  border: 1px solid var(--color-dmk-border, #E5E5E5);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.5), 
+              0 1px 2px color-mix(in srgb, var(--color-dmk-text, #1A1A1A) 4%, transparent);
+}
+
+.double-bezel-inner {
+  background: var(--color-dmk-card, #FFFFFF);
+  border-radius: 0.75rem;
+  box-shadow: inset 0 1px 1px rgba(255,255,255,0.15);
+  overflow: hidden;
+}
+
+/* ============================================
+   PREMIUM HOVER EFFECTS
+   ============================================ */
+
+.hover-magnetic {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hover-magnetic:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 20px 40px -12px color-mix(in srgb, var(--color-dmk-text, #1A1A1A) 12%, transparent);
+}
+
+.hover-lift-premium {
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hover-lift-premium:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 48px -12px color-mix(in srgb, var(--color-dmk-text, #1A1A1A) 10%, transparent);
+}
+
+/* ============================================
+   TEXT EFFECTS PREMIUM
+   ============================================ */
+
+.text-shadow-premium {
+  text-shadow: 0 1px 2px color-mix(in srgb, var(--color-dmk-text, #1A1A1A) 8%, transparent);
+}
+
+/* ============================================
+   GRADIENT MESH PREMIUM
+   ============================================ */
+
+.gradient-mesh-premium {
+  background: 
+    radial-gradient(at 40% 20%, color-mix(in srgb, var(--color-dmk-accent, #8B0000) 15%, transparent) 0px, transparent 50%),
+    radial-gradient(at 80% 0%, color-mix(in srgb, var(--color-dmk-accent, #8B0000) 10%, transparent) 0px, transparent 50%),
+    radial-gradient(at 0% 50%, color-mix(in srgb, var(--color-dmk-accent, #8B0000) 10%, transparent) 0px, transparent 50%);
+}

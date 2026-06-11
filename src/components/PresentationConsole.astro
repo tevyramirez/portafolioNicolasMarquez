@@ -1,0 +1,240 @@
+---
+import { THEMES } from '../data/themes';
+
+const DEVELOPER_PHONE = "569XXXXXXXX";
+---
+
+<div id="client-config-panel" class="fixed bottom-4 right-4 z-50 w-[92vw] max-w-md rounded-2xl shadow-2xl border backdrop-blur-md transition-all" style="background-color: var(--color-surface); border-color: var(--color-border); color: var(--color-text); font-family: var(--font-sans);">
+
+  <div class="flex items-center justify-between p-4 border-b" style="border-color: var(--color-border);">
+    <div>
+      <h3 class="font-bold text-sm">Consola de Estilos</h3>
+      <p class="text-xs opacity-70">Calibración visual</p>
+    </div>
+    <button id="minimize-panel-btn" class="p-1 rounded hover:opacity-70 transition-colors" title="Minimizar">
+      <svg class="w-4 h-4 transition-transform duration-300" id="arrow-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+      </svg>
+    </button>
+  </div>
+
+  <div id="panel-content-body" class="p-4 space-y-4 max-h-[75vh] overflow-y-auto">
+
+    <!-- SECCIÓN 1: Selector de 11 Temas -->
+    <div class="space-y-2">
+      <div class="flex justify-between items-center">
+        <label class="text-xs font-bold uppercase tracking-wider opacity-80">Estilos Visuales</label>
+        <span id="current-theme-badge" class="text-[10px] font-mono px-2 py-0.5 rounded-full border" style="border-color: var(--color-border);">
+          Académico Borgoña
+        </span>
+      </div>
+
+      <div class="flex gap-2 overflow-x-auto pb-2 -mx-1 px-1 scrollbar-thin">
+        {THEMES.map((theme) => (
+          <button
+            class="theme-card-btn flex-shrink-0 w-24 p-2 rounded-xl border-2 bg-transparent transition-all text-left space-y-1 hover:scale-105"
+            style="border-color: var(--color-border);"
+            data-theme-id={theme.id}
+            data-theme-name={theme.name}
+            data-default-color={theme.primaryColor}
+          >
+            <div class="w-full h-12 rounded-lg border overflow-hidden relative flex flex-col justify-between p-1.5" style="background-color: var(--color-bg); border-color: var(--color-border);">
+              <div class="flex gap-1 items-center">
+                <span class="w-2 h-2 rounded-full" style={`background-color: ${theme.primaryColor};`}></span>
+                <span class="flex-1 h-0.5 rounded opacity-30" style="background-color: currentColor;"></span>
+              </div>
+              <div class="space-y-0.5">
+                <div class="w-2/3 h-0.5 rounded opacity-30" style="background-color: currentColor;"></div>
+                <div class="w-full h-0.5 rounded opacity-20" style="background-color: currentColor;"></div>
+              </div>
+            </div>
+            <div>
+              <span class="block font-bold text-[10px] truncate">#{theme.number}</span>
+              <span class="block text-[9px] opacity-60 truncate">{theme.name}</span>
+            </div>
+          </button>
+        ))}
+      </div>
+    </div>
+
+    <!-- SECCIÓN 2: Color Picker -->
+    <div class="p-3 rounded-xl border space-y-2" style="border-color: var(--color-border);">
+      <div class="flex items-center justify-between">
+        <div>
+          <label class="text-xs font-bold uppercase tracking-wider opacity-80">Color de Énfasis</label>
+          <p class="text-[10px] opacity-60">Modifica el color del tema actual</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <span id="color-hex-display" class="font-mono text-[10px] px-2 py-1 rounded border font-bold" style="background-color: var(--color-bg); border-color: var(--color-border);">#8B0000</span>
+          <div class="relative w-8 h-8 rounded-lg overflow-hidden border-2" style="border-color: var(--color-border);">
+            <input type="color" id="interactive-color-picker" class="absolute inset-0 w-full h-full scale-150 cursor-pointer bg-transparent border-0 p-0" value="#8b0000" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECCIÓN 3: Antes/Después -->
+    <div class="flex items-center justify-between p-3 rounded-xl border" style="border-color: var(--color-border);">
+      <div>
+        <span class="font-bold text-xs uppercase tracking-wider block">Antes / Después</span>
+        <span class="text-[10px] opacity-60 block">Compara con el diseño original</span>
+      </div>
+      <button id="btn-before-after" class="px-3 py-1.5 text-xs font-bold rounded-lg transition-colors border" style="background-color: var(--color-bg); border-color: var(--color-border);">
+        Ver Original
+      </button>
+    </div>
+
+    <!-- SECCIÓN 4: WhatsApp -->
+    <div class="pt-2">
+      <a
+        id="whatsapp-share-btn"
+        href="#"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex items-center justify-center gap-2 w-full py-2.5 text-white font-bold rounded-xl transition-all shadow-md text-xs"
+        style="background-color: #059669;"
+      >
+        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+          <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.262 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.665.988 3.311 1.622 5.36 1.623 5.425.002 9.837-4.41 9.84-9.84.002-2.63-1.023-5.101-2.882-6.963C17.106 2.112 14.633 1.086 12 1.086 6.582 1.086 2.17 5.49 2.167 10.91c0 2.126.568 4.197 1.65 6.012l-.994 3.635 3.734-.979z"/>
+        </svg>
+        Enviar Estilo por WhatsApp
+      </a>
+    </div>
+
+  </div>
+</div>
+
+<script define:vars={{ THEMES, DEVELOPER_PHONE }}>
+  document.addEventListener("DOMContentLoaded", () => {
+    const panel = document.getElementById("client-config-panel");
+    const panelBody = document.getElementById("panel-content-body");
+    const minimizeBtn = document.getElementById("minimize-panel-btn");
+    const arrowIcon = document.getElementById("arrow-icon");
+    const themeCards = document.querySelectorAll(".theme-card-btn");
+    const colorPicker = document.getElementById("interactive-color-picker");
+    const hexDisplay = document.getElementById("color-hex-display");
+    const currentThemeBadge = document.getElementById("current-theme-badge");
+    const beforeAfterBtn = document.getElementById("btn-before-after");
+    const whatsappBtn = document.getElementById("whatsapp-share-btn");
+
+    let activeThemeId = document.documentElement.getAttribute("data-theme-id") || "style-01";
+    let activeColor = localStorage.getItem("portfolio-theme-color") || "#8b0000";
+    let activeThemeName = "Académico Borgoña";
+
+    let backupThemeId = activeThemeId;
+    let backupColor = activeColor;
+    let isShowingBefore = false;
+
+    if (colorPicker) colorPicker.value = activeColor;
+    if (hexDisplay) hexDisplay.textContent = activeColor.toUpperCase();
+
+    THEMES.forEach(t => {
+      if (t.id === activeThemeId) {
+        activeThemeName = t.name;
+        if (currentThemeBadge) currentThemeBadge.textContent = `#${t.number} ${t.name}`;
+      }
+    });
+
+    highlightActiveThemeCard();
+    buildWhatsAppMessage();
+
+    if (minimizeBtn && panelBody && arrowIcon) {
+      minimizeBtn.addEventListener("click", () => {
+        panelBody.classList.toggle("hidden");
+        arrowIcon.classList.toggle("rotate-180");
+      });
+    }
+
+    themeCards.forEach(card => {
+      card.addEventListener("click", (e) => {
+        if (isShowingBefore) revertBeforeState();
+        const btn = e.currentTarget;
+        const themeId = btn.dataset.themeId;
+        const defaultColor = btn.dataset.defaultColor;
+        const themeName = btn.dataset.themeName;
+
+        activeThemeId = themeId;
+        activeThemeName = themeName;
+        activeColor = defaultColor;
+
+        document.documentElement.setAttribute("data-theme-id", themeId);
+        document.documentElement.style.setProperty("--color-accent-base", defaultColor);
+
+        localStorage.setItem("portfolio-theme-id", themeId);
+        localStorage.setItem("portfolio-theme-color", defaultColor);
+
+        if (colorPicker) colorPicker.value = defaultColor;
+        if (hexDisplay) hexDisplay.textContent = defaultColor.toUpperCase();
+
+        if (currentThemeBadge) currentThemeBadge.textContent = themeName;
+        highlightActiveThemeCard();
+        buildWhatsAppMessage();
+      });
+    });
+
+    if (colorPicker) {
+      colorPicker.addEventListener("input", (e) => {
+        if (isShowingBefore) revertBeforeState();
+        const selectedValue = e.target.value;
+        if (hexDisplay) hexDisplay.textContent = selectedValue.toUpperCase();
+        document.documentElement.style.setProperty("--color-accent-base", selectedValue);
+        activeColor = selectedValue;
+        localStorage.setItem("portfolio-theme-color", selectedValue);
+        buildWhatsAppMessage();
+      });
+    }
+
+    if (beforeAfterBtn) {
+      beforeAfterBtn.addEventListener("click", () => {
+        if (!isShowingBefore) {
+          backupThemeId = activeThemeId;
+          backupColor = activeColor;
+          document.documentElement.setAttribute("data-theme-id", "style-01");
+          document.documentElement.style.setProperty("--color-accent-base", "#8b0000");
+          if (colorPicker) colorPicker.value = "#8b0000";
+          if (hexDisplay) hexDisplay.textContent = "#8B0000";
+          beforeAfterBtn.textContent = "Ver Cambios";
+          isShowingBefore = true;
+        } else {
+          revertBeforeState();
+        }
+      });
+    }
+
+    function revertBeforeState() {
+      document.documentElement.setAttribute("data-theme-id", backupThemeId);
+      document.documentElement.style.setProperty("--color-accent-base", backupColor);
+      if (colorPicker) colorPicker.value = backupColor;
+      if (hexDisplay) hexDisplay.textContent = backupColor.toUpperCase();
+      if (beforeAfterBtn) beforeAfterBtn.textContent = "Ver Original";
+      isShowingBefore = false;
+    }
+
+    function highlightActiveThemeCard() {
+      themeCards.forEach(card => {
+        if (card.dataset.themeId === activeThemeId) {
+          card.style.borderColor = "var(--color-accent)";
+          card.style.transform = "scale(1.05)";
+        } else {
+          card.style.borderColor = "var(--color-border)";
+          card.style.transform = "scale(1)";
+        }
+      });
+    }
+
+    function buildWhatsAppMessage() {
+      const messageBody = `Hola, he revisado las maquetas del portafolio y esta es mi selección:
+
+• Estilo: ${activeThemeName}
+• ID: ${activeThemeId}
+• Color hexadecimal: ${activeColor.toUpperCase()}
+
+Por favor aplica esta configuración.`;
+
+      const encodedMessage = encodeURIComponent(messageBody);
+      if (whatsappBtn) {
+        whatsappBtn.href = `https://wa.me/${DEVELOPER_PHONE}?text=${encodedMessage}`;
+      }
+    }
+  });
+</script>

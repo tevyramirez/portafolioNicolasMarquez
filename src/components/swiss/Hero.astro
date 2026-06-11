@@ -1,35 +1,31 @@
 ---
-// The Swiss Grid Hero — Brutalista, Data-Forward, Terminal Bloomberg
+import { cvData } from '../../data/cvData';
 ---
 
 <section class="relative min-h-[85vh] flex flex-col justify-center border-b border-dmk-muted/20">
-  
   <div class="relative z-10 px-4 md:px-8 max-w-6xl mx-auto w-full space-y-12">
-    
-    <!-- Header: Nombre + datos en grid de tabla -->
+
     <div class="space-y-6">
       <div class="font-mono text-[10px] text-dmk-muted uppercase tracking-wider">
-        DATAMETRIK_CL / PORTFOLIO / v2.4
+        DR_MARQUEZ / PORTFOLIO / v2.4
       </div>
-      
       <h1 class="font-mono text-5xl sm:text-6xl md:text-7xl font-bold text-dmk-text uppercase tracking-tight leading-[0.9]">
         DR. N.<br/>MÁRQUEZ
       </h1>
     </div>
 
-    <!-- Grid de datos tipo terminal -->
     <div class="grid grid-cols-2 sm:grid-cols-4 gap-0 border border-dmk-muted/20">
       <div class="border-r border-b border-dmk-muted/20 p-4">
         <div class="font-mono text-[10px] text-dmk-muted uppercase">Publicaciones</div>
-        <div class="font-mono text-2xl font-bold text-dmk-accent mt-1">47</div>
+        <div class="font-mono text-2xl font-bold text-dmk-accent mt-1">{cvData.publications.length}</div>
       </div>
       <div class="border-r border-b border-dmk-muted/20 p-4">
-        <div class="font-mono text-[10px] text-dmk-muted uppercase">H-Index</div>
-        <div class="font-mono text-2xl font-bold text-dmk-accent mt-1">23</div>
+        <div class="font-mono text-[10px] text-dmk-muted uppercase">Working Papers</div>
+        <div class="font-mono text-2xl font-bold text-dmk-accent mt-1">{cvData.workingPapers.length}</div>
       </div>
       <div class="border-r border-b border-dmk-muted/20 p-4">
-        <div class="font-mono text-[10px] text-dmk-muted uppercase">Citas</div>
-        <div class="font-mono text-2xl font-bold text-dmk-accent mt-1">1.2K</div>
+        <div class="font-mono text-[10px] text-dmk-muted uppercase">En Revisión</div>
+        <div class="font-mono text-2xl font-bold text-dmk-accent mt-1">{cvData.underReview.length}</div>
       </div>
       <div class="border-b border-dmk-muted/20 p-4">
         <div class="font-mono text-[10px] text-dmk-muted uppercase">Años Exp.</div>
@@ -37,18 +33,15 @@
       </div>
     </div>
 
-    <!-- Navigation como tabla de datos -->
     <div class="space-y-2">
       <div class="font-mono text-[10px] text-dmk-muted uppercase tracking-wider">Navegación</div>
       <div class="flex flex-wrap gap-4">
-        {['Servicios', 'Investigación', 'Datos', 'Contacto'].map((item) => (
-          <a href={`#${item.toLowerCase() === 'servicios' ? 'consultoria' : item.toLowerCase() === 'investigación' ? 'publicaciones' : item.toLowerCase() === 'datos' ? 'analisis-datos' : 'contacto'}`} 
-             class="font-mono text-xs text-dmk-text hover:text-dmk-accent transition-colors border border-dmk-muted/20 px-3 py-1 hover:border-dmk-accent">
+        {['Academico', 'Publicaciones', 'Docencia', 'Experiencia', 'Contacto'].map((item) => (
+          <a href={`#${item.toLowerCase()}`} class="font-mono text-xs text-dmk-text hover:text-dmk-accent transition-colors border border-dmk-muted/20 px-3 py-1 hover:border-dmk-accent">
             {item}
           </a>
         ))}
       </div>
     </div>
-
   </div>
 </section>

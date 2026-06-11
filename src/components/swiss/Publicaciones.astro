@@ -1,0 +1,39 @@
+---
+import { cvData } from '../../data/cvData';
+---
+
+<section id="publicaciones" class="py-16 md:py-24 border-b border-dmk-muted/20">
+  <div class="max-w-6xl mx-auto px-4 md:px-8">
+    <div class="mb-12">
+      <div class="font-mono text-[10px] text-dmk-muted uppercase tracking-wider mb-2">03 / PUBLICATIONS</div>
+      <h2 class="font-mono text-3xl md:text-4xl font-bold text-dmk-text uppercase tracking-tight">PUBLICACIONES</h2>
+    </div>
+
+    <div class="flex gap-2 mb-6">
+      {['ALL', 'INDEXED', 'BOOKS', 'WORKING', 'REVIEW'].map((f) => (
+        <button class="font-mono text-[10px] text-dmk-text uppercase border border-dmk-muted/20 px-3 py-1 hover:border-dmk-accent hover:text-dmk-accent transition-colors">
+          {f}
+        </button>
+      ))}
+    </div>
+
+    <div class="border border-dmk-muted/20 overflow-hidden">
+      <div class="grid grid-cols-12 border-b border-dmk-muted/20 bg-dmk-card/50">
+        <div class="col-span-1 p-3 font-mono text-[10px] text-dmk-muted uppercase">YEAR</div>
+        <div class="col-span-5 p-3 font-mono text-[10px] text-dmk-muted uppercase">TITLE</div>
+        <div class="col-span-3 p-3 font-mono text-[10px] text-dmk-muted uppercase">AUTHORS</div>
+        <div class="col-span-2 p-3 font-mono text-[10px] text-dmk-muted uppercase">JOURNAL</div>
+        <div class="col-span-1 p-3 font-mono text-[10px] text-dmk-muted uppercase">DOI</div>
+      </div>
+      {cvData.publications.slice(0, 15).map((pub) => (
+        <div class="grid grid-cols-12 border-b border-dmk-muted/10 hover:bg-dmk-card/20 transition-colors">
+          <div class="col-span-1 p-3 font-mono text-xs text-dmk-accent">{pub.year}</div>
+          <div class="col-span-5 p-3 font-mono text-xs text-dmk-text">{pub.title}</div>
+          <div class="col-span-3 p-3 font-mono text-xs text-dmk-muted">{pub.authors.split(',')[0]}</div>
+          <div class="col-span-2 p-3 font-mono text-[10px] text-dmk-muted">{pub.journal}</div>
+          <div class="col-span-1 p-3 font-mono text-[10px] text-dmk-accent">{pub.doi ? 'LINK' : '—'}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

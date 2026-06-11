@@ -1,60 +1,47 @@
 ---
-// The Atelier Hero — Editorial, Revista, Retrato, Lujo
+import { cvData } from '../../data/cvData';
 ---
 
 <section class="relative min-h-[90vh] flex items-end pb-16 md:pb-24">
-  
-  <!-- Layout asimétrico: Retrato grande (60%) + Texto editorial (40%) -->
+
   <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-0 w-full max-w-7xl mx-auto px-6 md:px-12">
-    
-    <!-- Lado izquierdo: Retrato + crédito (7 cols) -->
+
     <div class="lg:col-span-7 relative">
-      <div class="relative aspect-[3/4] max-w-lg bg-dmk-card border border-dmk-muted/20">
-        <!-- Placeholder de retrato -->
+      <div class="relative aspect-[3/4] max-w-lg bg-dmk-card border card-3d border-dmk-muted/20">
         <div class="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-dmk-muted/10 to-dmk-card">
-          <span class="font-serif text-6xl text-dmk-muted/20 italic">N</span>
+          <span class="font-serif text-9xl text-dmk-muted/20 italic">N</span>
         </div>
-        <!-- Borde sutil borgoña -->
         <div class="absolute bottom-0 left-0 w-1/2 h-[2px] bg-dmk-accent"></div>
       </div>
-      
       <div class="mt-4 font-serif text-xs text-dmk-muted italic">
-        Dr. Nicolás Márquez, Santiago, 2026
+        {cvData.fullName}, Talca, 2026
       </div>
     </div>
 
-    <!-- Lado derecho: Texto editorial (5 cols) -->
     <div class="lg:col-span-5 flex flex-col justify-end lg:pl-8 space-y-8">
-      
       <div class="space-y-4">
         <div class="font-serif text-sm text-dmk-accent italic tracking-wide">
-          Doctor en Management · Universidad Adolfo Ibáñez
+          {cvData.degree} · {cvData.institution}
         </div>
-        
         <h1 class="font-serif text-4xl sm:text-5xl md:text-6xl font-light text-dmk-text leading-[1.1]">
-          Rigor <em class="font-semibold">Científico</em>,<br/>
-          <span class="text-dmk-accent">Pragmática</span> Corporativa
+          {cvData.fullName.split(' ').slice(-2).join(' ')}
         </h1>
       </div>
 
       <div class="h-px w-16 bg-dmk-accent"></div>
 
       <p class="font-sans text-sm text-dmk-muted leading-relaxed max-w-sm">
-        Posicionamos la toma de decisiones empresariales en un nivel superior. Diseñamos metodologías y algoritmos a la medida para directores de empresas en Chile y Latinoamérica.
+        {cvData.bio}
       </p>
 
       <div class="flex items-center gap-6 pt-4">
-        <a href="#consultoria" class="font-serif text-sm text-dmk-accent italic hover:underline underline-offset-4">
-          Explorar servicios →
+        <a href="#publicaciones" class="font-serif text-sm text-dmk-accent italic hover:underline underline-offset-4">
+          Publicaciones →
         </a>
-        <a href="#publicaciones" class="font-serif text-sm text-dmk-muted italic hover:text-dmk-accent transition-colors">
-          Hub académico →
+        <a href="#academico" class="font-serif text-sm text-dmk-muted italic hover:text-dmk-accent transition-colors">
+          Formación →
         </a>
       </div>
     </div>
-
   </div>
-
-  <!-- Línea de sección decorativa -->
-  <div class="absolute bottom-0 left-0 right-0 h-px bg-dmk-muted/10"></div>
 </section>

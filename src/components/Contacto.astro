@@ -1,0 +1,78 @@
+---
+import { cvData } from '../data/cvData';
+---
+
+<section id="contacto" class="border-b border-dmk-border/30">
+  <div class="max-w-5xl mx-auto px-8 md:px-12 py-20 md:py-28">
+    <div class="mb-12">
+      <div class="font-sans text-[10px] uppercase tracking-[0.2em] font-semibold text-dmk-accent/80 mb-4">
+        Información de Contacto
+      </div>
+      <h2 class="font-serif text-3xl md:text-4xl font-bold text-dmk-text tracking-tight">Contacto</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+
+      <div class="space-y-8">
+        <div class="space-y-2">
+          <div class="font-sans text-xs uppercase tracking-[0.15em] font-semibold text-dmk-accent">Email</div>
+          <a href={`mailto:${cvData.email}`} class="font-sans text-base text-dmk-text hover:text-dmk-accent transition-colors duration-500">{cvData.email}</a>
+        </div>
+        <div class="space-y-2">
+          <div class="font-sans text-xs uppercase tracking-[0.15em] font-semibold text-dmk-accent">Teléfono</div>
+          <p class="font-sans text-base text-dmk-text">{cvData.phone}</p>
+        </div>
+        <div class="space-y-2">
+          <div class="font-sans text-xs uppercase tracking-[0.15em] font-semibold text-dmk-accent">Dirección</div>
+          <p class="font-sans text-base text-dmk-text">{cvData.address}</p>
+        </div>
+        <div class="space-y-2">
+          <div class="font-sans text-xs uppercase tracking-[0.15em] font-semibold text-dmk-accent">Afiliación Principal</div>
+          <p class="font-sans text-base text-dmk-text">{cvData.workInstitution}</p>
+          <p class="font-sans text-sm text-dmk-muted">{cvData.position}</p>
+        </div>
+      </div>
+
+      <div>
+        <div class="font-sans text-xs uppercase tracking-[0.15em] font-semibold mb-6 text-dmk-accent">Referencias</div>
+        <div class="space-y-4">
+          {cvData.references.map((ref) => (
+            <div class="double-bezel hover-lift-premium group">
+              <div class="double-bezel-inner p-5">
+                <p class="font-serif text-base font-semibold text-dmk-text group-hover:text-dmk-accent transition-colors duration-500">{ref.name}</p>
+                <p class="font-sans text-sm text-dmk-muted mt-1">{ref.position}</p>
+                <p class="font-sans text-sm text-dmk-muted">{ref.institution}</p>
+                <p class="font-sans text-sm mt-2 text-dmk-accent">{ref.email}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+    </div>
+
+    <div class="mt-16 pt-10 border-t border-dmk-border/30">
+      <div class="font-sans text-xs uppercase tracking-[0.15em] font-semibold mb-6 text-dmk-accent">Habilidades Técnicas</div>
+      <div class="space-y-4">
+        <div class="flex flex-wrap items-baseline gap-2">
+          <span class="font-sans text-sm font-semibold text-dmk-muted">Análisis de datos: </span>
+          <span class="font-sans text-base text-dmk-text">{cvData.skills.analysis.join(' · ')}</span>
+        </div>
+        <div class="flex flex-wrap items-baseline gap-2">
+          <span class="font-sans text-sm font-semibold text-dmk-muted">Modelado de procesos: </span>
+          <span class="font-sans text-base text-dmk-text">{cvData.skills.process.join(' · ')}</span>
+        </div>
+        <div class="flex flex-wrap items-baseline gap-2">
+          <span class="font-sans text-sm font-semibold text-dmk-muted">Idiomas: </span>
+          <span class="font-sans text-base text-dmk-text">{cvData.skills.languages.join(' · ')}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-16 pt-8 border-t border-dmk-border/30 text-center">
+      <p class="font-sans text-sm text-dmk-muted">
+        © {new Date().getFullYear()} {cvData.fullName}. {cvData.degree}, {cvData.institution}.
+      </p>
+    </div>
+  </div>
+</section>

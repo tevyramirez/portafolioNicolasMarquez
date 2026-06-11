@@ -1,0 +1,21 @@
+---
+import { cvData } from '../../data/cvData';
+---
+
+<section id="contacto" class="py-20 md:py-32">
+  <div class="max-w-2xl mx-auto px-6 md:px-12 text-center">
+    <div class="space-y-8">
+      <div class="font-mono text-xs text-dmk-accent uppercase tracking-widest">06 / Contact</div>
+      <h2 class="font-mono text-4xl md:text-5xl font-bold text-dmk-text uppercase tracking-tight">INICIAR</h2>
+      <p class="font-mono text-sm text-dmk-muted leading-relaxed">
+        Para consultas académicas, de investigación o de consultoría profesional.
+      </p>
+    </div>
+
+    <div class="mt-16 space-y-4 font-mono text-xs text-dmk-muted">
+      <p>{cvData.email}</p>
+      <p>{cvData.phone}</p>
+      <p>Talca, Chile</p>
+    </div>
+  </div>
+</section>

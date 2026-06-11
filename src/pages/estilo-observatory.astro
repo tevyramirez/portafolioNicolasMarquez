@@ -2,19 +2,18 @@
 import '../styles/themes/observatory.css';
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/observatory/Hero.astro';
-import Consulting from '../components/observatory/Consulting.astro';
-import AcademicHub from '../components/observatory/AcademicHub.astro';
-import DataAnalytics from '../components/observatory/DataAnalytics.astro';
-import Contact from '../components/observatory/Contact.astro';
+import Academico from '../components/observatory/Academico.astro';
+import Publicaciones from '../components/observatory/Publicaciones.astro';
+import Docencia from '../components/observatory/Docencia.astro';
+import Experiencia from '../components/observatory/Experiencia.astro';
+import Contacto from '../components/observatory/Contacto.astro';
 ---
 
-<Layout
-  title="The Observatory | Dr. Nicolás Márquez — Experimental Data Science"
-  description="Estilo experimental e inmersivo. Partículas 3D, tarjetas con flip, timeline horizontal. MIT Media Lab meets DeepMind."
->
+<Layout title="The Observatory | Portafolio Dr. Nicolás Márquez">
   <Hero />
-  <Consulting />
-  <AcademicHub />
-  <DataAnalytics />
-  <Contact />
+  <Academico />
+  <Publicaciones />
+  <Docencia />
+  <Experiencia />
+  <Contacto />
 </Layout>

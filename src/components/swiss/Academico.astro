@@ -1,0 +1,32 @@
+---
+import { cvData } from '../../data/cvData';
+---
+
+<section id="academico" class="py-16 md:py-24 border-b border-dmk-muted/20">
+  <div class="max-w-6xl mx-auto px-4 md:px-8">
+    <div class="mb-12">
+      <div class="font-mono text-[10px] text-dmk-muted uppercase tracking-wider mb-2">02 / EDUCATION</div>
+      <h2 class="font-mono text-3xl md:text-4xl font-bold text-dmk-text uppercase tracking-tight">FORMACIÓN</h2>
+    </div>
+
+    <div class="border border-dmk-muted/20">
+      <div class="grid grid-cols-12 border-b border-dmk-muted/20 bg-dmk-card/50">
+        <div class="col-span-2 p-3 font-mono text-[10px] text-dmk-muted uppercase">PERIOD</div>
+        <div class="col-span-6 p-3 font-mono text-[10px] text-dmk-muted uppercase">DEGREE / INSTITUTION</div>
+        <div class="col-span-4 p-3 font-mono text-[10px] text-dmk-muted uppercase">DETAILS</div>
+      </div>
+      {cvData.education.map((edu) => (
+        <div class="grid grid-cols-12 border-b border-dmk-muted/10 hover:bg-dmk-card/20">
+          <div class="col-span-2 p-3 font-mono text-xs text-dmk-accent">{edu.period}</div>
+          <div class="col-span-6 p-3">
+            <div class="font-mono text-sm font-bold text-dmk-text">{edu.degree}</div>
+            <div class="font-mono text-xs text-dmk-muted mt-1">{edu.institution}</div>
+          </div>
+          <div class="col-span-4 p-3 font-mono text-xs text-dmk-muted">
+            {edu.details[0]}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,65 +1,17 @@
 ---
+import '../styles/global.css';
+import '../styles/animations.css';
+import '../styles/3d-minimal.css';
+
 interface Props {
   title?: string;
   description?: string;
-  image?: string;
 }
 
 const {
-  title = "Dr. Nicolás Márquez | PhD Management · Consultoría de Dirección & People Analytics",
-  description = "Portafolio del Dr. Nicolás Márquez, Doctor en Management (UAI). Consultoría de dirección, People Analytics y modelado predictivo en Chile y Latinoamérica.",
-  image = "/favicon.svg"
+  title = "Dr. Nicolás Márquez Álvarez | PhD in Management · Portafolio Académico",
+  description = "Portafolio académico del Dr. Nicolás Matías Márquez Álvarez, PhD in Management por la Universidad Adolfo Ibáñez."
 } = Astro.props;
-
-// Schema JSON-LD para SEO y buscadores de IA (AEO)
-const schema = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Person",
-      "@id": "https://datametrik.cl/#academic",
-      "name": "Dr. Nicolás Márquez",
-      "jobTitle": "Doctor en Management & Consultor de Dirección",
-      "worksFor": {
-        "@type": "Organization",
-        "name": "Universidad Adolfo Ibáñez",
-        "sameAs": "https://www.uai.cl"
-      },
-      "alumniOf": {
-        "@type": "EducationalOrganization",
-        "name": "Universidad Adolfo Ibáñez"
-      },
-      "sameAs": [
-        "https://orcid.org/0000-0000-0000-0000",
-        "https://scholar.google.cl/citations?user=sample",
-        "https://www.linkedin.com/in/nicolasmarquez"
-      ]
-    },
-    {
-      "@type": "LocalBusiness",
-      "@id": "https://datametrik.cl/#business",
-      "name": "Dr. Nicolás Márquez · Consultoría de Dirección",
-      "image": "https://datametrik.cl/favicon.svg",
-      "priceRange": "$$$$",
-      "telephone": "+56222448800",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Av. Apoquindo 4800, Las Condes",
-        "addressLocality": "Santiago",
-        "addressRegion": "Metropolitana",
-        "postalCode": "7550000",
-        "addressCountry": "CL"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": -33.4116,
-        "longitude": -70.5744
-      },
-      "url": "https://datametrik.cl",
-      "areaServed": ["Chile", "Colombia", "México", "Perú"]
-    }
-  ]
-};
 ---
 
 <!DOCTYPE html>
@@ -69,221 +21,53 @@ const schema = {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    
-    <!-- Metatags SEO -->
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="robots" content="index, follow" />
-    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-    <meta name="bingbot" content="index, follow" />
-    
-    <!-- Geolocalización y Localización (es-CL) -->
-    <meta name="geo.region" content="CL-RM" />
-    <meta name="geo.placename" content="Santiago, Las Condes" />
-    <meta name="geo.position" content="-33.4116;-70.5744" />
-    <meta name="ICBM" content="-33.4116, -70.5744" />
-    <link rel="canonical" href="https://datametrik.cl" />
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://datametrik.cl" />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content={image} />
-    <meta property="og:locale" content="es_CL" />
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://datametrik.cl" />
-    <meta property="twitter:title" content={title} />
-    <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content={image} />
-
-    <!-- Schema JSON-LD para AEO / Motores de Búsqueda de IA -->
-    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
-  </head>
-  <body class="bg-dmk-bg text-dmk-text selection:bg-dmk-accent selection:text-dmk-bg min-h-screen font-sans flex flex-col relative overflow-x-hidden">
-    
-    <!-- Ruido de fondo sutil para textura imperfecta (vanguardia visual 2025-2026) -->
-    <div class="pointer-events-none fixed inset-0 z-50 h-full w-full bg-[radial-gradient(var(--color-dmk-muted)_0.07rem,transparent_0.07rem)] [background-size:24px_24px] opacity-[0.04]"></div>
-
-    <!-- Líneas de rejilla vertical de fondo decorativas (Estilo Pentagram / Awwwards) -->
-    <div class="pointer-events-none fixed inset-y-0 left-0 right-0 z-0 mx-auto max-w-7xl h-full w-full px-4 lg:px-8 flex justify-between">
-      <div class="w-[1px] h-full bg-dmk-muted/10"></div>
-      <div class="hidden md:block w-[1px] h-full bg-dmk-muted/10"></div>
-      <div class="hidden lg:block w-[1px] h-full bg-dmk-muted/10"></div>
-      <div class="w-[1px] h-full bg-dmk-muted/10"></div>
-    </div>
-
-    <!-- HEADER / NAVEGACIÓN -->
-    <header class="relative z-40 border-b border-dmk-muted/20 bg-dmk-bg/90 backdrop-blur-md">
-      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="flex h-20 items-center justify-between">
-          
-            <!-- Logo Dr. Nicolás Márquez -->
-          <div class="flex items-center gap-3">
-            <a href="/" class="group flex items-center gap-2">
-              <span class="font-mono text-xl font-bold tracking-tight text-[#FAFAF8] group-hover:text-[#00FF85] transition-colors">
-                DR. MÁRQUEZ
-              </span>
-              <span class="h-2 w-2 rounded-full bg-[#00FF85] animate-pulse"></span>
-            </a>
-          </div>
-
-          <!-- Navegación de 3 Secciones Integradas (Filtro B2B) -->
-          <nav class="hidden md:flex items-center space-x-1 lg:space-x-2 font-mono text-xs uppercase tracking-wider">
-            <a href="#consultoria" class="px-4 py-2 text-dmk-text/70 hover:text-dmk-accent border-b border-transparent hover:border-dmk-accent transition-all duration-300">
-              Consultoría
-            </a>
-            <span class="text-dmk-muted/30">|</span>
-            <a href="#publicaciones" class="px-4 py-2 text-dmk-text/70 hover:text-dmk-accent border-b border-transparent hover:border-dmk-accent transition-all duration-300">
-              Investigación
-            </a>
-            <span class="text-dmk-muted/30">|</span>
-            <a href="#analisis-datos" class="px-4 py-2 text-dmk-text/70 hover:text-dmk-accent border-b border-transparent hover:border-dmk-accent transition-all duration-300">
-              Análisis de Datos
-            </a>
-          </nav>
-
-          <!-- CTA Contacto / Conversión -->
-          <div class="flex items-center gap-4">
-            <a href="#contacto" class="hidden sm:inline-flex items-center justify-center rounded-sm border border-dmk-muted/40 bg-dmk-card px-4 py-2 font-mono text-xs font-semibold uppercase tracking-wider text-dmk-text hover:border-dmk-accent hover:text-dmk-accent transition-all duration-300">
-              Iniciar Proyecto
-            </a>
-            
-            <!-- Botón de Menú Móvil -->
-            <button id="menu-btn" aria-label="Abrir menú" class="md:hidden flex flex-col justify-between w-6 h-4 group">
-              <span class="w-full h-[1.5px] bg-dmk-text transition-transform duration-300 group-hover:bg-dmk-accent"></span>
-              <span class="w-full h-[1.5px] bg-dmk-text transition-opacity duration-300 group-hover:bg-dmk-accent"></span>
-              <span class="w-full h-[1.5px] bg-dmk-text transition-transform duration-300 group-hover:bg-dmk-accent"></span>
-            </button>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- Menú Móvil Desplegable -->
-      <div id="mobile-menu" class="hidden md:hidden border-t border-dmk-muted/20 bg-dmk-bg px-4 py-6 space-y-4 font-mono text-sm uppercase tracking-widest text-center">
-        <a href="#consultoria" class="block py-2 text-dmk-text/80 hover:text-dmk-accent transition-colors">Consultoría</a>
-        <a href="#publicaciones" class="block py-2 text-dmk-text/80 hover:text-dmk-accent transition-colors">Investigación</a>
-        <a href="#analisis-datos" class="block py-2 text-dmk-text/80 hover:text-dmk-accent transition-colors">Análisis de Datos</a>
-        <a href="#contacto" class="block py-3 px-4 rounded-sm border border-dmk-accent text-dmk-accent bg-dmk-card transition-colors">Iniciar Proyecto</a>
-      </div>
-    </header>
-
-    <!-- CONTENIDO PRINCIPAL -->
-    <main class="flex-grow relative z-10 mx-auto max-w-7xl w-full px-4 sm:px-6 lg:px-8 py-8 md:py-16">
-      <slot />
-    </main>
-
-    <!-- FOOTER / PIE DE PÁGINA -->
-    <footer class="relative z-30 border-t border-dmk-muted/20 bg-dmk-bg py-12 md:py-16 font-mono text-xs">
-      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 border-b border-dmk-muted/10 pb-12 mb-12">
-          
-          <!-- Columna Info Marca -->
-          <div class="space-y-4">
-            <div class="font-bold text-sm text-dmk-text">
-              DATA<span class="text-dmk-accent">METRIK</span>
-            </div>
-            <p class="text-dmk-muted font-sans leading-relaxed">
-              Intersección entre el rigor de la ciencia organizacional y la agilidad de la toma de decisiones basada en datos.
-            </p>
-            <div class="flex items-center gap-2 text-[10px] text-dmk-muted/60">
-              <span class="h-1.5 w-1.5 rounded-full bg-dmk-accent"></span>
-              Direct Support Chile & LATAM
-            </div>
-          </div>
-
-          <!-- Columna Credenciales & Enlaces Científicos -->
-          <div class="space-y-4">
-            <h4 class="text-dmk-text uppercase tracking-wider font-semibold">Credenciales Académicas</h4>
-            <ul class="space-y-2 text-dmk-muted">
-              <li>• Profesor de Escuela de Negocios, UAI</li>
-              <li>• PhD in Management, UAI</li>
-              <li>
-                <a href="https://orcid.org/0000-0000-0000-0000" target="_blank" rel="noopener noreferrer" class="hover:text-dmk-accent transition-colors">
-                  • ORCID ID: 0000-0000-0000-0000
-                </a>
-              </li>
-              <li>
-                <a href="#" class="hover:text-dmk-accent transition-colors">
-                  • Google Scholar Citations
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Columna SEO Local (Santiago) & Contacto -->
-          <div class="space-y-4">
-            <h4 class="text-dmk-text uppercase tracking-wider font-semibold">Ubicación y Cobertura</h4>
-            <div class="text-dmk-muted space-y-2 leading-relaxed">
-              <p>Av. Apoquindo 4800, Las Condes</p>
-              <p>Santiago, Región Metropolitana, Chile</p>
-              <p class="text-dmk-text">T: +56 2 2244 8800</p>
-              <p class="text-dmk-accent">E: nmarquez@uai.cl</p>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="flex flex-col sm:flex-row items-center justify-between text-dmk-muted/50 text-[10px] gap-4">
-          <p>© {new Date().getFullYear()} Dr. Nicolás Márquez. Todos los derechos reservados.</p>
-          <div class="flex space-x-6">
-            <a href="#consultoria" class="hover:text-dmk-accent">Consultoría</a>
-            <a href="#publicaciones" class="hover:text-dmk-accent">Investigación</a>
-            <a href="#analisis-datos" class="hover:text-dmk-accent">People Analytics</a>
-          </div>
-        </div>
-      </div>
-    </footer>
-
-    <!-- Scripts de interactividad y menú móvil (Cute-alism) -->
-    <script>
-      // Lógica de Menú Móvil
-      const menuBtn = document.getElementById('menu-btn');
-      const mobileMenu = document.getElementById('mobile-menu');
-
-      if (menuBtn && mobileMenu) {
-        menuBtn.addEventListener('click', () => {
-          mobileMenu.classList.toggle('hidden');
-          // Animación de hamburguesa a cruz simple
-          const spans = menuBtn.querySelectorAll('span');
-          if (spans.length === 3) {
-            spans[0].classList.toggle('rotate-45');
-            spans[0].classList.toggle('translate-y-[6px]');
-            spans[1].classList.toggle('opacity-0');
-            spans[2].classList.toggle('-rotate-45');
-            spans[2].classList.toggle('-translate-y-[6px]');
-          }
-        });
+    <script is:inline>
+      const savedTheme = localStorage.getItem("portfolio-theme-id") || "style-01";
+      const savedColor = localStorage.getItem("portfolio-theme-color");
+      document.documentElement.setAttribute("data-theme-id", savedTheme);
+      if (savedColor) {
+        document.documentElement.style.setProperty("--color-accent-base", savedColor);
       }
-
-      // Smooth scrolling sutil
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-          e.preventDefault();
-          const targetId = this.getAttribute('href');
-          if (!targetId || targetId === '#') return;
-          const target = document.querySelector(targetId);
-          if (target) {
-            // Cerramos menú móvil si está abierto
-            if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
-              mobileMenu.classList.add('hidden');
-              const spans = menuBtn?.querySelectorAll('span');
-              if (spans && spans.length === 3) {
-                spans[0].classList.remove('rotate-45', 'translate-y-[6px]');
-                spans[1].classList.remove('opacity-0');
-                spans[2].classList.remove('-rotate-45', '-translate-y-[6px]');
-              }
+    </script>
+  </head>
+  <body class="min-h-screen bg-dmk-bg text-dmk-text">
+    <slot />
+    
+    <script is:inline>
+      // Scroll Reveal System
+      (function() {
+        const observerOptions = {
+          root: null,
+          rootMargin: '0px',
+          threshold: 0.1
+        };
+        
+        const revealObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              // Unobserve after revealing to keep the state
+              revealObserver.unobserve(entry.target);
             }
-            target.scrollIntoView({
-              behavior: 'smooth',
-              block: 'start'
-            });
-          }
+          });
+        }, observerOptions);
+        
+        // Observe all reveal elements
+        document.addEventListener('DOMContentLoaded', () => {
+          const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+          revealElements.forEach(el => revealObserver.observe(el));
         });
-      });
+        
+        // Immediate reveal for above-fold content
+        document.addEventListener('DOMContentLoaded', () => {
+          const immediateReveals = document.querySelectorAll('.reveal-immediate');
+          immediateReveals.forEach(el => el.classList.add('visible'));
+        });
+      })();
     </script>
   </body>
 </html>

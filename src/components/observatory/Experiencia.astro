@@ -1,0 +1,22 @@
+---
+import { cvData } from '../../data/cvData';
+---
+
+<section id="experiencia" class="py-20 md:py-32 border-b border-dmk-muted/10">
+  <div class="max-w-6xl mx-auto px-6 md:px-12">
+    <div class="mb-16">
+      <div class="font-mono text-xs text-dmk-accent uppercase tracking-widest mb-4">05 / Industry</div>
+      <h2 class="font-mono text-4xl md:text-5xl font-bold text-dmk-text uppercase tracking-tight">EXPERIENCIA</h2>
+    </div>
+
+    <div class="space-y-8">
+      {cvData.professionalExperience.map((exp) => (
+        <div class="border-l-2 border-dmk-accent pl-6 py-2">
+          <div class="font-mono text-xs text-dmk-muted uppercase tracking-wider mb-1">{exp.period}</div>
+          <h3 class="font-mono text-lg font-bold text-dmk-text uppercase">{exp.position}</h3>
+          <p class="font-mono text-sm text-dmk-muted mt-1">{exp.organization}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

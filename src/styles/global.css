@@ -1,9 +1,101 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=JetBrains+Mono:wght@400;500&display=swap');
 @import "tailwindcss";
 
 @theme {
   --font-serif: "Playfair Display", Georgia, serif;
-  --font-sans: "Plus Jakarta Sans", sans-serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", monospace;
+
+  --color-accent: var(--color-accent-base);
+  --color-bg: var(--color-bg-base);
+  --color-surface: var(--color-surface-base);
+  --color-text: var(--color-text-base);
+  --color-muted: var(--color-muted-base);
+  --color-border: var(--color-border-base);
+}
+
+/* Estado por defecto */
+:root {
+  --color-accent-base: #8B0000;
+  --color-bg-base: #F5F5F5;
+  --color-surface-base: #FFFFFF;
+  --color-text-base: #1A1A1A;
+  --color-muted-base: #4A4A4A;
+  --color-border-base: #E5E5E5;
+  --font-active: "Plus Jakarta Sans", system-ui, sans-serif;
+  --layout-mode: arch-classic;
+}
+
+/* Tipografías por defecto */
+html {
+  font-family: var(--font-sans);
+  transition: background-color 0.5s cubic-bezier(0.16, 1, 0.3, 1), 
+              color 0.5s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-active);
+}
+
+/* Variantes de color */
+[data-theme-id="style-01"] {
+  --color-accent-base: #8B0000;
+  --font-active: "Plus Jakarta Sans", system-ui, sans-serif;
+  --layout-mode: arch-classic;
+}
+[data-theme-id="style-02"] {
+  --color-accent-base: #0F766E;
+  --font-active: "Plus Jakarta Sans", system-ui, sans-serif;
+  --layout-mode: arch-bento;
+}
+[data-theme-id="style-03"] {
+  --color-accent-base: #4338CA;
+  --font-active: "Plus Jakarta Sans", sans-serif;
+  --layout-mode: arch-cards;
+}
+[data-theme-id="style-04"] {
+  --color-accent-base: #334155;
+  --font-active: "Plus Jakarta Sans", sans-serif;
+  --layout-mode: arch-timeline;
+}
+[data-theme-id="style-05"] {
+  --color-accent-base: #B45309;
+  --font-active: "Playfair Display", Garamond, serif;
+  --layout-mode: arch-classic;
+}
+[data-theme-id="style-06"] {
+  --color-accent-base: #1F2937;
+  --font-active: "Plus Jakarta Sans", sans-serif;
+  --layout-mode: arch-timeline;
+}
+[data-theme-id="style-07"] {
+  --color-accent-base: #1D4ED8;
+  --font-active: "Plus Jakarta Sans", system-ui, sans-serif;
+  --layout-mode: arch-bento;
+}
+[data-theme-id="style-08"] {
+  --color-accent-base: #B45309;
+  --font-active: "Plus Jakarta Sans", sans-serif;
+  --layout-mode: arch-cards;
+}
+[data-theme-id="style-09"] {
+  --color-accent-base: #0D9488;
+  --font-active: "Plus Jakarta Sans", sans-serif;
+  --layout-mode: arch-timeline;
+}
+[data-theme-id="style-10"] {
+  --color-accent-base: #991B1B;
+  --font-active: "Plus Jakarta Sans", system-ui, sans-serif;
+  --layout-mode: arch-bento;
+}
+[data-theme-id="style-11"] {
+  --color-accent-base: #000000;
+  --font-active: "JetBrains Mono", monospace;
+  --layout-mode: arch-classic;
 }

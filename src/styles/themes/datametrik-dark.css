@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=JetBrains+Mono:wght@400;500&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -12,10 +12,65 @@
   --color-dmk-muted: #A3B0A7;
   --color-dmk-accent: #00FF85;
   --color-dmk-accent-soft: #5A8F6A;
+  --color-dmk-border: #3A4A42;
 }
 
 body {
   background-color: var(--color-dmk-bg);
   color: var(--color-dmk-text);
   font-family: var(--font-sans);
+}
+
+/* Datametrik Dark specific: Cyber dark */
+.card-dark {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid var(--color-dmk-border);
+  background: var(--color-dmk-card);
+}
+
+.card-dark:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px -10px rgba(0, 255, 133, 0.15);
+  border-color: var(--color-dmk-accent);
+}
+
+/* Cyber glow text */
+.text-glow-cyber {
+  color: var(--color-dmk-accent);
+  text-shadow: 0 0 10px rgba(0, 255, 133, 0.3);
+}
+
+/* Neon border effect */
+.neon-border {
+  transition: all 0.4s ease;
+  border: 1px solid var(--color-dmk-border);
+}
+
+.neon-border:hover {
+  border-color: var(--color-dmk-accent);
+  box-shadow: 0 0 15px rgba(0, 255, 133, 0.2);
+}
+
+/* Dark scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-dmk-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-dmk-accent-soft);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-dmk-accent);
+}
+
+/* Focus visible */
+:focus-visible {
+  outline: 2px solid var(--color-dmk-accent);
+  outline-offset: 3px;
 }

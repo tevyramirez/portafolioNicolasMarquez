@@ -1,0 +1,33 @@
+---
+import { cvData } from '../../data/cvData';
+---
+
+<section id="docencia" class="py-20 md:py-32 border-b border-dmk-muted/10">
+  <div class="max-w-6xl mx-auto px-6 md:px-12">
+    <div class="mb-16">
+      <div class="font-serif text-sm text-dmk-accent italic tracking-wide mb-2">Docencia</div>
+      <h2 class="font-serif text-4xl md:text-5xl font-light text-dmk-text leading-tight">
+        Posiciones <em class="font-semibold">Académicas</em>
+      </h2>
+    </div>
+
+    <div class="space-y-12">
+      {cvData.academicPositions.map((pos) => (
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
+          <div class="md:col-span-3">
+            <div class="font-serif text-sm text-dmk-muted italic">{pos.period}</div>
+          </div>
+          <div class="md:col-span-9 space-y-2">
+            <h3 class="font-serif text-xl font-semibold text-dmk-text">{pos.position}</h3>
+            <p class="font-sans text-sm text-dmk-muted italic">{pos.institution}</p>
+            <ul class="mt-2 space-y-1 font-sans text-xs text-dmk-text/70">
+              {pos.details.slice(0, 2).map((detail) => (
+                <li>• {detail}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

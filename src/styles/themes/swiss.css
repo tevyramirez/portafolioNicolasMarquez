@@ -1,16 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=JetBrains+Mono:wght@400;500&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Inter", sans-serif;
+  --font-sans: "Plus Jakarta Sans", sans-serif;
   --font-mono: "JetBrains Mono", monospace;
 
-  --color-dmk-bg: #FAFAFA;
+  --color-dmk-bg: #F5F5F5;
   --color-dmk-card: #FFFFFF;
   --color-dmk-text: #1A1A1A;
-  --color-dmk-muted: #8A8A8A;
-  --color-dmk-accent: #FF3B30;
-  --color-dmk-accent-soft: #FF3B30;
+  --color-dmk-muted: #6A6A6A;
+  --color-dmk-accent: #E03028;
+  --color-dmk-accent-soft: #FF7A73;
+  --color-dmk-border: #D0D0D0;
 }
 
 body {
@@ -21,4 +22,81 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-mono);
+}
+
+/* Swiss specific: Brutalist precision */
+.card-swiss {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid var(--color-dmk-border);
+  background: var(--color-dmk-card);
+}
+
+.card-swiss:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px -8px rgba(224, 48, 40, 0.12);
+  border-color: var(--color-dmk-accent);
+}
+
+/* Swiss grid line effect */
+.grid-line {
+  position: relative;
+}
+
+.grid-line::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--color-dmk-border);
+  opacity: 0.5;
+}
+
+/* Red accent hover */
+.hover-red {
+  transition: color 0.3s ease;
+}
+
+.hover-red:hover {
+  color: var(--color-dmk-accent);
+}
+
+/* Data table row hover */
+.data-row {
+  transition: background-color 0.2s ease;
+}
+
+.data-row:hover {
+  background-color: rgba(255, 59, 48, 0.03);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-dmk-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-dmk-muted);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-dmk-accent);
+}
+
+/* Focus visible */
+:focus-visible {
+  outline: 2px solid var(--color-dmk-accent);
+  outline-offset: 3px;
+}
+
+/* Monospace selection */
+::selection {
+  background: var(--color-dmk-accent);
+  color: white;
 }

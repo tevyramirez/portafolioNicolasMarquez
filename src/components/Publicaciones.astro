@@ -1,0 +1,69 @@
+---
+import { cvData } from '../data/cvData';
+
+const publishedPapers = cvData.publications.filter(p => p.status === 'published' || p.status === 'in-press');
+const bookPublications = cvData.publications.filter(p => p.status === 'book');
+---
+
+<section id="publicaciones" class="border-b border-dmk-border/30">
+  <div class="max-w-5xl mx-auto px-8 md:px-12 py-14 md:py-20">
+    <div class="flex items-center justify-between mb-2 reveal stagger-1">
+      <h2 class="font-serif text-2xl font-bold text-dmk-text">Publicaciones</h2>
+      <span class="text-xs font-sans px-2 py-1 border border-dmk-border/30 text-dmk-muted badge-pulse">
+        {publishedPapers.length} artículos
+      </span>
+    </div>
+    <p class="font-sans text-sm mb-8 text-dmk-muted reveal stagger-2">
+      Artículos peer-reviewed, libros y working papers. El asterisco * indica autor de correspondencia.
+    </p>
+
+    <div class="space-y-3 mb-12">
+      {publishedPapers.map((pub, index) => (
+        <div class="pl-4 py-2 border-l-2 border-dmk-accent hover:border-l-4 hover:pl-5 transition-all duration-300 group reveal stagger-{index % 5 + 3} hover:bg-dmk-card/30 rounded-r-sm">
+          <p class="font-sans text-sm leading-relaxed text-dmk-text">
+            {pub.authors} ({pub.year}). <em class="text-dmk-muted group-hover:text-dmk-text transition-colors duration-300">{pub.title}</em>. {pub.journal}{pub.doi && <> DOI: <span class="text-dmk-muted hover:text-dmk-accent transition-colors duration-300 cursor-pointer">{pub.doi}</span></>}{pub.correspondingAuthor && <span class="text-dmk-accent font-bold"> *</span>}{pub.status === 'in-press' && <span class="text-xs ml-2 px-1.5 py-0.5 border border-dmk-border/30 text-dmk-muted group-hover:border-dmk-accent/30 transition-colors duration-300">in press</span>}.
+          </p>
+        </div>
+      ))}
+    </div>
+
+    {cvData.underReview.length > 0 && (
+      <div class="mb-12 reveal stagger-1">
+        <h3 class="font-serif text-lg font-semibold mb-4 text-dmk-text">Manuscritos en Revisión</h3>
+        <div class="space-y-3">
+          {cvData.underReview.map((pub, index) => (
+            <div class="pl-4 py-2 border-l-2 border-dmk-border/50 hover:border-dmk-accent/50 transition-all duration-300 group hover:bg-dmk-card/30 rounded-r-sm reveal stagger-{index % 3 + 2}">
+              <p class="font-sans text-sm leading-relaxed text-dmk-muted group-hover:text-dmk-text transition-colors duration-300">
+                {pub.authors} ({pub.year}). {pub.title}. <em>{pub.journal}</em>.
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    )}
+
+    {cvData.workingPapers.length > 0 && (
+      <div class="mb-12 reveal stagger-1">
+        <h3 class="font-serif text-lg font-semibold mb-4 text-dmk-text">Working Papers</h3>
+        <ul class="space-y-2">
+          {cvData.workingPapers.map((wp, index) => (
+            <li class="font-sans text-sm pl-4 text-dmk-muted border-l border-dmk-border/30 hover:border-dmk-accent/50 hover:text-dmk-text transition-all duration-300 py-1 hover:bg-dmk-card/30 rounded-r-sm reveal stagger-{index % 3 + 2}">{wp}</li>
+          ))}
+        </ul>
+      </div>
+    )}
+
+    {bookPublications.length > 0 && (
+      <div class="reveal stagger-1">
+        <h3 class="font-serif text-lg font-semibold mb-4 text-dmk-text">Libros</h3>
+        {bookPublications.map((book, index) => (
+          <div class="pl-4 py-2 border-l-2 border-dmk-accent hover:border-l-4 hover:pl-5 transition-all duration-300 group hover:bg-dmk-card/30 rounded-r-sm reveal stagger-{index + 2}">
+            <p class="font-sans text-sm leading-relaxed text-dmk-text">
+              {book.authors} ({book.year}). <em class="text-dmk-muted group-hover:text-dmk-text transition-colors duration-300">{book.title}</em>. {book.journal}.
+            </p>
+          </div>
+        ))}
+      </div>
+    )}
+  </div>
+</section>

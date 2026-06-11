@@ -1,21 +1,111 @@
-@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=JetBrains+Mono:wght@400;500&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --font-serif: "Crimson Text", Georgia, serif;
-  --font-sans: "Source Sans 3", sans-serif;
+  --font-serif: "PP Editorial New", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", sans-serif;
   --font-mono: "JetBrains Mono", monospace;
 
-  --color-dmk-bg: #FFFFFF;
-  --color-dmk-card: #F8F9FA;
-  --color-dmk-text: #2D3748;
-  --color-dmk-muted: #718096;
-  --color-dmk-accent: #2B6CB0;
-  --color-dmk-accent-soft: #4299E1;
+  --color-dmk-bg: #F5F5F5;
+  --color-dmk-card: #FFFFFF;
+  --color-dmk-text: #1A1A1A;
+  --color-dmk-muted: #4A4A4A;
+  --color-dmk-accent: #8B0000;
+  --color-dmk-accent-soft: #A52A2A;
+  --color-dmk-border: #E5E5E5;
 }
 
 body {
   background-color: var(--color-dmk-bg);
   color: var(--color-dmk-text);
   font-family: var(--font-sans);
+}
+
+/* Harvard/Folio specific: Academic elegance */
+.card-folio {
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid var(--color-dmk-border);
+  background: var(--color-dmk-card);
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--color-dmk-text) 4%, transparent);
+}
+
+.card-folio:hover {
+  transform: translateY(-6px) translateZ(20px);
+  box-shadow: 0 24px 48px color-mix(in srgb, var(--color-dmk-text) 8%, transparent);
+  border-color: var(--color-dmk-accent);
+}
+
+/* Academic accent line */
+.accent-line {
+  position: relative;
+  padding-left: 1rem;
+}
+
+.accent-line::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--color-dmk-accent);
+  border-radius: 2px;
+}
+
+/* Formal hover effects */
+.btn-formal {
+  background: var(--color-dmk-accent);
+  color: white;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.25rem;
+}
+
+.btn-formal::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  transform: translate(-50%, -50%);
+  transition: width 0.5s cubic-bezier(0.16, 1, 0.3, 1), height 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-formal:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.btn-formal:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px -4px color-mix(in srgb, var(--color-dmk-accent) 30%, transparent);
+}
+
+/* Focus visible for accessibility */
+:focus-visible {
+  outline: 2px solid var(--color-dmk-accent);
+  outline-offset: 3px;
+}
+
+/* Smooth scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-dmk-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-dmk-accent-soft);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-dmk-accent);
 }

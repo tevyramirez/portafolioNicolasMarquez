@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=JetBrains+Mono:wght@400;500&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -6,16 +6,75 @@
   --font-sans: "Plus Jakarta Sans", sans-serif;
   --font-mono: "JetBrains Mono", monospace;
 
-  --color-dmk-bg: #FFFFFF;
-  --color-dmk-card: #F4F7FA;
+  --color-dmk-bg: #F5F5F5;
+  --color-dmk-card: #FFFFFF;
   --color-dmk-text: #1A2A3A;
-  --color-dmk-muted: #5A6A7A;
+  --color-dmk-muted: #4A5A6A;
   --color-dmk-accent: #003D6B;
   --color-dmk-accent-soft: #7A9CC6;
+  --color-dmk-border: #C8D4E2;
 }
 
 body {
   background-color: var(--color-dmk-bg);
   color: var(--color-dmk-text);
   font-family: var(--font-sans);
+}
+
+/* Madrid specific: Scientific blue */
+.card-madrid {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid var(--color-dmk-border);
+  background: var(--color-dmk-card);
+}
+
+.card-madrid:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px -10px rgba(0, 61, 107, 0.12);
+  border-color: var(--color-dmk-accent);
+}
+
+/* Scientific accent */
+.accent-scientific {
+  color: var(--color-dmk-accent);
+  font-weight: 600;
+}
+
+/* Gradient background for sections */
+.bg-gradient-scientific {
+  background: linear-gradient(135deg, var(--color-dmk-bg) 0%, var(--color-dmk-card) 100%);
+}
+
+/* Hover lift effect */
+.hover-lift-madrid {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift-madrid:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px -8px rgba(0, 61, 107, 0.15);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-dmk-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-dmk-accent-soft);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-dmk-accent);
+}
+
+/* Focus visible */
+:focus-visible {
+  outline: 2px solid var(--color-dmk-accent);
+  outline-offset: 3px;
 }

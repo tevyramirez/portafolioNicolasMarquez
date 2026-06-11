@@ -1,21 +1,82 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:ital,wght@0,100..900;1,100..900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=JetBrains+Mono:wght@400;500&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --font-serif: "Cormorant Garamond", "Playfair Display", serif;
-  --font-sans: "Inter", sans-serif;
+  --font-serif: "Cormorant Garamond", serif;
+  --font-sans: "Plus Jakarta Sans", sans-serif;
   --font-mono: "JetBrains Mono", monospace;
 
-  --color-dmk-bg: #F7F5F0;
+  --color-dmk-bg: #F0EDE6;
   --color-dmk-card: #FFFFFF;
   --color-dmk-text: #1A1A1A;
-  --color-dmk-muted: #8C8578;
+  --color-dmk-muted: #5E5A50;
   --color-dmk-accent: #6B2737;
   --color-dmk-accent-soft: #C4A882;
+  --color-dmk-border: #D4C5B0;
 }
 
 body {
   background-color: var(--color-dmk-bg);
   color: var(--color-dmk-text);
   font-family: var(--font-sans);
+  /* Paper texture effect */
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+}
+
+/* Atelier specific: Elegant hover effects */
+.card-atelier {
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid var(--color-dmk-border);
+}
+
+.card-atelier:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -15px rgba(107, 39, 55, 0.15);
+  border-color: var(--color-dmk-accent);
+}
+
+/* Elegant typography accents */
+.text-accent-elegant {
+  color: var(--color-dmk-accent);
+  font-style: italic;
+}
+
+/* Decorative borders */
+.border-deco {
+  border: 1px solid var(--color-dmk-border);
+  position: relative;
+}
+
+.border-deco::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  right: -1px;
+  bottom: -1px;
+  border: 1px solid transparent;
+  transition: border-color 0.4s ease;
+  pointer-events: none;
+}
+
+.border-deco:hover::before {
+  border-color: var(--color-dmk-accent-soft);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-dmk-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-dmk-accent-soft);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-dmk-accent);
 }

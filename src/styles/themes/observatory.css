@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=JetBrains+Mono:wght@400;500&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -8,9 +8,10 @@
   --color-dmk-bg: #0A0A0F;
   --color-dmk-card: #14141A;
   --color-dmk-text: #F0F0F5;
-  --color-dmk-muted: #6B6B7B;
+  --color-dmk-muted: #9494A8;
   --color-dmk-accent: #00F0FF;
-  --color-dmk-accent-soft: #00F0FF;
+  --color-dmk-accent-soft: #00B8CC;
+  --color-dmk-border: #2A2A3A;
 }
 
 body {

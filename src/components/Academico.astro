@@ -1,0 +1,28 @@
+---
+import { cvData } from '../data/cvData';
+---
+
+<section id="academico" class="border-b border-dmk-border/30">
+  <div class="max-w-5xl mx-auto px-8 md:px-12 py-14 md:py-20">
+    <h2 class="font-serif text-2xl font-bold mb-8 text-dmk-text">Formación Académica</h2>
+
+    <div class="space-y-8">
+      {cvData.education.map((edu) => (
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
+          <div class="md:col-span-3">
+            <div class="font-sans text-sm text-dmk-muted">{edu.period}</div>
+          </div>
+          <div class="md:col-span-9 space-y-1">
+            <h3 class="font-serif text-lg font-semibold text-dmk-text">{edu.degree}</h3>
+            <p class="font-sans text-sm text-dmk-muted">{edu.institution}</p>
+            <ul class="mt-2 space-y-1 font-sans text-sm leading-relaxed text-dmk-text">
+              {edu.details.map((detail) => (
+                <li>· {detail}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

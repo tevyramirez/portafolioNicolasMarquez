@@ -2,19 +2,18 @@
 import '../styles/themes/swiss.css';
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/swiss/Hero.astro';
-import Consulting from '../components/swiss/Consulting.astro';
-import AcademicHub from '../components/swiss/AcademicHub.astro';
-import DataAnalytics from '../components/swiss/DataAnalytics.astro';
-import Contact from '../components/swiss/Contact.astro';
+import Academico from '../components/swiss/Academico.astro';
+import Publicaciones from '../components/swiss/Publicaciones.astro';
+import Docencia from '../components/swiss/Docencia.astro';
+import Experiencia from '../components/swiss/Experiencia.astro';
+import Contacto from '../components/swiss/Contacto.astro';
 ---
 
-<Layout
-  title="The Swiss Grid | Dr. Nicolás Márquez — Data-Forward Brutalism"
-  description="Estilo brutalista suizo. Grid de datos, tablas, monospace para todo, ALL CAPS. Bloomberg Terminal meets Swiss International Style."
->
+<Layout title="The Swiss Grid | Portafolio Dr. Nicolás Márquez">
   <Hero />
-  <Consulting />
-  <AcademicHub />
-  <DataAnalytics />
-  <Contact />
+  <Academico />
+  <Publicaciones />
+  <Docencia />
+  <Experiencia />
+  <Contacto />
 </Layout>
