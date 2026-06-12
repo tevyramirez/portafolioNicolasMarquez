@@ -1,0 +1,56 @@
+---
+import { cvData } from '../../data/cvData';
+---
+
+<section id="docencia" class="py-12 md:py-16 border-b border-dmk-border">
+  <div class="max-w-5xl mx-auto px-8 md:px-12">
+    
+    <div class="mb-10">
+      <h2 class="font-serif text-2xl font-bold text-dmk-text mb-2">Docencia y Servicio Académico</h2>
+    </div>
+
+    <!-- Academic Positions -->
+    <div class="mb-10">
+      <h3 class="font-serif text-lg font-semibold text-dmk-text mb-4">Posiciones Académicas</h3>
+      <div class="space-y-6">
+        
+        {cvData.academicPositions.map((pos) => (
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-4 accent-line">
+            <div class="md:col-span-3">
+              <div class="font-sans text-sm text-dmk-muted">{pos.period}</div>
+            </div>
+            <div class="md:col-span-9">
+              <h4 class="font-serif text-base font-semibold text-dmk-text">{pos.position}</h4>
+              <p class="font-sans text-sm text-dmk-muted">{pos.institution}</p>
+              <ul class="mt-1 space-y-1 font-sans text-sm text-dmk-text">
+                {pos.details.map((detail) => (
+                  <li>· {detail}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+
+      </div>
+    </div>
+
+    <!-- Teaching Areas -->
+    <div class="mb-10">
+      <h3 class="font-serif text-lg font-semibold text-dmk-text mb-4">Áreas de Enseñanza</h3>
+      <div class="flex flex-wrap gap-2">
+        {cvData.teachingAreas.map((area) => (
+          <span class="font-sans text-sm text-dmk-text bg-dmk-card border border-dmk-border px-3 py-1 rounded-sm">{area}</span>
+        ))}
+      </div>
+    </div>
+
+    <!-- Academic Service -->
+    <div>
+      <h3 class="font-serif text-lg font-semibold text-dmk-text mb-4">Revisor de Revistas Internacionales</h3>
+      <p class="font-sans text-sm text-dmk-text leading-relaxed">
+        <em>Journal of Happiness Studies; International Journal of Business Environment; Humanities and Social Sciences Communications; Journal of Developmental Entrepreneurship; Academia Revista Latinoamericana de Administración; International Journal of Entrepreneurship and Innovation; PLOS One</em>, entre otras.
+      </p>
+    </div>
+
+  </div>
+</section>

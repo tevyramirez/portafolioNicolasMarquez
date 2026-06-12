@@ -1,0 +1,37 @@
+---
+const tabs = [
+  { id: 'perfil', label: 'Perfil' },
+  { id: 'formacion', label: 'Formación' },
+  { id: 'publicaciones', label: 'Publicaciones' },
+  { id: 'docencia', label: 'Docencia' },
+  { id: 'experiencia', label: 'Experiencia' },
+  { id: 'servicios', label: 'Servicios' },
+  { id: 'bi', label: 'Business Intelligence' },
+  { id: 'contacto', label: 'Contacto' }
+];
+---
+
+<nav class="nav-sticky">
+  <div class="max-w-5xl mx-auto px-8 md:px-12">
+    <div class="flex items-center gap-1 overflow-x-auto py-3 scrollbar-hide">
+      {tabs.map((tab, i) => (
+        <a 
+          href={`#${tab.id}`} 
+          class={`font-sans text-xs px-3 py-2 whitespace-nowrap transition-colors duration-300 rounded-sm ${i === 0 ? 'text-dmk-accent font-semibold bg-dmk-accent/5' : 'text-dmk-muted hover:text-dmk-text hover:bg-dmk-accent/5'}`}
+        >
+          {tab.label}
+        </a>
+      ))}
+    </div>
+  </div>
+</nav>
+
+<style>
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+</style>

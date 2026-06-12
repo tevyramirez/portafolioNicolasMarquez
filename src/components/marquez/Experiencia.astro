@@ -1,0 +1,57 @@
+---
+import { cvData } from '../../data/cvData';
+---
+
+<section id="experiencia" class="py-12 md:py-16 border-b border-dmk-border">
+  <div class="max-w-5xl mx-auto px-8 md:px-12">
+    
+    <div class="mb-10">
+      <h2 class="font-serif text-2xl font-bold text-dmk-text mb-2">Experiencia Profesional</h2>
+    </div>
+
+    <div class="space-y-8">
+      
+      {cvData.professionalExperience.map((exp) => (
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-4 accent-line">
+          <div class="md:col-span-3">
+            <div class="font-sans text-sm text-dmk-muted">{exp.period}</div>
+          </div>
+          <div class="md:col-span-9">
+            <h3 class="font-serif text-lg font-semibold text-dmk-text">{exp.position}</h3>
+            <p class="font-sans text-sm text-dmk-muted">{exp.organization}</p>
+            <ul class="mt-2 space-y-1 font-sans text-sm text-dmk-text">
+              {exp.details.map((detail) => (
+                <li>· {detail}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      ))}
+
+    </div>
+
+    <!-- Skills -->
+    <div class="mt-12 pt-8 border-t border-dmk-border">
+      <h3 class="font-serif text-lg font-semibold text-dmk-text mb-4">Habilidades Técnicas</h3>
+      <div class="space-y-4">
+        <div class="flex flex-wrap items-baseline gap-2">
+          <span class="font-sans text-sm font-semibold text-dmk-muted">Análisis de datos: </span>
+          <span class="font-sans text-base text-dmk-text">{cvData.skills.analysis.join(' · ')}</span>
+        </div>
+        <div class="flex flex-wrap items-baseline gap-2">
+          <span class="font-sans text-sm font-semibold text-dmk-muted">Modelado de procesos: </span>
+          <span class="font-sans text-base text-dmk-text">{cvData.skills.process.join(' · ')}</span>
+        </div>
+        <div class="flex flex-wrap items-baseline gap-2">
+          <span class="font-sans text-sm font-semibold text-dmk-muted">Bases de datos: </span>
+          <span class="font-sans text-base text-dmk-text">{cvData.skills.databases.join(' · ')}</span>
+        </div>
+        <div class="flex flex-wrap items-baseline gap-2">
+          <span class="font-sans text-sm font-semibold text-dmk-muted">Idiomas: </span>
+          <span class="font-sans text-base text-dmk-text">{cvData.skills.languages.join(' · ')}</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

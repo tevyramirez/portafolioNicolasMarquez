@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --color-dmk-bg: #F0F2F5;
+  --color-dmk-card: #FFFFFF;
+  --color-dmk-text: #111111;
+  --color-dmk-muted: #3A4558;
+  --color-dmk-accent: #1A365D;
+  --color-dmk-accent-soft: #2E5A8E;
+  --color-dmk-border: #CBD5E0;
+  --color-dmk-secondary: #B02828;
+  --color-dmk-secondary-soft: #E88888;
+}
+
+body {
+  background-color: var(--color-dmk-bg);
+  color: var(--color-dmk-text);
+  font-family: var(--font-sans);
+}
+
+/* Marquez specific: Precision Academia */
+.card-marquez {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid var(--color-dmk-border);
+  background: var(--color-dmk-card);
+}
+
+.card-marquez:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px -10px color-mix(in srgb, var(--color-dmk-text) 8%, transparent);
+  border-color: var(--color-dmk-accent);
+}
+
+/* Accent line */
+.accent-line {
+  position: relative;
+  padding-left: 1rem;
+}
+
+.accent-line::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--color-dmk-accent);
+}
+
+/* Secondary accent for CTAs */
+.accent-secondary {
+  color: var(--color-dmk-secondary);
+}
+
+/* Link underline */
+.link-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--color-dmk-accent);
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.link-underline:hover::after {
+  width: 100%;
+}
+
+/* Executive badge */
+.badge-exec {
+  background: var(--color-dmk-accent);
+  color: white;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 2px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Secondary badge */
+.badge-secondary {
+  background: var(--color-dmk-secondary);
+  color: white;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 2px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Tab active */
+.tab-active {
+  border-bottom: 2px solid var(--color-dmk-accent);
+  color: var(--color-dmk-accent);
+  font-weight: 600;
+}
+
+/* Datametrik brand colors */
+.bg-datametrik {
+  background: #1B2A4A;
+}
+
+.text-datametrik-accent {
+  color: #2EC4B6;
+}
+
+.border-datametrik-accent {
+  border-color: #2EC4B6;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-dmk-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-dmk-accent-soft);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-dmk-accent);
+}
+
+/* Focus visible */
+:focus-visible {
+  outline: 2px solid var(--color-dmk-accent);
+  outline-offset: 3px;
+}
+
+/* Sticky nav */
+.nav-sticky {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(12px) saturate(120%);
+  -webkit-backdrop-filter: blur(12px) saturate(120%);
+  background: rgba(240, 242, 245, 0.85);
+  border-bottom: 1px solid var(--color-dmk-border);
+}

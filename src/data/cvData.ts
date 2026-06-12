@@ -414,5 +414,56 @@ export const cvData = {
     process: ["ARIS", "Bizagi"],
     databases: ["SQL", "MySQL", "Excel"],
     languages: ["Español (Nativo)", "Inglés (Intermedio)"]
+  },
+
+  social: {
+    linkedin: "#",
+    orcid: "#",
+    googleScholar: "#"
+  },
+
+  services: [
+    {
+      number: "01",
+      title: "Consultoría Académica",
+      description: "Asesoría en diseño de investigación, revisión metodológica y preparación de manuscritos para revistas indexadas."
+    },
+    {
+      number: "02",
+      title: "Innovación y Emprendimiento",
+      description: "Diagnóstico de madurez emprendedora, diseño de programas de aceleración y evaluación de proyectos de inversión social."
+    },
+    {
+      number: "03",
+      title: "Gobernanza de Datos",
+      description: "Estructuración de comités de innovación con rigor académico y visión estratégica de negocio."
+    },
+    {
+      number: "04",
+      title: "Business Intelligence & Analytics",
+      description: "En alianza con Datametrik — dashboards ejecutivos, automatización de procesos y análisis predictivo."
+    }
+  ],
+
+  datametrik: {
+    name: "DATAMETRIK",
+    tagline: "Business Intelligence & Analytics",
+    description: "Somos el punto de unión entre la tecnología y el negocio, convirtiendo la información en visibilidad estratégica para la toma de decisiones.",
+    services: [
+      "Arquitectura de datos: Consolidamos información crítica en una base confiable, escalable y preparada para acompañar el crecimiento de la operación.",
+      "Automatización de procesos: Reducimos carga operativa automatizando flujos clave del negocio para mejorar la eficiencia y continuidad.",
+      "Business Intelligence: Convertimos datos dispersos en visibilidad ejecutiva mediante dashboards que consolidan la información del negocio.",
+      "Análisis predictivo: Desarrollamos análisis que permiten anticipar escenarios y apoyar decisiones estratégicas de forma oportuna.",
+      "Monitoreo operacional: Entregamos visibilidad continua sobre la operación para fortalecer el control, la trazabilidad y la capacidad de respuesta."
+    ],
+    methodology: [
+      { step: "1", title: "Diagnóstico", description: "Analizamos la situación actual de la información, los procesos y las necesidades prioritarias del negocio." },
+      { step: "2", title: "Diseño de solución", description: "Estructuramos una solución alineada a los objetivos de gestión y a la realidad operativa de la empresa." },
+      { step: "3", title: "Implementación BI", description: "Desarrollamos reportes, indicadores y dashboards confiables para entregar visibilidad clara del negocio." },
+      { step: "4", title: "Automatización y mejora continua", description: "Incorporamos automatización, seguimiento y optimización para asegurar resultados sostenibles." }
+    ],
+    contact: "contacto@datametrik.cl",
+    phone: "+569 63321022",
+    url: "#"
   }
 };

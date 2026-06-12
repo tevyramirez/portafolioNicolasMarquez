@@ -1,0 +1,87 @@
+---
+import { cvData } from '../../data/cvData';
+
+const published = cvData.publications.filter(p => p.status === 'published');
+const inPress = cvData.publications.filter(p => p.status === 'in-press');
+const books = cvData.publications.filter(p => p.status === 'book');
+const underReview = cvData.underReview;
+---
+
+<section id="publicaciones" class="py-12 md:py-16 border-b border-dmk-border">
+  <div class="max-w-5xl mx-auto px-8 md:px-12">
+    
+    <div class="mb-10">
+      <h2 class="font-serif text-2xl font-bold text-dmk-text mb-2">Publicaciones</h2>
+      <p class="font-sans text-sm text-dmk-muted">Artículos revisados por pares, libros y manuscritos. Autor correspondiente indicado con *.</p>
+    </div>
+
+    <!-- Published Articles -->
+    <div class="mb-10">
+      <h3 class="font-serif text-lg font-semibold text-dmk-text mb-4">Artículos Publicados</h3>
+      <div class="space-y-4">
+        {published.map((pub) => (
+          <div class="accent-line py-1">
+            <p class="font-sans text-sm text-dmk-text leading-relaxed">
+              {pub.authors.includes('Márquez') ? (
+                <span set:html={pub.authors.replace('Márquez, N.', '<strong>Márquez, N.</strong>').replace('Márquez, N', '<strong>Márquez, N</strong>').replace('Márquez Álvarez, N', '<strong>Márquez Álvarez, N</strong>')}></span>
+              ) : (
+                pub.authors
+              )} ({pub.year}). {pub.title}. <em>{pub.journal}</em>. {pub.doi && (
+                <a href={`https://doi.org/${pub.doi}`} class="text-dmk-accent hover:underline" target="_blank">https://doi.org/{pub.doi}</a>
+              )} {pub.correspondingAuthor && <span class="text-dmk-accent">*</span>}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Under Review -->
+    {underReview.length > 0 && (
+      <div class="mb-10">
+        <h3 class="font-serif text-lg font-semibold text-dmk-text mb-4">En Revisión</h3>
+        <div class="space-y-3">
+          {underReview.map((pub) => (
+            <div class="accent-line py-1">
+              <p class="font-sans text-sm text-dmk-muted leading-relaxed">
+                <strong>Márquez, N.</strong> ({pub.year}). {pub.title}. <em>{pub.journal}</em>.
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    )}
+
+    <!-- In Press -->
+    {inPress.length > 0 && (
+      <div class="mb-10">
+        <h3 class="font-serif text-lg font-semibold text-dmk-text mb-4">En Prensa</h3>
+        <div class="space-y-3">
+          {inPress.map((pub) => (
+            <div class="accent-line py-1">
+              <p class="font-sans text-sm text-dmk-text leading-relaxed">
+                <span set:html={pub.authors.replace('Márquez, N.', '<strong>Márquez, N.</strong>')}></span> ({pub.year}). {pub.title}. <em>{pub.journal}</em>.
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    )}
+
+    <!-- Books -->
+    {books.length > 0 && (
+      <div>
+        <h3 class="font-serif text-lg font-semibold text-dmk-text mb-4">Libros</h3>
+        <div class="space-y-3">
+          {books.map((pub) => (
+            <div class="accent-line py-1">
+              <p class="font-sans text-sm text-dmk-text leading-relaxed">
+                <strong>Márquez, N.</strong> ({pub.year}). <em>{pub.title}</em>. {pub.journal}.
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    )}
+
+  </div>
+</section>
