@@ -85,23 +85,24 @@ const d = cvData.datametrik;
 
 <script>
   (function() {
-    const canvas = document.getElementById('datametrik-canvas') as HTMLCanvasElement;
+    var canvas = document.getElementById('datametrik-canvas');
     if (!canvas) return;
-    const ctx = canvas.getContext('2d');
+    var ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    let width = canvas.offsetWidth;
-    let height = canvas.offsetHeight;
+    var width = canvas.offsetWidth;
+    var height = canvas.offsetHeight;
     canvas.width = width * window.devicePixelRatio;
     canvas.height = height * window.devicePixelRatio;
     ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
 
-    const nodes: { x: number; y: number; vx: number; vy: number; radius: number }[] = [];
-    const nodeCount = 25;
-    const connectionDistance = 120;
-    const mouse = { x: -1000, y: -1000 };
+    var nodes = [];
+    var nodeCount = 25;
+    var connectionDistance = 120;
+    var mouse = { x: -1000, y: -1000 };
+    var animId = null;
 
-    for (let i = 0; i < nodeCount; i++) {
+    for (var i = 0; i < nodeCount; i++) {
       nodes.push({
         x: Math.random() * width,
         y: Math.random() * height,
@@ -115,77 +116,85 @@ const d = cvData.datametrik;
       if (!ctx) return;
       ctx.clearRect(0, 0, width, height);
 
-      // Update nodes
-      nodes.forEach(node => {
+      nodes.forEach(function(node) {
         node.x += node.vx;
         node.y += node.vy;
 
-        // Bounce off edges
         if (node.x < 0 || node.x > width) node.vx *= -1;
         if (node.y < 0 || node.y > height) node.vy *= -1;
 
-        // Mouse repulsion
-        const dx = node.x - mouse.x;
-        const dy = node.y - mouse.y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
+        var dx = node.x - mouse.x;
+        var dy = node.y - mouse.y;
+        var dist = Math.sqrt(dx * dx + dy * dy);
         if (dist < 100) {
-          const force = (100 - dist) / 100;
+          var force = (100 - dist) / 100;
           node.vx += (dx / dist) * force * 0.5;
           node.vy += (dy / dist) * force * 0.5;
         }
 
-        // Draw node
         ctx.beginPath();
         ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
         ctx.fillStyle = '#2EC4B6';
         ctx.fill();
       });
 
-      // Draw connections
-      for (let i = 0; i < nodes.length; i++) {
-        for (let j = i + 1; j < nodes.length; j++) {
-          const dx = nodes[i].x - nodes[j].x;
-          const dy = nodes[i].y - nodes[j].y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
+      for (var i = 0; i < nodes.length; i++) {
+        for (var j = i + 1; j < nodes.length; j++) {
+          var dx = nodes[i].x - nodes[j].x;
+          var dy = nodes[i].y - nodes[j].y;
+          var dist = Math.sqrt(dx * dx + dy * dy);
 
           if (dist < connectionDistance) {
             ctx.beginPath();
             ctx.moveTo(nodes[i].x, nodes[i].y);
             ctx.lineTo(nodes[j].x, nodes[j].y);
-            ctx.strokeStyle = `rgba(46, 196, 182, ${1 - dist / connectionDistance})`;
+            ctx.strokeStyle = 'rgba(46, 196, 182, ' + (1 - dist / connectionDistance) + ')';
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }
         }
       }
 
-      requestAnimationFrame(animate);
+      animId = requestAnimationFrame(animate);
+    }
+
+    // Pause/resume based on visibility
+    var section = canvas.closest('section');
+    if (section) {
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            if (!animId) animate();
+          } else {
+            if (animId) { cancelAnimationFrame(animId); animId = null; }
+          }
+        });
+      }, { threshold: 0.1 });
+      observer.observe(section);
     }
 
     animate();
 
-    // Mouse interaction
-    const parent = canvas.parentElement;
+    var parent = canvas.parentElement;
     if (parent) {
-      parent.addEventListener('mousemove', (e) => {
-        const rect = canvas.getBoundingClientRect();
+      parent.addEventListener('mousemove', function(e) {
+        var rect = canvas.getBoundingClientRect();
         mouse.x = e.clientX - rect.left;
         mouse.y = e.clientY - rect.top;
       });
 
-      parent.addEventListener('mouseleave', () => {
+      parent.addEventListener('mouseleave', function() {
         mouse.x = -1000;
         mouse.y = -1000;
       });
     }
 
-    // Resize
-    window.addEventListener('resize', () => {
+    window.addEventListener('resize', function() {
       width = canvas.offsetWidth;
       height = canvas.offsetHeight;
       canvas.width = width * window.devicePixelRatio;
       canvas.height = height * window.devicePixelRatio;
-      ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+      ctx.setTransform(window.devicePixelRatio, 0, 0, window.devicePixelRatio, 0, 0);
     });
   })();
 </script>
