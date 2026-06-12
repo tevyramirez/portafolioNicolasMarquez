@@ -8,11 +8,37 @@
 
   --color-dmk-bg: #F0F2F5;
   --color-dmk-card: #FFFFFF;
-  --color-dmk-text: #111111;
+  --color-dmk-text: #1C1E21;
   --color-dmk-muted: #3A4558;
   --color-dmk-accent: #1A365D;
   --color-dmk-accent-soft: #2E5A8E;
   --color-dmk-border: #CBD5E0;
+  --color-dmk-secondary: #B02828;
+  --color-dmk-secondary-soft: #E88888;
+}
+
+/* Durán palette (default) */
+[data-theme="duran"] {
+  --color-dmk-bg: #F0F2F5;
+  --color-dmk-card: #FFFFFF;
+  --color-dmk-text: #1C1E21;
+  --color-dmk-muted: #3A4558;
+  --color-dmk-accent: #1A365D;
+  --color-dmk-accent-soft: #2E5A8E;
+  --color-dmk-border: #CBD5E0;
+  --color-dmk-secondary: #B02828;
+  --color-dmk-secondary-soft: #E88888;
+}
+
+/* Symmes palette */
+[data-theme="symmes"] {
+  --color-dmk-bg: #F5F5F5;
+  --color-dmk-card: #FFFFFF;
+  --color-dmk-text: #0A0A0A;
+  --color-dmk-muted: #555555;
+  --color-dmk-accent: #B02828;
+  --color-dmk-accent-soft: #E88888;
+  --color-dmk-border: #CCCCCC;
   --color-dmk-secondary: #B02828;
   --color-dmk-secondary-soft: #E88888;
 }
@@ -151,6 +177,6 @@ body {
   z-index: 50;
   backdrop-filter: blur(12px) saturate(120%);
   -webkit-backdrop-filter: blur(12px) saturate(120%);
-  background: rgba(240, 242, 245, 0.85);
+  background: color-mix(in srgb, var(--color-dmk-bg) 85%, transparent);
   border-bottom: 1px solid var(--color-dmk-border);
 }

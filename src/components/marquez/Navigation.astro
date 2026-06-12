@@ -22,6 +22,14 @@ const tabs = [
           {tab.label}
         </a>
       ))}
+      <div class="ml-auto flex items-center gap-1 pl-3 border-l border-dmk-border">
+        <button id="theme-duran" class="theme-btn font-mono text-[10px] px-2 py-1.5 rounded-sm uppercase tracking-wider transition-all duration-300 border" title="Paleta Durán (Azul)">
+          D
+        </button>
+        <button id="theme-symmes" class="theme-btn font-mono text-[10px] px-2 py-1.5 rounded-sm uppercase tracking-wider transition-all duration-300 border" title="Paleta Symmes (Rojo)">
+          S
+        </button>
+      </div>
     </div>
   </div>
 </nav>
@@ -34,4 +42,39 @@ const tabs = [
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
   }
+  .theme-btn {
+    border-color: var(--color-dmk-border);
+    color: var(--color-dmk-muted);
+    background: transparent;
+  }
+  .theme-btn:hover {
+    border-color: var(--color-dmk-accent);
+    color: var(--color-dmk-accent);
+  }
+  .theme-btn.active {
+    border-color: var(--color-dmk-accent);
+    color: var(--color-dmk-accent);
+    font-weight: 600;
+  }
 </style>
+
+<script>
+  (function() {
+    var current = localStorage.getItem('marquez-theme') || 'duran';
+    document.documentElement.setAttribute('data-theme', current);
+
+    function setTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('marquez-theme', theme);
+      document.querySelectorAll('.theme-btn').forEach(function(btn) {
+        btn.classList.toggle('active', btn.id === 'theme-' + theme);
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      setTheme(current);
+      document.getElementById('theme-duran').addEventListener('click', function() { setTheme('duran'); });
+      document.getElementById('theme-symmes').addEventListener('click', function() { setTheme('symmes'); });
+    });
+  })();
+</script>

@@ -15,6 +15,15 @@ const title = "Dr. Nicolás Márquez Álvarez | PhD in Management · Entrepreneu
 const description = "Academic portfolio of Dr. Nicolás Márquez Álvarez, PhD in Management (Universidad Adolfo Ibáñez). Research in entrepreneurship, SME innovation, sustainability, and AI governance in Latin America.";
 ---
 
+<script is:inline>
+  (function() {
+    var theme = localStorage.getItem('marquez-theme');
+    if (theme === 'duran' || theme === 'symmes') {
+      document.documentElement.setAttribute('data-theme', theme);
+    }
+  })();
+</script>
+
 <Layout title={title} description={description}>
   <Hero />
   <Navigation />
