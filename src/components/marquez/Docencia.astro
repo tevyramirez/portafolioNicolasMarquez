@@ -1,20 +1,27 @@
 ---
-import { cvData } from '../../data/cvData';
+import { cvData as cvDataEs } from '../../data/cvData';
+import { cvData as cvDataEn } from '../../data/cvData_en';
+import { t } from '../../i18n/ui';
+import type { UIKey } from '../../i18n/ui';
+import { getLocale } from '../../i18n/utils';
+
+const locale = getLocale(Astro.url);
+const d = locale === 'en' ? cvDataEn : cvDataEs;
 ---
 
 <section id="docencia" class="py-12 md:py-16 border-b border-dmk-border">
   <div class="max-w-5xl mx-auto px-8 md:px-12">
     
     <div class="mb-10">
-      <h2 class="font-serif text-2xl font-bold text-dmk-text mb-2">Docencia y Servicio Académico</h2>
+      <h2 class="font-serif text-2xl font-bold text-dmk-text mb-2">{t(locale, 'section.docencia')}</h2>
     </div>
 
     <!-- Academic Positions -->
     <div class="mb-10">
-      <h3 class="font-serif text-lg font-semibold text-dmk-text mb-4">Posiciones Académicas</h3>
+      <h3 class="font-serif text-lg font-semibold text-dmk-text mb-4">{t(locale, 'label.posiciones_aca')}</h3>
       <div class="space-y-6">
         
-        {cvData.academicPositions.map((pos) => (
+        {d.academicPositions.map((pos) => (
           <div class="grid grid-cols-1 md:grid-cols-12 gap-4 accent-line">
             <div class="md:col-span-3">
               <div class="font-sans text-sm text-dmk-muted">{pos.period}</div>
@@ -36,9 +43,9 @@ import { cvData } from '../../data/cvData';
 
     <!-- Teaching Areas -->
     <div class="mb-10">
-      <h3 class="font-serif text-lg font-semibold text-dmk-text mb-4">Áreas de Enseñanza</h3>
+      <h3 class="font-serif text-lg font-semibold text-dmk-text mb-4">{t(locale, 'label.areas_ense')}</h3>
       <div class="flex flex-wrap gap-2">
-        {cvData.teachingAreas.map((area) => (
+        {d.teachingAreas.map((area) => (
           <span class="font-sans text-sm text-dmk-text bg-dmk-card border border-dmk-border px-3 py-1 rounded-sm">{area}</span>
         ))}
       </div>
@@ -46,9 +53,9 @@ import { cvData } from '../../data/cvData';
 
     <!-- Academic Service -->
     <div>
-      <h3 class="font-serif text-lg font-semibold text-dmk-text mb-4">Revisor de Revistas Internacionales</h3>
+      <h3 class="font-serif text-lg font-semibold text-dmk-text mb-4">{t(locale, 'label.revisor')}</h3>
       <p class="font-sans text-sm text-dmk-text leading-relaxed">
-        <em>Journal of Happiness Studies; International Journal of Business Environment; Humanities and Social Sciences Communications; Journal of Developmental Entrepreneurship; Academia Revista Latinoamericana de Administración; International Journal of Entrepreneurship and Innovation; PLOS One</em>, entre otras.
+        <em>Journal of Happiness Studies; International Journal of Business Environment; Humanities and Social Sciences Communications; Journal of Developmental Entrepreneurship; Academia Revista Latinoamericana de Administración; International Journal of Entrepreneurship and Innovation; PLOS One</em>, {t(locale, 'label.entre_otras')}
       </p>
     </div>
 

@@ -1,0 +1,37 @@
+---
+import '../../styles/themes/marquez.css';
+import Layout from '../../layouts/Layout.astro';
+import Hero from '../../components/marquez/Hero.astro';
+import Navigation from '../../components/marquez/Navigation.astro';
+import Formacion from '../../components/marquez/Formacion.astro';
+import Publicaciones from '../../components/marquez/Publicaciones.astro';
+import Docencia from '../../components/marquez/Docencia.astro';
+import Experiencia from '../../components/marquez/Experiencia.astro';
+import Servicios from '../../components/marquez/Servicios.astro';
+import BusinessIntelligence from '../../components/marquez/BusinessIntelligence.astro';
+import Contacto from '../../components/marquez/Contacto.astro';
+
+const title = "Dr. Nicolás Márquez Álvarez | PhD in Management · Entrepreneurship & Innovation";
+const description = "Academic portfolio of Dr. Nicolás Márquez Álvarez, PhD in Management (Universidad Adolfo Ibáñez). Research on entrepreneurship, SME innovation, sustainability, and AI governance in Latin America.";
+---
+
+<script is:inline>
+  (function() {
+    var theme = localStorage.getItem('marquez-theme');
+    if (theme === 'duran' || theme === 'symmes') {
+      document.documentElement.setAttribute('data-theme', theme);
+    }
+  })();
+</script>
+
+<Layout title={title} description={description} lang="en-US">
+  <Hero />
+  <Navigation />
+  <Formacion />
+  <Publicaciones />
+  <Docencia />
+  <Experiencia />
+  <Servicios />
+  <BusinessIntelligence />
+  <Contacto />
+</Layout>

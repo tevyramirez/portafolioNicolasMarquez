@@ -1,5 +1,5 @@
-// src/data/cvData.ts
-// Datos reales del CV del Dr. Nicolás Matías Márquez Álvarez
+// src/data/cvData_en.ts
+// English translation of CV data for Dr. Nicolás Matías Márquez Álvarez
 
 export interface Publication {
   authors: string;
@@ -24,27 +24,27 @@ export const cvData = {
   workInstitution: "Universidad Santo Tomás",
 
   researchFields: [
-    "Emprendimiento",
-    "Innovación y PYMEs",
-    "Sostenibilidad",
-    "IA y Juicio Emprendedor",
-    "Gobernanza de la Innovación",
-    "Contextos Institucionales en América Latina"
+    "Entrepreneurship",
+    "Innovation and SMEs",
+    "Sustainability",
+    "AI and Entrepreneurial Judgment",
+    "Innovation Governance",
+    "Institutional Contexts in Latin America"
   ],
 
   teachingAreas: [
-    "Emprendimiento",
-    "Creación de Nuevos Negocios",
-    "Administración",
-    "Gestión de la Innovación",
-    "Gestión Estratégica",
-    "Negocios Sostenibles",
-    "Responsabilidad Social Empresarial",
-    "Gestión de Procesos de Negocio",
-    "Métodos de Investigación"
+    "Entrepreneurship",
+    "New Venture Creation",
+    "Management",
+    "Innovation Management",
+    "Strategic Management",
+    "Sustainable Business",
+    "Corporate Social Responsibility",
+    "Business Process Management",
+    "Research Methods"
   ],
 
-  bio: "Académico e investigador en emprendimiento, innovación y sostenibilidad. Doctor en Management por la Universidad Adolfo Ibáñez (ANID Doctoral Fellow, 2021-2025), con experiencia como Visiting Researcher en University of Nottingham, Reino Unido. Su investigación se enfoca en emprendimiento, innovación en PYMEs, sostenibilidad y las implicancias de la inteligencia artificial en el juicio emprendedor, con particular atención a los contextos latinoamericanos.",
+  bio: "Academic and researcher in entrepreneurship, innovation and sustainability. PhD in Management from Universidad Adolfo Ibáñez (ANID Doctoral Fellow, 2021-2025), with experience as Visiting Researcher at the University of Nottingham, United Kingdom. His research focuses on entrepreneurship, SME innovation, sustainability, and the implications of artificial intelligence on entrepreneurial judgment, with particular attention to Latin American contexts.",
 
   education: [
     {
@@ -54,7 +54,7 @@ export const cvData = {
       details: [
         "ANID Doctoral Fellow, 2021–2025",
         "Doctoral Visiting Researcher, University of Nottingham, Reino Unido",
-        "Tesis: \"Green management, innovation and territorial dynamics in Latin America on the road to sustainable development\""
+        "Thesis: \"Green management, innovation and territorial dynamics in Latin America on the road to sustainable development\""
       ]
     },
     {
@@ -62,8 +62,8 @@ export const cvData = {
       degree: "Master's in Business Administration (MBA)",
       institution: "Universidad de Talca, Chile",
       details: [
-        "Graduado con Máximo Distinction",
-        "Tesis: \"Business Plan for Civil Nova\""
+        "Graduated with Maximum Distinction",
+        "Thesis: \"Business Plan for Civil Nova\""
       ]
     },
     {
@@ -71,8 +71,8 @@ export const cvData = {
       degree: "BSc in Business Informatics Engineering",
       institution: "Universidad de Talca, Chile",
       details: [
-        "Graduado con Máximo Distinction",
-        "Tesis: \"Development of a Platform to Promote Labour Market Activity: Recomiendame.cl\""
+        "Graduated with Maximum Distinction",
+        "Thesis: \"Development of a Platform to Promote Labour Market Activity: Recomiendame.cl\""
       ]
     }
   ],
@@ -310,21 +310,21 @@ export const cvData = {
 
   academicPositions: [
     {
-      period: "2022 – Presente",
+      period: "2022 – Present",
       position: "Head of Program and Assistant Professor",
       institution: "Universidad Santo Tomás, Talca, Chile",
       details: [
         "Head of the Undergraduate Program in Business Administration",
-        "Docencia: management, innovation management, entrepreneurship, corporate social responsibility",
+        "Teaching: management, innovation management, entrepreneurship, corporate social responsibility",
         "Outstanding Teacher Award 2023-2 (3.85/4.0)"
       ]
     },
     {
-      period: "2023 – Presente",
+      period: "2023 – Present",
       position: "Lecturer",
       institution: "Universidad Autónoma de Chile, Talca, Chile",
       details: [
-        "Cursos: Business Process Management, Integrated Management Systems",
+        "Courses: Business Process Management, Integrated Management Systems",
         "Outstanding Teacher Award 2024 (3.93/4.0)"
       ]
     },
@@ -333,7 +333,7 @@ export const cvData = {
       position: "Lecturer",
       institution: "Universidad de Talca, Chile",
       details: [
-        "Cursos: Management, Management Control, Project Management I & II, Business Intelligence, Data Analysis",
+        "Courses: Management, Management Control, Project Management I & II, Business Intelligence, Data Analysis",
         "Thesis supervisor and examiner (undergraduate level)"
       ]
     },
@@ -342,7 +342,7 @@ export const cvData = {
       position: "Lecturer",
       institution: "Universidad Católica del Maule, Talca, Chile",
       details: [
-        "Cursos: Quantitative Methods, Entrepreneurship and New Venture Creation"
+        "Courses: Quantitative Methods, Entrepreneurship and New Venture Creation"
       ]
     },
     {
@@ -357,7 +357,7 @@ export const cvData = {
 
   professionalExperience: [
     {
-      period: "2018 – Presente",
+      period: "2018 – Present",
       position: "Independent Consultant",
       organization: "Public Procurement and Tenders, Talca, Chile",
       details: [
@@ -413,7 +413,7 @@ export const cvData = {
     analysis: ["Power BI", "Tableau", "SPSS", "Stata", "Nvivo"],
     process: ["ARIS", "Bizagi"],
     databases: ["SQL", "MySQL", "Excel"],
-    languages: ["Español (Nativo)", "Inglés (Intermedio)"]
+    languages: ["Spanish (Native)", "English (Intermediate)"]
   },
 
   social: {
@@ -425,42 +425,42 @@ export const cvData = {
   services: [
     {
       number: "01",
-      title: "Consultoría Académica",
-      description: "Asesoría en diseño de investigación, revisión metodológica y preparación de manuscritos para revistas indexadas."
+      title: "Academic Consulting",
+      description: "Advisory services in research design, methodological review, and manuscript preparation for indexed journals."
     },
     {
       number: "02",
-      title: "Innovación y Emprendimiento",
-      description: "Diagnóstico de madurez emprendedora, diseño de programas de aceleración y evaluación de proyectos de inversión social."
+      title: "Innovation & Entrepreneurship",
+      description: "Entrepreneurial maturity assessment, acceleration program design, and social investment project evaluation."
     },
     {
       number: "03",
-      title: "Gobernanza de Datos",
-      description: "Estructuración de comités de innovación con rigor académico y visión estratégica de negocio."
+      title: "Data Governance",
+      description: "Structuring innovation committees with academic rigor and strategic business vision."
     },
     {
       number: "04",
       title: "Business Intelligence & Analytics",
-      description: "En alianza con Datametrik — dashboards ejecutivos, automatización de procesos y análisis predictivo."
+      description: "In partnership with Datametrik — executive dashboards, process automation and predictive analytics."
     }
   ],
 
   datametrik: {
     name: "DATAMETRIK",
     tagline: "Business Intelligence & Analytics",
-    description: "Somos el punto de unión entre la tecnología y el negocio, convirtiendo la información en visibilidad estratégica para la toma de decisiones.",
+    description: "We are the bridge between technology and business, transforming information into strategic visibility for decision-making.",
     services: [
-      "Arquitectura de datos: Consolidamos información crítica en una base confiable, escalable y preparada para acompañar el crecimiento de la operación.",
-      "Automatización de procesos: Reducimos carga operativa automatizando flujos clave del negocio para mejorar la eficiencia y continuidad.",
-      "Business Intelligence: Convertimos datos dispersos en visibilidad ejecutiva mediante dashboards que consolidan la información del negocio.",
-      "Análisis predictivo: Desarrollamos análisis que permiten anticipar escenarios y apoyar decisiones estratégicas de forma oportuna.",
-      "Monitoreo operacional: Entregamos visibilidad continua sobre la operación para fortalecer el control, la trazabilidad y la capacidad de respuesta."
+      "Data Architecture: We consolidate critical information into a reliable, scalable database ready to support operational growth.",
+      "Process Automation: We reduce operational workload by automating key business flows to improve efficiency and continuity.",
+      "Business Intelligence: We transform scattered data into executive visibility through dashboards that consolidate business information.",
+      "Predictive Analytics: We develop analyses that enable scenario anticipation and support strategic decisions in a timely manner.",
+      "Operational Monitoring: We provide continuous visibility over operations to strengthen control, traceability, and responsiveness."
     ],
     methodology: [
-      { step: "1", title: "Diagnóstico", description: "Analizamos la situación actual de la información, los procesos y las necesidades prioritarias del negocio." },
-      { step: "2", title: "Diseño de solución", description: "Estructuramos una solución alineada a los objetivos de gestión y a la realidad operativa de la empresa." },
-      { step: "3", title: "Implementación BI", description: "Desarrollamos reportes, indicadores y dashboards confiables para entregar visibilidad clara del negocio." },
-      { step: "4", title: "Automatización y mejora continua", description: "Incorporamos automatización, seguimiento y optimización para asegurar resultados sostenibles." }
+      { step: "1", title: "Diagnosis", description: "We analyze the current state of information, processes, and priority business needs." },
+      { step: "2", title: "Solution Design", description: "We structure a solution aligned with management objectives and the operational reality of the company." },
+      { step: "3", title: "BI Implementation", description: "We develop reliable reports, indicators, and dashboards to deliver clear business visibility." },
+      { step: "4", title: "Automation & Continuous Improvement", description: "We incorporate automation, monitoring, and optimization to ensure sustainable results." }
     ],
     contact: "contacto@datametrik.cl",
     phone: "+569 63321022",

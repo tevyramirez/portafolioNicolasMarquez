@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+Allow: /en
+Disallow: /vitrina
+Disallow: /estilo-atelier
+Disallow: /estilo-bravo-ortega
+Disallow: /estilo-datametrik-dark
+Disallow: /estilo-duran
+Disallow: /estilo-folio
+Disallow: /estilo-harvard
+Disallow: /estilo-madrid
+Disallow: /estilo-observatory
+Disallow: /estilo-swiss
+Disallow: /estilo-symmes
+
+Sitemap: https://nicolasmarquezalvarez.cl/sitemap-index.xml

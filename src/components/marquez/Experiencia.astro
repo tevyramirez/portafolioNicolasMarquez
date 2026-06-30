@@ -1,17 +1,23 @@
 ---
-import { cvData } from '../../data/cvData';
+import { cvData as cvDataEs } from '../../data/cvData';
+import { cvData as cvDataEn } from '../../data/cvData_en';
+import { t } from '../../i18n/ui';
+import { getLocale } from '../../i18n/utils';
+
+const locale = getLocale(Astro.url);
+const d = locale === 'en' ? cvDataEn : cvDataEs;
 ---
 
 <section id="experiencia" class="py-12 md:py-16 border-b border-dmk-border">
   <div class="max-w-5xl mx-auto px-8 md:px-12">
     
     <div class="mb-10">
-      <h2 class="font-serif text-2xl font-bold text-dmk-text mb-2">Experiencia Profesional</h2>
+      <h2 class="font-serif text-2xl font-bold text-dmk-text mb-2">{t(locale, 'section.experiencia')}</h2>
     </div>
 
     <div class="space-y-8">
       
-      {cvData.professionalExperience.map((exp) => (
+      {d.professionalExperience.map((exp) => (
         <div class="grid grid-cols-1 md:grid-cols-12 gap-4 accent-line">
           <div class="md:col-span-3">
             <div class="font-sans text-sm text-dmk-muted">{exp.period}</div>
@@ -32,23 +38,23 @@ import { cvData } from '../../data/cvData';
 
     <!-- Skills -->
     <div class="mt-12 pt-8 border-t border-dmk-border">
-      <h3 class="font-serif text-lg font-semibold text-dmk-text mb-4">Habilidades Técnicas</h3>
+      <h3 class="font-serif text-lg font-semibold text-dmk-text mb-4">{t(locale, 'label.habilidades')}</h3>
       <div class="space-y-4">
         <div class="flex flex-wrap items-baseline gap-2">
-          <span class="font-sans text-sm font-semibold text-dmk-muted">Análisis de datos: </span>
-          <span class="font-sans text-base text-dmk-text">{cvData.skills.analysis.join(' · ')}</span>
+          <span class="font-sans text-sm font-semibold text-dmk-muted">{t(locale, 'label.analisis')}: </span>
+          <span class="font-sans text-base text-dmk-text">{d.skills.analysis.join(' · ')}</span>
         </div>
         <div class="flex flex-wrap items-baseline gap-2">
-          <span class="font-sans text-sm font-semibold text-dmk-muted">Modelado de procesos: </span>
-          <span class="font-sans text-base text-dmk-text">{cvData.skills.process.join(' · ')}</span>
+          <span class="font-sans text-sm font-semibold text-dmk-muted">{t(locale, 'label.modelado')}: </span>
+          <span class="font-sans text-base text-dmk-text">{d.skills.process.join(' · ')}</span>
         </div>
         <div class="flex flex-wrap items-baseline gap-2">
-          <span class="font-sans text-sm font-semibold text-dmk-muted">Bases de datos: </span>
-          <span class="font-sans text-base text-dmk-text">{cvData.skills.databases.join(' · ')}</span>
+          <span class="font-sans text-sm font-semibold text-dmk-muted">{t(locale, 'label.bases')}: </span>
+          <span class="font-sans text-base text-dmk-text">{d.skills.databases.join(' · ')}</span>
         </div>
         <div class="flex flex-wrap items-baseline gap-2">
-          <span class="font-sans text-sm font-semibold text-dmk-muted">Idiomas: </span>
-          <span class="font-sans text-base text-dmk-text">{cvData.skills.languages.join(' · ')}</span>
+          <span class="font-sans text-sm font-semibold text-dmk-muted">{t(locale, 'label.idiomas')}: </span>
+          <span class="font-sans text-base text-dmk-text">{d.skills.languages.join(' · ')}</span>
         </div>
       </div>
     </div>

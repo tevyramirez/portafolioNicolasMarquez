@@ -6,16 +6,31 @@ import '../styles/3d-minimal.css';
 interface Props {
   title?: string;
   description?: string;
+  lang?: string;
+  noindex?: boolean;
 }
 
 const {
   title = "Dr. Nicolás Márquez Álvarez | PhD in Management · Portafolio Académico",
-  description = "Portafolio académico del Dr. Nicolás Matías Márquez Álvarez, PhD in Management por la Universidad Adolfo Ibáñez."
+  description = "Portafolio académico del Dr. Nicolás Matías Márquez Álvarez, PhD in Management por la Universidad Adolfo Ibáñez.",
+  lang = "es-CL",
+  noindex = false,
 } = Astro.props;
+
+const site = Astro.site?.href?.replace(/\/$/, '') ?? 'https://nicolasmarquezalvarez.cl';
+const canonical = `${site}${Astro.url.pathname}`.replace(/\/+$/, '') || site;
+const ogImage = `${site}/og-image.jpg`;
+const isEn = Astro.url.pathname.startsWith('/en');
+const enPath = isEn ? Astro.url.pathname : (Astro.url.pathname === '/' ? '/en' : `/en${Astro.url.pathname}`);
+const esPath = !isEn ? Astro.url.pathname : (Astro.url.pathname.replace(/^\/en/, '') || '/');
+const enUrl = `${site}${enPath}`.replace(/\/+$/, '');
+const esUrl = `${site}${esPath}`.replace(/\/+$/, '');
+const ogLocale = isEn ? 'en_US' : 'es_CL';
+const ogAltLocale = isEn ? 'es_CL' : 'en_US';
 ---
 
 <!DOCTYPE html>
-<html lang="es-CL" class="scroll-smooth">
+<html lang={lang} class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -23,7 +38,67 @@ const {
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large, max-snippet:-1'} />
+    <meta name="author" content="Dr. Nicolás Márquez Álvarez" />
+    <meta name="theme-color" content="#1A365D" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=JetBrains+Mono:wght@400;500&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=JetBrains+Mono:wght@400;500&display=swap" />
+
+    <!-- Canonical & hreflang -->
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="es-CL" href={esUrl} />
+    <link rel="alternate" hreflang="en-US" href={enUrl} />
+    <link rel="alternate" hreflang="x-default" href={site} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="profile" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content={ogLocale} />
+    <meta property="og:locale:alternate" content={ogAltLocale} />
+    <meta property="og:site_name" content="Dr. Nicolás Márquez Álvarez" />
+    <meta property="profile:first_name" content="Nicolás" />
+    <meta property="profile:last_name" content="Márquez Álvarez" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- JSON-LD Person -->
+    <script type="application/ld+json" is:inline set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Dr. Nicolás Matías Márquez Álvarez",
+      "givenName": "Nicolás",
+      "familyName": "Márquez Álvarez",
+      "jobTitle": "Assistant Professor & Head of Program",
+      "worksFor": {
+        "@type": "CollegeOrUniversity",
+        "name": "Universidad Santo Tomás, Talca, Chile"
+      },
+      "alumniOf": [
+        { "@type": "CollegeOrUniversity", "name": "Universidad Adolfo Ibáñez" },
+        { "@type": "CollegeOrUniversity", "name": "University of Nottingham" }
+      ],
+      "knowsAbout": ["Entrepreneurship", "SME Innovation", "Sustainability", "AI Governance", "Business Intelligence"],
+      "nationality": { "@type": "Country", "name": "Chile" },
+      "address": { "@type": "PostalAddress", "addressLocality": "Talca", "addressCountry": "CL" },
+      "email": "mailto:nicolasmarquezalvarez@gmail.com",
+      "sameAs": [
+        "https://www.linkedin.com/in/nicol%C3%A1s-m%C3%A1rquez-96869069/"
+      ],
+      "url": canonical
+    })} />
 
     <script is:inline>
       const savedTheme = localStorage.getItem("portfolio-theme-id") || "style-01";
@@ -50,19 +125,16 @@ const {
           entries.forEach(entry => {
             if (entry.isIntersecting) {
               entry.target.classList.add('visible');
-              // Unobserve after revealing to keep the state
               revealObserver.unobserve(entry.target);
             }
           });
         }, observerOptions);
         
-        // Observe all reveal elements
         document.addEventListener('DOMContentLoaded', () => {
           const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
           revealElements.forEach(el => revealObserver.observe(el));
         });
         
-        // Immediate reveal for above-fold content
         document.addEventListener('DOMContentLoaded', () => {
           const immediateReveals = document.querySelectorAll('.reveal-immediate');
           immediateReveals.forEach(el => el.classList.add('visible'));

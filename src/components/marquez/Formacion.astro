@@ -1,17 +1,24 @@
 ---
-import { cvData } from '../../data/cvData';
+import { cvData as cvDataEs } from '../../data/cvData';
+import { cvData as cvDataEn } from '../../data/cvData_en';
+import { t } from '../../i18n/ui';
+import type { UIKey } from '../../i18n/ui';
+import { getLocale } from '../../i18n/utils';
+
+const locale = getLocale(Astro.url);
+const d = locale === 'en' ? cvDataEn : cvDataEs;
 ---
 
 <section id="formacion" class="py-12 md:py-16 border-b border-dmk-border">
   <div class="max-w-5xl mx-auto px-8 md:px-12">
     
     <div class="mb-10">
-      <h2 class="font-serif text-2xl font-bold text-dmk-text mb-2">Formación Académica</h2>
+      <h2 class="font-serif text-2xl font-bold text-dmk-text mb-2">{t(locale, 'section.formacion')}</h2>
     </div>
 
     <div class="space-y-8">
       
-      {cvData.education.map((edu) => (
+      {d.education.map((edu) => (
         <div class="grid grid-cols-1 md:grid-cols-12 gap-4 accent-line">
           <div class="md:col-span-3">
             <div class="font-sans text-sm text-dmk-muted">{edu.period}</div>
@@ -32,9 +39,9 @@ import { cvData } from '../../data/cvData';
 
     <!-- Research Interests -->
     <div class="mt-12 pt-8 border-t border-dmk-border">
-      <h3 class="font-serif text-lg font-semibold text-dmk-text mb-4">Líneas de Investigación</h3>
+      <h3 class="font-serif text-lg font-semibold text-dmk-text mb-4">{t(locale, 'label.investigacion')}</h3>
       <div class="flex flex-wrap gap-2">
-        {cvData.researchFields.map((interest) => (
+        {d.researchFields.map((interest) => (
           <span class="font-sans text-sm text-dmk-text bg-dmk-card border border-dmk-border px-3 py-1 rounded-sm">{interest}</span>
         ))}
       </div>

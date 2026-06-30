@@ -1,13 +1,18 @@
 ---
+import { t } from '../../i18n/ui';
+import { getLocale, getOtherUrl } from '../../i18n/utils';
+
+const locale = getLocale(Astro.url);
+
 const tabs = [
-  { id: 'perfil', label: 'Perfil' },
-  { id: 'formacion', label: 'Formación' },
-  { id: 'publicaciones', label: 'Publicaciones' },
-  { id: 'docencia', label: 'Docencia' },
-  { id: 'experiencia', label: 'Experiencia' },
-  { id: 'servicios', label: 'Servicios' },
-  { id: 'bi', label: 'Business Intelligence' },
-  { id: 'contacto', label: 'Contacto' }
+  { id: 'perfil', key: 'nav.perfil' as const },
+  { id: 'formacion', key: 'nav.formacion' as const },
+  { id: 'publicaciones', key: 'nav.publicaciones' as const },
+  { id: 'docencia', key: 'nav.docencia' as const },
+  { id: 'experiencia', key: 'nav.experiencia' as const },
+  { id: 'servicios', key: 'nav.servicios' as const },
+  { id: 'bi', key: 'nav.bi' as const },
+  { id: 'contacto', key: 'nav.contacto' as const },
 ];
 ---
 
@@ -15,20 +20,23 @@ const tabs = [
   <div class="max-w-5xl mx-auto px-8 md:px-12">
     <div class="flex items-center gap-1 overflow-x-auto py-3 scrollbar-hide">
       {tabs.map((tab, i) => (
-        <a 
-          href={`#${tab.id}`} 
+        <a
+          href={`#${tab.id}`}
           class={`font-sans text-xs px-3 py-2 whitespace-nowrap transition-colors duration-300 rounded-sm ${i === 0 ? 'text-dmk-accent font-semibold bg-dmk-accent/5' : 'text-dmk-muted hover:text-dmk-text hover:bg-dmk-accent/5'}`}
         >
-          {tab.label}
+          {t(locale, tab.key as any)}
         </a>
       ))}
       <div class="ml-auto flex items-center gap-1 pl-3 border-l border-dmk-border">
-        <button id="theme-duran" class="theme-btn font-mono text-[10px] px-2 py-1.5 rounded-sm uppercase tracking-wider transition-all duration-300 border" title="Paleta Durán (Azul)">
+        <button id="theme-duran" class="theme-btn font-mono text-[10px] px-2 py-1.5 rounded-sm uppercase tracking-wider transition-all duration-300 border" aria-label={t(locale, 'theme.duran')}>
           D
         </button>
-        <button id="theme-symmes" class="theme-btn font-mono text-[10px] px-2 py-1.5 rounded-sm uppercase tracking-wider transition-all duration-300 border" title="Paleta Symmes (Rojo)">
+        <button id="theme-symmes" class="theme-btn font-mono text-[10px] px-2 py-1.5 rounded-sm uppercase tracking-wider transition-all duration-300 border" aria-label={t(locale, 'theme.symmes')}>
           S
         </button>
+        <a href={getOtherUrl(Astro.url)} class="font-mono text-[10px] uppercase tracking-[0.15em] px-2 py-1.5 rounded-sm border text-dmk-muted hover:text-dmk-accent hover:border-dmk-accent transition-colors" aria-label={locale === 'en' ? t('es', 'lang.switch.en') : t('en', 'lang.switch')}>
+          {locale === 'en' ? 'ES' : 'EN'}
+        </a>
       </div>
     </div>
   </div>

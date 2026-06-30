@@ -1,5 +1,11 @@
 ---
-import { cvData } from '../../data/cvData';
+import { cvData as cvDataEs } from '../../data/cvData';
+import { cvData as cvDataEn } from '../../data/cvData_en';
+import { t } from '../../i18n/ui';
+import { getLocale, getOtherUrl } from '../../i18n/utils';
+
+const locale = getLocale(Astro.url);
+const d = locale === 'en' ? cvDataEn : cvDataEs;
 ---
 
 <section id="perfil" class="relative bg-dmk-bg border-b border-dmk-border">
@@ -10,7 +16,7 @@ import { cvData } from '../../data/cvData';
       <!-- Foto (3 cols) -->
       <div class="md:col-span-3 reveal-scale stagger-1">
         <div class="aspect-[3/4] bg-dmk-card border-2 border-dmk-accent flex items-center justify-center overflow-hidden">
-          <img src="/photo.jpg" alt="Dr. Nicolás Márquez Álvarez" class="w-full h-full object-cover" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'w-full h-full flex items-center justify-center\'><span class=\'font-serif text-6xl text-dmk-accent\'>N</span></div>';" />
+          <img src="https://media.licdn.com/dms/image/v2/D4E03AQH_8jcKffEXqQ/profile-displayphoto-shrink_400_400/B4EZh4b03VGUAg-/0/1754367218390?e=1784160000&v=beta&t=k8OGZKDOkFNAWxKiBX-3oB67XHP_zFXKuYreM_-hQUo" alt="Dr. Nicolás Márquez Álvarez" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='/photo.jpg';" />
         </div>
       </div>
 
@@ -19,27 +25,27 @@ import { cvData } from '../../data/cvData';
         
         <div class="space-y-2 reveal stagger-1">
           <h1 class="font-serif text-3xl md:text-4xl font-bold text-dmk-text">
-            {cvData.fullName}
+            {d.fullName}
           </h1>
           <p class="font-serif text-lg text-dmk-muted italic">
-            {cvData.degree}, {cvData.institution}
+            {d.degree}, {d.institution}
           </p>
         </div>
 
         <div class="h-px w-24 bg-dmk-accent divider-animated reveal stagger-2"></div>
 
         <p class="font-sans text-base text-dmk-text leading-relaxed max-w-2xl reveal stagger-2">
-          {cvData.bio}
+          {d.bio}
         </p>
 
         <div class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-dmk-muted reveal stagger-3">
           <span class="flex items-center gap-2">
             <span class="w-1.5 h-1.5 rounded-full bg-dmk-accent"></span>
-            {cvData.email}
+            {d.email}
           </span>
           <span class="flex items-center gap-2">
             <span class="w-1.5 h-1.5 rounded-full bg-dmk-accent"></span>
-            {cvData.phone}
+            {d.phone}
           </span>
           <span class="flex items-center gap-2">
             <span class="w-1.5 h-1.5 rounded-full bg-dmk-accent"></span>
@@ -49,13 +55,13 @@ import { cvData } from '../../data/cvData';
 
         <!-- Social Links -->
         <div class="flex flex-wrap gap-3 pt-2 reveal stagger-3">
-          <a href={cvData.social.linkedin} class="font-mono text-[10px] uppercase tracking-[0.15em] text-dmk-accent border border-dmk-accent/30 px-3 py-1.5 rounded-sm hover:bg-dmk-accent hover:text-white transition-all duration-300">
+          <a href={d.social.linkedin} class="font-mono text-[10px] uppercase tracking-[0.15em] text-dmk-accent border border-dmk-accent/30 px-3 py-1.5 rounded-sm hover:bg-dmk-accent hover:text-white transition-all duration-300">
             LinkedIn
           </a>
-          <a href={cvData.social.orcid} class="font-mono text-[10px] uppercase tracking-[0.15em] text-dmk-accent border border-dmk-accent/30 px-3 py-1.5 rounded-sm hover:bg-dmk-accent hover:text-white transition-all duration-300">
+          <a href={d.social.orcid} class="font-mono text-[10px] uppercase tracking-[0.15em] text-dmk-accent border border-dmk-accent/30 px-3 py-1.5 rounded-sm hover:bg-dmk-accent hover:text-white transition-all duration-300">
             ORCID
           </a>
-          <a href={cvData.social.googleScholar} class="font-mono text-[10px] uppercase tracking-[0.15em] text-dmk-accent border border-dmk-accent/30 px-3 py-1.5 rounded-sm hover:bg-dmk-accent hover:text-white transition-all duration-300">
+          <a href={d.social.googleScholar} class="font-mono text-[10px] uppercase tracking-[0.15em] text-dmk-accent border border-dmk-accent/30 px-3 py-1.5 rounded-sm hover:bg-dmk-accent hover:text-white transition-all duration-300">
             Google Scholar
           </a>
         </div>

@@ -1,51 +1,57 @@
 ---
-import { cvData } from '../../data/cvData';
+import { cvData as cvDataEs } from '../../data/cvData';
+import { cvData as cvDataEn } from '../../data/cvData_en';
+import { t } from '../../i18n/ui';
+import { getLocale, getOtherUrl } from '../../i18n/utils';
+
+const locale = getLocale(Astro.url);
+const d = locale === 'en' ? cvDataEn : cvDataEs;
 ---
 
 <section id="contacto" class="py-12 md:py-16">
   <div class="max-w-5xl mx-auto px-8 md:px-12">
     
     <div class="mb-10">
-      <h2 class="font-serif text-2xl font-bold text-dmk-text mb-2">Contacto</h2>
+      <h2 class="font-serif text-2xl font-bold text-dmk-text mb-2">{t(locale, 'section.contacto')}</h2>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       
       <div class="space-y-6">
         <div class="space-y-2">
-          <h3 class="font-serif text-base font-semibold text-dmk-text">Información de Contacto</h3>
+          <h3 class="font-serif text-base font-semibold text-dmk-text">{t(locale, 'label.contacto_info')}</h3>
           <div class="space-y-1 font-sans text-sm text-dmk-text">
-            <p>{cvData.fullName}</p>
-            <p>{cvData.address}</p>
-            <p>Email: <a href={`mailto:${cvData.email}`} class="text-dmk-accent hover:underline">{cvData.email}</a></p>
-            <p>Teléfono: {cvData.phone}</p>
+            <p>{d.fullName}</p>
+            <p>{d.address}</p>
+            <p>{t(locale, 'label.email')}: <a href={`mailto:${d.email}`} class="text-dmk-accent hover:underline">{d.email}</a></p>
+            <p>{t(locale, 'label.telefono')}: {d.phone}</p>
           </div>
         </div>
 
         <div class="space-y-2">
-          <h3 class="font-serif text-base font-semibold text-dmk-text">Afiliación Académica</h3>
+          <h3 class="font-serif text-base font-semibold text-dmk-text">{t(locale, 'label.afiliacion')}</h3>
           <div class="space-y-1 font-sans text-sm text-dmk-text">
-            <p>{cvData.workInstitution}</p>
-            <p>{cvData.position}</p>
+            <p>{d.workInstitution}</p>
+            <p>{d.position}</p>
             <p>Talca, Chile</p>
           </div>
         </div>
 
         <div class="space-y-2">
-          <h3 class="font-serif text-base font-semibold text-dmk-text">Perfiles Académicos</h3>
+          <h3 class="font-serif text-base font-semibold text-dmk-text">{t(locale, 'label.perfiles')}</h3>
           <div class="flex flex-wrap gap-2">
-            <a href={cvData.social.linkedin} class="font-sans text-xs text-dmk-accent bg-dmk-card border border-dmk-border px-2 py-1 rounded-sm hover:bg-dmk-accent hover:text-white transition-all duration-300">LinkedIn</a>
-            <a href={cvData.social.orcid} class="font-sans text-xs text-dmk-accent bg-dmk-card border border-dmk-border px-2 py-1 rounded-sm hover:bg-dmk-accent hover:text-white transition-all duration-300">ORCID</a>
-            <a href={cvData.social.googleScholar} class="font-sans text-xs text-dmk-accent bg-dmk-card border border-dmk-border px-2 py-1 rounded-sm hover:bg-dmk-accent hover:text-white transition-all duration-300">Google Scholar</a>
+            <a href={d.social.linkedin} class="font-sans text-xs text-dmk-accent bg-dmk-card border border-dmk-border px-2 py-1 rounded-sm hover:bg-dmk-accent hover:text-white transition-all duration-300">LinkedIn</a>
+            <a href={d.social.orcid} class="font-sans text-xs text-dmk-accent bg-dmk-card border border-dmk-border px-2 py-1 rounded-sm hover:bg-dmk-accent hover:text-white transition-all duration-300">ORCID</a>
+            <a href={d.social.googleScholar} class="font-sans text-xs text-dmk-accent bg-dmk-card border border-dmk-border px-2 py-1 rounded-sm hover:bg-dmk-accent hover:text-white transition-all duration-300">Google Scholar</a>
           </div>
         </div>
       </div>
 
       <div class="space-y-6">
         <div class="space-y-2">
-          <h3 class="font-serif text-base font-semibold text-dmk-text">Referencias</h3>
+          <h3 class="font-serif text-base font-semibold text-dmk-text">{t(locale, 'label.referencias')}</h3>
           <div class="space-y-3 font-sans text-sm text-dmk-text">
-            {cvData.references.map((ref) => (
+              {d.references.map((ref) => (
               <div class="border-l border-dmk-border pl-3">
                 <p class="font-semibold">{ref.name}</p>
                 <p class="text-dmk-muted">{ref.position}</p>
@@ -61,7 +67,7 @@ import { cvData } from '../../data/cvData';
 
     <div class="mt-12 pt-6 border-t border-dmk-border text-center">
       <p class="font-sans text-xs text-dmk-muted">
-        © {new Date().getFullYear()} {cvData.fullName}. {cvData.degree}, {cvData.institution}.
+        {t(locale, 'footer.derechos')}
       </p>
     </div>
 
