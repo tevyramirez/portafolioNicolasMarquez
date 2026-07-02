@@ -18,10 +18,10 @@ import { cvData } from '../../data/cvData';
             <div class="font-serif text-sm text-dmk-muted italic">{pos.period}</div>
           </div>
           <div class="md:col-span-9 space-y-2">
-            <h3 class="font-serif text-xl font-semibold text-dmk-text">{pos.position}</h3>
+            <h3 class="font-serif text-xl font-semibold text-dmk-text">{pos.role.es}</h3>
             <p class="font-sans text-sm text-dmk-muted italic">{pos.institution}</p>
-            <ul class="mt-2 space-y-1 font-sans text-xs text-dmk-text/70">
-              {pos.details.slice(0, 2).map((detail) => (
+            <ul class="mt-2 space-y-1 font-sans text-sm text-dmk-text">
+              {pos.details.es.slice(0, 2).map((detail) => (
                 <li>• {detail}</li>
               ))}
             </ul>

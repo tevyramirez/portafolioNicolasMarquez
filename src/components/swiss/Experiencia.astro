@@ -13,7 +13,7 @@ import { cvData } from '../../data/cvData';
       {cvData.professionalExperience.map((exp) => (
         <div class="border border-dmk-muted/20 p-4 card-3d grid grid-cols-12 gap-3 hover:bg-dmk-card/20">
           <div class="col-span-2 font-mono text-xs text-dmk-accent">{exp.period}</div>
-          <div class="col-span-4 font-mono text-sm font-bold text-dmk-text">{exp.position}</div>
+          <div class="col-span-4 font-mono text-sm font-bold text-dmk-text">{exp.role.es}</div>
           <div class="col-span-4 font-mono text-xs text-dmk-muted">{exp.organization}</div>
           <div class="col-span-2 font-mono text-[10px] text-dmk-muted uppercase">PRO</div>
         </div>

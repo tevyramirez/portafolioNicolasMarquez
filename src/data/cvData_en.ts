@@ -335,80 +335,130 @@ export const cvData = {
   academicPositions: [
     {
       period: "2022 – Present",
-      position: "Head of Program and Assistant Professor",
       institution: "Universidad Santo Tomás, Talca, Chile",
-      details: [
-        "Head of the Undergraduate Program in Business Administration",
-        "Teaching: management, innovation management, entrepreneurship, corporate social responsibility",
-        "Outstanding Teacher Award 2023-2 (3.85/4.0)"
-      ]
+      role: { es: "Jefe de Carrera y Profesor Asistente", en: "Head of Program and Assistant Professor" },
+      details: {
+        es: [
+          "Director de la Carrera de Ingeniería Comercial",
+          "Docencia: gestión, gestión de la innovación, emprendimiento y responsabilidad social empresarial",
+          "Premio al Mejor Docente 2023-2 (3.85/4.0)"
+        ],
+        en: [
+          "Head of the Undergraduate Program in Business Administration",
+          "Teaching: management, innovation management, entrepreneurship, corporate social responsibility",
+          "Outstanding Teacher Award 2023-2 (3.85/4.0)"
+        ]
+      }
     },
     {
       period: "2023 – Present",
-      position: "Lecturer",
       institution: "Universidad Autónoma de Chile, Talca, Chile",
-      details: [
-        "Courses: Business Process Management, Integrated Management Systems",
-        "Outstanding Teacher Award 2024 (3.93/4.0)"
-      ]
+      role: { es: "Profesor", en: "Lecturer" },
+      details: {
+        es: [
+          "Cursos: Gestión de Procesos de Negocio, Sistemas de Gestión Integrados",
+          "Premio al Mejor Docente 2024 (3.93/4.0)"
+        ],
+        en: [
+          "Courses: Business Process Management, Integrated Management Systems",
+          "Outstanding Teacher Award 2024 (3.93/4.0)"
+        ]
+      }
     },
     {
       period: "2018 – 2022",
-      position: "Lecturer",
       institution: "Universidad de Talca, Chile",
-      details: [
-        "Courses: Management, Management Control, Project Management I & II, Business Intelligence, Data Analysis",
-        "Thesis supervisor and examiner (undergraduate level)"
-      ]
+      role: { es: "Profesor", en: "Lecturer" },
+      details: {
+        es: [
+          "Cursos: Gestión, Control de Gestión, Gestión de Proyectos I y II, Business Intelligence, Análisis de Datos",
+          "Director y evaluador de tesis (pregrado)"
+        ],
+        en: [
+          "Courses: Management, Management Control, Project Management I & II, Business Intelligence, Data Analysis",
+          "Thesis supervisor and examiner (undergraduate level)"
+        ]
+      }
     },
     {
       period: "2021 – 2022",
-      position: "Lecturer",
       institution: "Universidad Católica del Maule, Talca, Chile",
-      details: [
-        "Courses: Quantitative Methods, Entrepreneurship and New Venture Creation"
-      ]
+      role: { es: "Profesor", en: "Lecturer" },
+      details: {
+        es: [
+          "Cursos: Métodos Cuantitativos, Emprendimiento y Creación de Nuevos Negocios"
+        ],
+        en: [
+          "Courses: Quantitative Methods, Entrepreneurship and New Venture Creation"
+        ]
+      }
     },
     {
       period: "2020 – 2022",
-      position: "Head of Program",
       institution: "Instituto Profesional Iplacex, Talca, Chile",
-      details: [
-        "Head of Technical and Professional Programs in Business Administration"
-      ]
+      role: { es: "Jefe de Carrera", en: "Head of Program" },
+      details: {
+        es: [
+          "Director de Programas Técnicos y Profesionales en Administración"
+        ],
+        en: [
+          "Head of Technical and Professional Programs in Business Administration"
+        ]
+      }
     }
   ],
 
   professionalExperience: [
     {
       period: "2018 – Present",
-      position: "Independent Consultant",
       organization: "Public Procurement and Tenders, Talca, Chile",
-      details: [
-        "Advised private firms on public procurement processes and competitive tendering strategies",
-        "Supported the preparation, evaluation, and submission of bids through national public procurement platforms",
-        "Provided guidance on cost structures, compliance requirements, and technical documentation"
-      ]
+      role: { es: "Consultor Independiente", en: "Independent Consultant" },
+      details: {
+        es: [
+          "Asesoró a empresas privadas en procesos de compras públicas y estrategias de licitación competitiva",
+          "Apoyó la preparación, evaluación y presentación de ofertas a través de plataformas nacionales de compras públicas",
+          "Brindó orientación sobre estructuras de costos, requisitos de cumplimiento y documentación técnica"
+        ],
+        en: [
+          "Advised private firms on public procurement processes and competitive tendering strategies",
+          "Supported the preparation, evaluation, and submission of bids through national public procurement platforms",
+          "Provided guidance on cost structures, compliance requirements, and technical documentation"
+        ]
+      }
     },
     {
       period: "2013 – 2018",
-      position: "Commercial and Finance Manager",
       organization: "Protector Security Spa, Talca, Chile",
-      details: [
-        "Led commercial strategy and financial management for a national security services company with operations across Chile",
-        "Oversaw budgeting, financial planning, and cost control processes",
-        "Coordinated sales operations and client portfolio management in a multi-site organizational context"
-      ]
+      role: { es: "Gerente Comercial y Financiero", en: "Commercial and Finance Manager" },
+      details: {
+        es: [
+          "Lideró la estrategia comercial y la gestión financiera de una empresa nacional de servicios de seguridad con operaciones en todo Chile",
+          "Supervisó los procesos de presupuesto, planificación financiera y control de costos",
+          "Coordinó las operaciones de ventas y la gestión de cartera de clientes en un contexto organizacional multisitio"
+        ],
+        en: [
+          "Led commercial strategy and financial management for a national security services company with operations across Chile",
+          "Oversaw budgeting, financial planning, and cost control processes",
+          "Coordinated sales operations and client portfolio management in a multi-site organizational context"
+        ]
+      }
     },
     {
       period: "2012 – 2013",
-      position: "Business Intelligence Analyst",
       organization: "Forestal Santa Blanca S.A., Talca, Chile",
-      details: [
-        "Developed and analyzed management reports to support strategic and operational decision-making",
-        "Performed data analysis related to commercial performance, costs, and operational efficiency",
-        "Designed dashboards and indicators to monitor key business processes and organizational outcomes"
-      ]
+      role: { es: "Analista de Business Intelligence", en: "Business Intelligence Analyst" },
+      details: {
+        es: [
+          "Desarrolló y analizó informes de gestión para apoyar la toma de decisiones estratégicas y operativas",
+          "Realizó análisis de datos relacionados con el rendimiento comercial, costos y eficiencia operativa",
+          "Diseñó dashboards e indicadores para monitorear procesos clave del negocio y resultados organizacionales"
+        ],
+        en: [
+          "Developed and analyzed management reports to support strategic and operational decision-making",
+          "Performed data analysis related to commercial performance, costs, and operational efficiency",
+          "Designed dashboards and indicators to monitor key business processes and organizational outcomes"
+        ]
+      }
     }
   ],
 

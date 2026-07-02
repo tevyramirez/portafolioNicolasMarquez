@@ -13,7 +13,7 @@ import { cvData } from '../../data/cvData';
       {cvData.academicPositions.map((pos) => (
         <div class="border border-dmk-muted/20 p-4 card-3d grid grid-cols-12 gap-3 hover:bg-dmk-card/20">
           <div class="col-span-2 font-mono text-xs text-dmk-accent">{pos.period}</div>
-          <div class="col-span-4 font-mono text-sm font-bold text-dmk-text">{pos.position}</div>
+          <div class="col-span-4 font-mono text-sm font-bold text-dmk-text">{pos.role.es}</div>
           <div class="col-span-4 font-mono text-xs text-dmk-muted">{pos.institution}</div>
           <div class="col-span-2 font-mono text-[10px] text-dmk-muted uppercase">ACTIVE</div>
         </div>

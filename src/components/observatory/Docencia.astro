@@ -13,7 +13,7 @@ import { cvData } from '../../data/cvData';
       {cvData.academicPositions.slice(0, 4).map((pos, i) => (
         <div class="border-l-2 border-dmk-accent pl-6 py-2">
           <div class="font-mono text-xs text-dmk-muted uppercase tracking-wider mb-1">{pos.period}</div>
-          <h3 class="font-mono text-lg font-bold text-dmk-text uppercase">{pos.position}</h3>
+          <h3 class="font-mono text-lg font-bold text-dmk-text uppercase">{pos.role.es}</h3>
           <p class="font-mono text-sm text-dmk-muted mt-1">{pos.institution}</p>
         </div>
       ))}

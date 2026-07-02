@@ -13,10 +13,10 @@ import { cvData } from '../data/cvData';
             <div class="font-sans text-sm text-dmk-muted font-medium">{pos.period}</div>
           </div>
           <div class="md:col-span-9 space-y-1">
-            <h3 class="font-serif text-base font-semibold text-dmk-text group-hover:text-dmk-accent transition-colors duration-300">{pos.position}</h3>
+            <h3 class="font-serif text-base font-semibold text-dmk-text group-hover:text-dmk-accent transition-colors duration-300">{pos.role.es}</h3>
             <p class="font-sans text-sm text-dmk-muted">{pos.institution}</p>
-            <ul class="mt-1 space-y-1 font-sans text-sm leading-relaxed text-dmk-text">
-              {pos.details.map((detail) => (
+            <ul class="mt-1 space-y-1 font-sans text-sm text-dmk-text">
+              {pos.details.es.map((detail) => (
                 <li class="flex items-start gap-2">
                   <span class="w-1 h-1 rounded-full bg-dmk-accent mt-2 flex-shrink-0"></span>
                   {detail}
