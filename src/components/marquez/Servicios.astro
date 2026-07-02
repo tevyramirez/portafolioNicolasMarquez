@@ -19,12 +19,17 @@ const d = locale === 'en' ? cvDataEn : cvDataEs;
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       
       {d.services.map((service, i) => (
-        <div class="card-marquez p-6 space-y-4 group">
+        <div class={i === 0
+          ? "card-marquez p-6 space-y-4 group lg:col-span-2 border-dmk-accent/40 bg-gradient-to-br from-dmk-card via-dmk-card to-dmk-accent/[0.03]"
+          : "card-marquez p-6 space-y-4 group"}>
           <div class="flex items-start gap-4">
             <span class="font-serif text-3xl font-bold text-dmk-accent/20 group-hover:text-dmk-accent/40 transition-colors duration-300">
               {service.number}
             </span>
             <div class="space-y-2">
+              {i === 0 && (
+                <span class="font-mono text-[10px] uppercase tracking-[0.15em] text-dmk-accent/60">{t(locale, 'label.especialidad')}</span>
+              )}
               <h3 class="font-serif text-lg font-semibold text-dmk-text group-hover:text-dmk-accent transition-colors duration-300">
                 {service.title}
               </h3>

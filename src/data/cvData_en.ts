@@ -528,8 +528,8 @@ export const cvData = {
 
   datametrik: {
     name: "DATAMETRIK",
-    tagline: "Business Intelligence & Analytics",
-    description: "We are the bridge between technology and business, transforming information into strategic visibility for decision-making.",
+    tagline: "We transform data into decisions that generate results.",
+    description: "Datametrik is a consulting firm specialized in Business Intelligence and Analytics that helps companies organize their information, automate processes, and transform data into clear visibility for better decision-making.",
     services: [
       "Data Architecture: We consolidate critical information into a reliable, scalable database ready to support operational growth.",
       "Process Automation: We reduce operational workload by automating key business flows to improve efficiency and continuity.",
@@ -538,10 +538,13 @@ export const cvData = {
       "Operational Monitoring: We provide continuous visibility over operations to strengthen control, traceability, and responsiveness."
     ],
     methodology: [
-      { step: "1", title: "Diagnosis", description: "We analyze the current state of information, processes, and priority business needs." },
-      { step: "2", title: "Solution Design", description: "We structure a solution aligned with management objectives and the operational reality of the company." },
-      { step: "3", title: "BI Implementation", description: "We develop reliable reports, indicators, and dashboards to deliver clear business visibility." },
-      { step: "4", title: "Automation & Continuous Improvement", description: "We incorporate automation, monitoring, and optimization to ensure sustainable results." }
+      { step: "1", title: "Diagnosis", description: "We analyze the business, processes, and information sources to identify needs and opportunities." },
+      { step: "2", title: "Data", description: "We integrate, clean, and structure data to ensure quality, consistency, and security." },
+      { step: "3", title: "Automation", description: "We automate processes and workflows to increase efficiency and reduce operational errors." },
+      { step: "4", title: "Visualization", description: "We convert data into clear, interactive, and reliable dashboards and reports." },
+      { step: "5", title: "Analytics", description: "We apply analytics to discover patterns, measure performance, and anticipate scenarios." },
+      { step: "6", title: "AI", description: "We use artificial intelligence and machine learning to predict, recommend, and continuously optimize." },
+      { step: "7", title: "Results", description: "We generate measurable impact through more accurate, agile, and data-driven decisions." }
     ],
     contact: "contacto@datametrik.cl",
     phone: "+569 63321022",

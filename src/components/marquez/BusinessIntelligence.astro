@@ -16,24 +16,27 @@ const d = locale === 'en' ? cvDataEn : cvDataEs;
     </div>
 
     <!-- Datametrik Card -->
-    <div class="bg-datametrik rounded-sm overflow-hidden relative">
+    <div class="bg-[#F4FAF9] border border-[#2EC4B6]/20 rounded-sm overflow-hidden relative">
       
       <!-- Canvas Background -->
-      <canvas id="datametrik-canvas" class="absolute inset-0 w-full h-full opacity-30"></canvas>
+      <canvas id="datametrik-canvas" class="absolute inset-0 w-full h-full opacity-40"></canvas>
       
       <div class="relative z-10 p-8 md:p-12 space-y-8">
         
-        <!-- Header -->
-        <div class="space-y-2">
+        <!-- Header with tagline -->
+        <div class="space-y-4">
           <div class="flex items-center gap-3">
-            <div class="bg-white/90 rounded px-4 py-3">
+            <div class="bg-white rounded shadow-sm px-4 py-3">
               <img src="/datametrik-logo.png" alt="DATAMETRIK" class="h-16 w-auto" />
             </div>
           </div>
+          <p class="font-serif text-lg italic text-[#0D9488] border-l-2 border-[#2EC4B6] pl-4">
+            {d.datametrik.tagline}
+          </p>
         </div>
 
         <!-- Description -->
-        <p class="font-sans text-base text-white/80 leading-relaxed max-w-2xl">
+        <p class="font-sans text-base text-dmk-muted leading-relaxed max-w-2xl">
           {d.datametrik.description}
         </p>
 
@@ -42,31 +45,31 @@ const d = locale === 'en' ? cvDataEn : cvDataEs;
           {d.datametrik.services.map((service) => (
             <div class="flex items-start gap-3">
               <span class="w-1.5 h-1.5 rounded-full bg-[#2EC4B6] mt-2 flex-shrink-0"></span>
-              <p class="font-sans text-sm text-white/70 leading-relaxed">{service}</p>
+              <p class="font-sans text-sm text-dmk-muted leading-relaxed">{service}</p>
             </div>
           ))}
         </div>
 
-        <!-- Methodology -->
+        <!-- Methodology 7 etapas -->
         <div class="space-y-4">
-          <h4 class="font-sans text-sm font-semibold text-[#2EC4B6] uppercase tracking-wider">{t(locale, 'label.metodologia')}</h4>
-          <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+          <h4 class="font-sans text-sm font-semibold text-[#0D9488] uppercase tracking-wider">{t(locale, 'label.metodologia')}</h4>
+          <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {d.datametrik.methodology.map((step) => (
-              <div class="space-y-2">
-                <div class="font-serif text-2xl font-bold text-[#2EC4B6]/40">{step.step}</div>
-                <h5 class="font-sans text-sm font-semibold text-white">{step.title}</h5>
-                <p class="font-sans text-xs text-white/60 leading-relaxed">{step.description}</p>
+              <div class="space-y-2 p-3 rounded bg-white/60">
+                <div class="font-serif text-2xl font-bold text-[#2EC4B6]/30">{step.step}</div>
+                <h5 class="font-sans text-sm font-semibold text-dmk-text">{step.title}</h5>
+                <p class="font-sans text-xs text-dmk-muted leading-relaxed">{step.description}</p>
               </div>
             ))}
           </div>
         </div>
 
         <!-- Contact & CTA -->
-        <div class="flex flex-wrap items-center gap-4 pt-4 border-t border-white/10">
-          <div class="font-sans text-sm text-white/60">
+        <div class="flex flex-wrap items-center gap-4 pt-4 border-t border-[#2EC4B6]/20">
+          <div class="font-sans text-sm text-dmk-muted">
             {d.datametrik.contact} · {d.datametrik.phone}
           </div>
-          <a href={d.datametrik.url} class="ml-auto font-sans text-sm font-semibold text-[#2EC4B6] hover:text-white transition-colors duration-300 flex items-center gap-2 group">
+          <a href={d.datametrik.url} class="ml-auto font-sans text-sm font-semibold text-[#0D9488] hover:text-[#14B8A6] transition-colors duration-300 flex items-center gap-2 group">
             {t(locale, 'label.visitar')} {d.datametrik.name}
             <span class="inline-block group-hover:translate-x-1 transition-transform duration-300">→</span>
           </a>
@@ -129,7 +132,7 @@ const d = locale === 'en' ? cvDataEn : cvDataEs;
 
         ctx.beginPath();
         ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
-        ctx.fillStyle = '#2EC4B6';
+        ctx.fillStyle = 'rgba(46, 196, 182, 0.4)';
         ctx.fill();
       });
 
@@ -143,7 +146,7 @@ const d = locale === 'en' ? cvDataEn : cvDataEs;
             ctx.beginPath();
             ctx.moveTo(nodes[i].x, nodes[i].y);
             ctx.lineTo(nodes[j].x, nodes[j].y);
-            ctx.strokeStyle = 'rgba(46, 196, 182, ' + (1 - dist / connectionDistance) + ')';
+            ctx.strokeStyle = 'rgba(46, 196, 182, ' + (1 - dist / connectionDistance) * 0.2 + ')';
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }

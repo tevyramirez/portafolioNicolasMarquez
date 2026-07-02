@@ -528,8 +528,8 @@ export const cvData = {
 
   datametrik: {
     name: "DATAMETRIK",
-    tagline: "Business Intelligence & Analytics",
-    description: "Somos el punto de unión entre la tecnología y el negocio, convirtiendo la información en visibilidad estratégica para la toma de decisiones.",
+    tagline: "Transformamos datos en decisiones que generan resultados.",
+    description: "Datametrik es una consultora especializada en Business Intelligence y Analytics que ayuda a las empresas a ordenar su información, automatizar procesos y convertir los datos en visibilidad clara para una mejor toma de decisiones.",
     services: [
       "Arquitectura de datos: Consolidamos información crítica en una base confiable, escalable y preparada para acompañar el crecimiento de la operación.",
       "Automatización de procesos: Reducimos carga operativa automatizando flujos clave del negocio para mejorar la eficiencia y continuidad.",
@@ -538,10 +538,13 @@ export const cvData = {
       "Monitoreo operacional: Entregamos visibilidad continua sobre la operación para fortalecer el control, la trazabilidad y la capacidad de respuesta."
     ],
     methodology: [
-      { step: "1", title: "Diagnóstico", description: "Analizamos la situación actual de la información, los procesos y las necesidades prioritarias del negocio." },
-      { step: "2", title: "Diseño de solución", description: "Estructuramos una solución alineada a los objetivos de gestión y a la realidad operativa de la empresa." },
-      { step: "3", title: "Implementación BI", description: "Desarrollamos reportes, indicadores y dashboards confiables para entregar visibilidad clara del negocio." },
-      { step: "4", title: "Automatización y mejora continua", description: "Incorporamos automatización, seguimiento y optimización para asegurar resultados sostenibles." }
+      { step: "1", title: "Diagnóstico", description: "Analizamos el negocio, procesos y fuentes de información para identificar necesidades y oportunidades." },
+      { step: "2", title: "Datos", description: "Integramos, depuramos y estructuramos datos para asegurar calidad, consistencia y seguridad." },
+      { step: "3", title: "Automatización", description: "Automatizamos procesos y flujos de trabajo para aumentar eficiencia y reducir errores operativos." },
+      { step: "4", title: "Visualización", description: "Convertimos los datos en dashboards y reportes claros, interactivos y confiables." },
+      { step: "5", title: "Analítica", description: "Aplicamos analítica para descubrir patrones, medir desempeño y anticipar escenarios." },
+      { step: "6", title: "IA", description: "Utilizamos inteligencia artificial y machine learning para predecir, recomendar y optimizar de forma continua." },
+      { step: "7", title: "Resultados", description: "Generamos impacto medible mediante decisiones más acertadas, ágiles y basadas en datos." }
     ],
     contact: "contacto@datametrik.cl",
     phone: "+569 63321022",
