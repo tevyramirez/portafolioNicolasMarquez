@@ -16,7 +16,7 @@ const d = locale === 'en' ? cvDataEn : cvDataEs;
       <!-- Foto (3 cols) -->
       <div class="md:col-span-3 reveal-scale stagger-1">
         <div class="aspect-[3/4] bg-dmk-card border-2 border-dmk-accent flex items-center justify-center overflow-hidden">
-          <img src="https://media.licdn.com/dms/image/v2/D4E03AQH_8jcKffEXqQ/profile-displayphoto-shrink_400_400/B4EZh4b03VGUAg-/0/1754367218390?e=1784160000&v=beta&t=k8OGZKDOkFNAWxKiBX-3oB67XHP_zFXKuYreM_-hQUo" alt="Dr. Nicolás Márquez Álvarez" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='/photo.jpg';" />
+          <img src="https://media.licdn.com/dms/image/v2/D4E03AQH_8jcKffEXqQ/profile-displayphoto-shrink_400_400/B4EZh4b03VGUAg-/0/1754367218390?e=1784160000&v=beta&t=k8OGZKDOkFNAWxKiBX-3oB67XHP_zFXKuYreM_-hQUo" alt="Nicolás Márquez Álvarez" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='/photo.jpg';" />
         </div>
       </div>
 
@@ -45,10 +45,6 @@ const d = locale === 'en' ? cvDataEn : cvDataEs;
           </span>
           <span class="flex items-center gap-2">
             <span class="w-1.5 h-1.5 rounded-full bg-dmk-accent"></span>
-            {d.phone}
-          </span>
-          <span class="flex items-center gap-2">
-            <span class="w-1.5 h-1.5 rounded-full bg-dmk-accent"></span>
             Talca, Chile
           </span>
         </div>
@@ -63,6 +59,9 @@ const d = locale === 'en' ? cvDataEn : cvDataEs;
           </a>
           <a href={d.social.googleScholar} class="font-mono text-[10px] uppercase tracking-[0.15em] text-dmk-accent border border-dmk-accent/30 px-3 py-1.5 rounded-sm hover:bg-dmk-accent hover:text-white transition-all duration-300">
             Google Scholar
+          </a>
+          <a href={d.social.researchGate} class="font-mono text-[10px] uppercase tracking-[0.15em] text-dmk-accent border border-dmk-accent/30 px-3 py-1.5 rounded-sm hover:bg-dmk-accent hover:text-white transition-all duration-300">
+            ResearchGate
           </a>
         </div>
 

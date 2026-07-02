@@ -11,8 +11,8 @@ interface Props {
 }
 
 const {
-  title = "Dr. Nicolás Márquez Álvarez | PhD in Management · Portafolio Académico",
-  description = "Portafolio académico del Dr. Nicolás Matías Márquez Álvarez, PhD in Management por la Universidad Adolfo Ibáñez.",
+  title = "Nicolás Márquez Álvarez | MBA, PhD in Management · Portafolio Académico",
+  description = "Portafolio académico de Nicolás Matías Márquez Álvarez, MBA, PhD in Management por la Universidad Adolfo Ibáñez.",
   lang = "es-CL",
   noindex = false,
 } = Astro.props;
@@ -39,7 +39,7 @@ const ogAltLocale = isEn ? 'es_CL' : 'en_US';
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large, max-snippet:-1'} />
-    <meta name="author" content="Dr. Nicolás Márquez Álvarez" />
+    <meta name="author" content="Nicolás Márquez Álvarez" />
     <meta name="theme-color" content="#1A365D" />
 
     <!-- Fonts -->
@@ -64,7 +64,7 @@ const ogAltLocale = isEn ? 'es_CL' : 'en_US';
     <meta property="og:image:height" content="630" />
     <meta property="og:locale" content={ogLocale} />
     <meta property="og:locale:alternate" content={ogAltLocale} />
-    <meta property="og:site_name" content="Dr. Nicolás Márquez Álvarez" />
+    <meta property="og:site_name" content="Nicolás Márquez Álvarez" />
     <meta property="profile:first_name" content="Nicolás" />
     <meta property="profile:last_name" content="Márquez Álvarez" />
 
@@ -78,7 +78,7 @@ const ogAltLocale = isEn ? 'es_CL' : 'en_US';
     <script type="application/ld+json" is:inline set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "Person",
-      "name": "Dr. Nicolás Matías Márquez Álvarez",
+      "name": "Nicolás Matías Márquez Álvarez",
       "givenName": "Nicolás",
       "familyName": "Márquez Álvarez",
       "jobTitle": "Assistant Professor & Head of Program",
@@ -95,7 +95,8 @@ const ogAltLocale = isEn ? 'es_CL' : 'en_US';
       "address": { "@type": "PostalAddress", "addressLocality": "Talca", "addressCountry": "CL" },
       "email": "mailto:nicolasmarquezalvarez@gmail.com",
       "sameAs": [
-        "https://www.linkedin.com/in/nicol%C3%A1s-m%C3%A1rquez-96869069/"
+        "https://www.linkedin.com/in/nicol%C3%A1s-m%C3%A1rquez-96869069/",
+        "https://www.researchgate.net/profile/Nicolas-Marquez-14"
       ],
       "url": canonical
     })} />

@@ -9,15 +9,16 @@ export interface Publication {
   doi?: string;
   status: 'published' | 'in-press' | 'under-review' | 'working-paper' | 'book';
   correspondingAuthor?: boolean;
+  section?: 'eis' | 'otros';
 }
 
 export const cvData = {
-  fullName: "Dr. Nicolás Matías Márquez Álvarez",
-  shortName: "Dr. Nicolás Márquez",
-  degree: "PhD in Management",
+  fullName: "Nicolás Matías Márquez Álvarez",
+  shortName: "Nicolás Márquez",
+  degree: "MBA, PhD in Management",
   institution: "Universidad Adolfo Ibáñez",
   email: "nicolasmarquezalvarez@gmail.com",
-  phone: "(+56) 930610500",
+  phone: "",
   address: "1 sur 660 Dpto 605, Talca, 3460000, Chile",
   position: "Head of Program and Assistant Professor",
   department: "Business Administration",
@@ -85,7 +86,8 @@ export const cvData = {
       journal: "International Journal of Business Environment",
       doi: "10.1504/IJBE.2024.139669",
       status: "published",
-      correspondingAuthor: true
+      correspondingAuthor: true,
+      section: "eis"
     },
     {
       authors: "Cabezas-Quinto, J. J., Vidal-Silva, C., Serrano-Malebrán, J., & Márquez, N.",
@@ -94,7 +96,8 @@ export const cvData = {
       journal: "Data",
       doi: "10.3390/data10090139",
       status: "published",
-      correspondingAuthor: true
+      correspondingAuthor: true,
+      section: "otros"
     },
     {
       authors: "Cárdenas-Cobo, J., Vidal-Silva, C., & Márquez, N.",
@@ -103,7 +106,8 @@ export const cvData = {
       journal: "Data",
       doi: "10.3390/data10060086",
       status: "published",
-      correspondingAuthor: true
+      correspondingAuthor: true,
+      section: "otros"
     },
     {
       authors: "Carrión León, D. I., Vidal-Silva, C., & Márquez, N.",
@@ -112,7 +116,8 @@ export const cvData = {
       journal: "Data",
       doi: "10.3390/data10090141",
       status: "published",
-      correspondingAuthor: true
+      correspondingAuthor: true,
+      section: "otros"
     },
     {
       authors: "Chávez-Núñez, L., Calderón-Cisneros, J., Yerovi-Ricaurte, E., Ortega-Ponce, L., Márquez, N., & Vidal-Silva, C.",
@@ -121,7 +126,8 @@ export const cvData = {
       journal: "Sustainability",
       doi: "10.3390/su17219720",
       status: "published",
-      correspondingAuthor: true
+      correspondingAuthor: true,
+      section: "eis"
     },
     {
       authors: "Fernandes, A. C., de Moraes, Y., Silva Carvalho, P. H., Sandoval, C., Landim, S. F., & Márquez, N.",
@@ -129,7 +135,8 @@ export const cvData = {
       title: "Rehabilitation of Visually Impaired People: Experiences and Relevance According to the Perception of Family Members and Patients",
       journal: "Healthcare",
       doi: "10.3390/healthcare13070712",
-      status: "published"
+      status: "published",
+      section: "otros"
     },
     {
       authors: "González, C. F. G., Navarro, M., Branco, B. H. M., Avello, D., Márquez Álvarez, N., Landim, S. F., & Leiva-Bianch, M.",
@@ -137,7 +144,8 @@ export const cvData = {
       title: "Psychosocial Impact of Quarantines: A Systematic Review with Meta-Analysis",
       journal: "Healthcare",
       doi: "10.3390/healthcare12232409",
-      status: "published"
+      status: "published",
+      section: "otros"
     },
     {
       authors: "Kara, A., Spillan, J. E., Cabezas, G. R., Márquez, N., & Nocetti Nuñez, V. R.",
@@ -145,7 +153,8 @@ export const cvData = {
       title: "Examining Chilean Students' Interest in Entrepreneurship Education: The Effects of Self-Employment Perceptions, Self-Confidence, and College Type",
       journal: "Latin American Business Review",
       doi: "10.1080/10978526.2023.2275679",
-      status: "published"
+      status: "published",
+      section: "eis"
     },
     {
       authors: "Kara, A., Spillan, J. E., Grunwald, G., Rojas Cabezas, G., Márquez Alvarez, N., & Nocetti Nuñez, V. R.",
@@ -153,7 +162,8 @@ export const cvData = {
       title: "Analyzing the Influence of Sustainability Benefits on Chilean Consumers' Intentions to Purchase Refurbished Smartphones",
       journal: "Organizations and Markets in Emerging Economies",
       doi: "10.15388/omee.2025.16.2",
-      status: "published"
+      status: "published",
+      section: "eis"
     },
     {
       authors: "Kara, A., Grunwald, G., Spillan, J. E., Cabezas, G. R., Márquez, N., & Nocetti, V.",
@@ -161,28 +171,32 @@ export const cvData = {
       title: "When Environmental Effect Goes Undetected in Refurbished Smartphone Purchases: An fsQCA Approach",
       journal: "Latin American Business Review",
       doi: "10.1080/10978526.2025.2599544",
-      status: "published"
+      status: "published",
+      section: "eis"
     },
     {
       authors: "Márquez, N.",
       year: "2023",
       title: "Teoría aplicada sobre Organización y Sostenibilidad",
       journal: "Independently published",
-      status: "book"
+      status: "book",
+      section: "eis"
     },
     {
       authors: "Márquez, N.",
       year: "2026",
       title: "Reprogramming entrepreneurship: Artificial intelligence, hybrid judgment, and the governance of innovation",
       journal: "The International Journal of Entrepreneurship and Innovation",
-      status: "in-press"
+      status: "in-press",
+      section: "eis"
     },
     {
       authors: "Márquez, N., & Cancino, C.",
       year: "in Press",
       title: "AI-Augmented Entrepreneurship: Governance and the Automate–Augment Logic Across Ideation, Discovery, Design, and Learning",
       journal: "Revista Academia & Negocios",
-      status: "in-press"
+      status: "in-press",
+      section: "eis"
     },
     {
       authors: "Márquez, N., Rojas, G., Chacón, S., & Nocetti, V.",
@@ -190,7 +204,8 @@ export const cvData = {
       title: "The Quality Of The Services Provided By Business Development Centers And Their Effect On Micro, Small And Medium-Sized Enterprises In Chile",
       journal: "Journal of Developmental Entrepreneurship",
       doi: "10.1142/S1084946723500176",
-      status: "published"
+      status: "published",
+      section: "eis"
     },
     {
       authors: "Muñoz-Cisterna V, Mora R, Márquez Álvarez N, Beckles-Araya JC",
@@ -199,7 +214,8 @@ export const cvData = {
       journal: "Management Research: The Journal of the Iberoamerican Academy of Management",
       doi: "10.1108/MRJIAM-07-2025-1765",
       status: "published",
-      correspondingAuthor: true
+      correspondingAuthor: true,
+      section: "eis"
     },
     {
       authors: "Moreno-Castro, D., Franco-Arias, O. O., Pimenteira, C., Márquez, N., & Vidal-Silva, C.",
@@ -208,7 +224,8 @@ export const cvData = {
       journal: "Computers",
       doi: "10.3390/computers15040213",
       status: "published",
-      correspondingAuthor: true
+      correspondingAuthor: true,
+      section: "otros"
     },
     {
       authors: "Peñaherrera-Veloz, H., Vásquez-Torres, C. F., Campuzano-Rodríguez, M. A., Campuzano-Rodríguez, S. M., Peñaherrera-Veloz, I. V., Márquez, N., & Vidal-Silva, C.",
@@ -217,7 +234,8 @@ export const cvData = {
       journal: "Scientific Culture",
       doi: "10.5281/zenodo.11425165",
       status: "published",
-      correspondingAuthor: true
+      correspondingAuthor: true,
+      section: "otros"
     },
     {
       authors: "Pesantez-Jara, N., Márquez, N., & Vidal-Silva, C.",
@@ -226,7 +244,8 @@ export const cvData = {
       journal: "Journal of Cultural Analysis and Social Change",
       doi: "10.64753/jcasc.v10i4.3876",
       status: "published",
-      correspondingAuthor: true
+      correspondingAuthor: true,
+      section: "otros"
     },
     {
       authors: "Pesantez-Jara, N., Márquez, N., & Vidal-Silva, C.",
@@ -235,7 +254,8 @@ export const cvData = {
       journal: "Computers",
       doi: "10.3390/computers15030152",
       status: "published",
-      correspondingAuthor: true
+      correspondingAuthor: true,
+      section: "otros"
     },
     {
       authors: "Pérez-Salazar, J., Márquez, N., & Vidal-Silva, C.",
@@ -244,7 +264,8 @@ export const cvData = {
       journal: "Computers",
       doi: "10.3390/computers15020135",
       status: "published",
-      correspondingAuthor: true
+      correspondingAuthor: true,
+      section: "otros"
     },
     {
       authors: "Rivera-Naranjo, C., Márquez, N., & Vidal-Silva, C.",
@@ -253,7 +274,8 @@ export const cvData = {
       journal: "Computers",
       doi: "10.3390/computers15020129",
       status: "published",
-      correspondingAuthor: true
+      correspondingAuthor: true,
+      section: "otros"
     },
     {
       authors: "Rojas-Cabezas, G., Mora-Esquivel, R., Márquez, N., Chacón-Espejo, S., Nocetti-Núñez, V., & Leiva, J. C.",
@@ -262,7 +284,8 @@ export const cvData = {
       journal: "Academia Revista Latinoamericana de Administración",
       doi: "10.1108/ARLA-07-2024-0158",
       status: "published",
-      correspondingAuthor: true
+      correspondingAuthor: true,
+      section: "eis"
     },
     {
       authors: "Vinueza-Morales, M., Tupac-Yupanqui, M., Márquez, N., & Vidal-Silva, C.",
@@ -271,7 +294,8 @@ export const cvData = {
       journal: "Computers",
       doi: "10.3390/computers15040201",
       status: "published",
-      correspondingAuthor: true
+      correspondingAuthor: true,
+      section: "otros"
     }
   ] as Publication[],
 
@@ -419,9 +443,11 @@ export const cvData = {
   social: {
     linkedin: "https://www.linkedin.com/in/nicol%C3%A1s-m%C3%A1rquez-96869069/",
     orcid: "#",
-    googleScholar: "#"
+    googleScholar: "#",
+    researchGate: "https://www.researchgate.net/profile/Nicolas-Marquez-14"
   },
 
+  servicesTagline: "My approach combines academic experience, applied research, and practical management knowledge — bridging evidence, strategy, and action.",
   services: [
     {
       number: "01",
@@ -430,16 +456,21 @@ export const cvData = {
     },
     {
       number: "02",
-      title: "Innovation & Entrepreneurship",
-      description: "Entrepreneurial maturity assessment, acceleration program design, and social investment project evaluation."
+      title: "Business Development",
+      description: "Support in business model formulation, market opportunity assessment, and growth strategy design for companies and entrepreneurs."
     },
     {
       number: "03",
-      title: "Data Governance",
-      description: "Structuring innovation committees with academic rigor and strategic business vision."
+      title: "Innovation",
+      description: "Innovation maturity assessment, acceleration program design, and social investment project evaluation."
     },
     {
       number: "04",
+      title: "Business Process Management",
+      description: "Process analysis, redesign, and optimization using BPM methodologies and specialized tools such as ARIS and Bizagi."
+    },
+    {
+      number: "05",
       title: "Business Intelligence & Analytics",
       description: "In partnership with Datametrik — executive dashboards, process automation and predictive analytics."
     }

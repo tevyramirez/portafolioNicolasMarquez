@@ -24,7 +24,6 @@ const d = locale === 'en' ? cvDataEn : cvDataEs;
             <p>{d.fullName}</p>
             <p>{d.address}</p>
             <p>{t(locale, 'label.email')}: <a href={`mailto:${d.email}`} class="text-dmk-accent hover:underline">{d.email}</a></p>
-            <p>{t(locale, 'label.telefono')}: {d.phone}</p>
           </div>
         </div>
 
@@ -43,6 +42,7 @@ const d = locale === 'en' ? cvDataEn : cvDataEs;
             <a href={d.social.linkedin} class="font-sans text-xs text-dmk-accent bg-dmk-card border border-dmk-border px-2 py-1 rounded-sm hover:bg-dmk-accent hover:text-white transition-all duration-300">LinkedIn</a>
             <a href={d.social.orcid} class="font-sans text-xs text-dmk-accent bg-dmk-card border border-dmk-border px-2 py-1 rounded-sm hover:bg-dmk-accent hover:text-white transition-all duration-300">ORCID</a>
             <a href={d.social.googleScholar} class="font-sans text-xs text-dmk-accent bg-dmk-card border border-dmk-border px-2 py-1 rounded-sm hover:bg-dmk-accent hover:text-white transition-all duration-300">Google Scholar</a>
+            <a href={d.social.researchGate} class="font-sans text-xs text-dmk-accent bg-dmk-card border border-dmk-border px-2 py-1 rounded-sm hover:bg-dmk-accent hover:text-white transition-all duration-300">ResearchGate</a>
           </div>
         </div>
       </div>

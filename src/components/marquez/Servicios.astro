@@ -13,9 +13,10 @@ const d = locale === 'en' ? cvDataEn : cvDataEs;
     
     <div class="mb-10">
       <h2 class="font-serif text-2xl font-bold text-dmk-text mb-2">{t(locale, 'section.servicios')}</h2>
+      <p class="font-sans text-sm text-dmk-muted max-w-3xl">{d.servicesTagline}</p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       
       {d.services.map((service, i) => (
         <div class="card-marquez p-6 space-y-4 group">
